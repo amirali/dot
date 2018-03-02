@@ -1,3 +1,4 @@
 .vim/** linguist-vendored
 .vim/* linguist-vendored
 .vim/*/** linguist-vendored
+.vim* linguist-vendored
