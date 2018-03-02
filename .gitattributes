@@ -1,1 +1,1 @@
-*.vim linguist-language=Python
+.vim/* linguist-vendored
