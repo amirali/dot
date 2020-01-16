@@ -22,37 +22,24 @@
 :set noswapfile " Avoid swap files
 :set mouse=a " Mouse Integration
 
-
-" auto complete for ( , " , ' , [ , { 
-:inoremap        (  ()<Left>
-:inoremap        "  ""<Left>
-:inoremap        `  ``<Left>
-:inoremap        '  ''<Left>
-:inoremap        [  []<Left>
-:inoremap      {  {}<Left>
-
 " auto comment and uncooment with F6 and F7 key
 :autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
 :autocmd FileType sh,ruby,python   let b:comment_leader = '# '
 :noremap <silent> #6 :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR> " commenting line with F6
 :noremap <silent> #7 :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR> " uncommenting line with F7
 
-" :noremap <silent> #5 :!xterm -hold -e './%' <CR> <CR>" execute bash & python script with F5
- 
-:noremap <silent> #5 :!konsole --hold -e 'python ./%' <CR> <CR>" execute python script with F5
+" spell checking
+:map <F8> :setlocal spell! spelllang=en_us<CR>
 
-:noremap <silent> #3 :tabprevious<CR> " switch to previous tab with F3
-:noremap <silent> #4 :tabnext<CR> " switch to next tab with F2
-:map <F8> :setlocal spell! spelllang=en_us<CR> " check spelling with F8
-:set pastetoggle=<F2> " Paste mode toggle with F2 Pastemode disable auto-indent and bracket auto-compelation and it helps you to paste code fro elsewhere .
-
+" paste mode with <F10>
+:set pastetoggle=<F10>
 
 " plugins
 "indentLine 
 :let g:indentLine_char = '|'
 " autocomplpop setting
-:set omnifunc=syntaxcomplete " This is necessary for acp plugin
-:let g:acp_behaviorKeywordLength = 1 "  Length of keyword characters before the cursor, which are needed to attempt keyword completion
+:set omnifunc=syntaxcomplete " This is necessary for ACP plugin
+
 
 " airline plugin setting
 :let g:airline_theme='wombat' " set airline plugin theme
@@ -72,19 +59,19 @@ if !exists('g:airline_symbols')
 :let g:airline#extensions#clock#format = '%c'
 
 " NERDTree plugin setting
+" toggle showing NERDTree with <F9>
+:map <F9> :NERDTreeToggle<CR>
 
-"toggle showing NERDTree with F9
-:map <F9> :NERDTreeToggle<CR> 
-
-"open a NERDTree automatically when vim starts up if no files were specified
+" open a NERDTree automatically when vim starts up with no file 
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Open file in new tab with ctrl + t
+" open file in new tab with C-t
 :let NERDTreeMapOpenInTab='<c-t>'
+
+" Tabs Handle
+:noremap <silent> #3 :tabprevious<CR>
+:noremap <silent> #4 :tabnext<CR>
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
@@ -93,5 +80,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'Yggdroot/indentLine'
+Plug 'skywind3000/vim-quickui'
 
 call plug#end()
