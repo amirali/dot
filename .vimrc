@@ -1,3 +1,14 @@
+" vim-plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Yggdroot/indentLine'
+Plug 'skywind3000/vim-quickui'
+
+call plug#end()
+
+" configs
 :set number " Display line numbers on the left side
 :set ls=2 " This makes Vim show a status line even when only one window is shown
 :filetype plugin on " This line enables loading the plugin files for specific file types
@@ -73,13 +84,8 @@ autocmd VimEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 :noremap <silent> #3 :tabprevious<CR>
 :noremap <silent> #4 :tabnext<CR>
 
-" vim-plug
-call plug#begin('~/.vim/plugged')
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
-Plug 'Yggdroot/indentLine'
-Plug 'skywind3000/vim-quickui'
-
-call plug#end()
+" lightline configs
+:set noshowmode
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
