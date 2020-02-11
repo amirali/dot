@@ -4,7 +4,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Yggdroot/indentLine'
-Plug 'skywind3000/vim-quickui'
+Plug 'tpope/vim-fugitive'
+Plug 'jiangmiao/auto-pairs'
+Plug 'ollykel/v-vim'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
 
 call plug#end()
 
@@ -45,6 +49,9 @@ call plug#end()
 " paste mode with <F10>
 :set pastetoggle=<F10>
 
+" Set Gvim font
+set guifont=Consolas:h11
+
 " plugins
 "indentLine 
 :let g:indentLine_char = '|'
@@ -62,9 +69,9 @@ if !exists('g:airline_symbols')
 
  " unicode symbols
   let g:airline_left_sep = '»'
-  let g:airline_left_sep = '▶'
+  let g:airline_left_sep = '?'
   let g:airline_right_sep = '«'
-  let g:airline_right_sep = '◀'
+  let g:airline_right_sep = '?'
 
 "vim-airline-clock 
 :let g:airline#extensions#clock#format = '%c'
@@ -88,4 +95,35 @@ autocmd VimEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 :set noshowmode
 let g:lightline = {
     \ 'colorscheme': 'wombat',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbrach': 'FugitiveHead'
     \ }
+    \ }
+
+
+"" V for vim
+" disable highlight whitespace after `[]`
+let g:v_highlight_array_whitespace_error = 0
+
+" Disable highlight white space around the communications operator that don't follow the standard style.
+let g:v_highlight_chan_whitespace_error = 0
+
+" Disable highlight instances of tabs following spaces.
+let g:v_highlight_space_tab_error = 0
+
+" Disable highlight trailing white space.
+let g:v_highlight_trailing_whitespace_error = 0
+
+" Disable highlight function calls.
+let g:v_highlight_function_calls = 0
+
+let g:v_highlight_fields = 0
+
+
+"" Vim Gist config
+let g:gist_detect_filetype = 1
+let g:gist_clip_command = 'xclip -selection clipboard'
