@@ -54,7 +54,7 @@ set mouse=a " Mouse Integration
 set encoding=UTF-8
 
 " auto comment and uncooment with F6 and F7 key
-autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType c,cpp,java,go let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
 noremap <silent> #6 :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR> " commenting line with F6
 noremap <silent> #7 :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR> " uncommenting line with F7
