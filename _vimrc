@@ -62,8 +62,8 @@ noremap <silent> #7 :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<C
 " spell checking
 map <F8> :setlocal spell! spelllang=en_us<CR>
 
-" paste mode with <F10>
-set pastetoggle=<F10>
+" paste mode with <F2>
+set pastetoggle=<F2>
 
 " plugins
 "indentLine 
@@ -125,7 +125,6 @@ let g:gist_clip_command = 'xclip -selection clipboard'
 
 " mucomplete configs
 set completeopt+=menuone,noselect
-
 
 " gvim configs
 if has('gui_running')
