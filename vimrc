@@ -26,7 +26,7 @@ Plug 'mattn/webapi-vim' " Plugin for req Gist-Vim
 Plug 'skywind3000/asyncrun.vim' " Plugin for running commands in vim
 " Plug 'jmcomets/vim-pony' " Plugin for help in django projects
 " Plug 'FredKSchott/CoVim' " Co Operate with vim
-Plug 'junegunn/goyo.vim' " Plugin for writing mode
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' } " Plugin for writing mode
 Plug 'ConradIrwin/vim-bracketed-paste' " Plugin for auto pastemode
 " Plug 'ryanoasis/vim-devicons' " Plugin for NERDTree Icons
 " Plug 'lifepillar/vim-mucomplete' " plugin for autocompletion
@@ -34,6 +34,9 @@ Plug 'ConradIrwin/vim-bracketed-paste' " Plugin for auto pastemode
 " Plug 'mattn/emmet-vim' " plugin for emmet
 Plug 'realamirali/hashemi.vim'
 Plug 'maxboisvert/vim-simple-complete'
+" Plug 'metakirby5/codi.vim' " plugin for real-time and interactive scratchpad
+Plug 'AshyIsMe/2048' " 2048 Game
+" Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Jedi Plugin for python
 
 call plug#end()
 
