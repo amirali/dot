@@ -1,7 +1,15 @@
 " Amirali Esfandiari's vimrc
 " 
 " [Hotkeys]
-
+" <F2>  pastemode
+" <F3>  nexttab
+" <F4>  previoustab
+" <F5>  run/compile this file
+" <F6>  comment
+" <F7>  uncomment
+" <F8>  spell check
+" <F9>  NERDtree
+" <F10> pylint
 
 " vim-plug
 call plug#begin('~/vimfiles/plugged')
@@ -16,14 +24,16 @@ Plug 'ollykel/v-vim' " Plugin for support Vlang
 Plug 'mattn/gist-vim' " Plugin for make github gist
 Plug 'mattn/webapi-vim' " Plugin for req Gist-Vim
 Plug 'skywind3000/asyncrun.vim' " Plugin for running commands in vim
-Plug 'jmcomets/vim-pony' " Plugin for help in django projects
+" Plug 'jmcomets/vim-pony' " Plugin for help in django projects
 " Plug 'FredKSchott/CoVim' " Co Operate with vim
 Plug 'junegunn/goyo.vim' " Plugin for writing mode
 Plug 'ConradIrwin/vim-bracketed-paste' " Plugin for auto pastemode
-Plug 'ryanoasis/vim-devicons' " Plugin for NERDTree Icons
-Plug 'lifepillar/vim-mucomplete' " plugin for autocompletion
-Plug 'mitsuhiko/vim-jinja' " plugin for jinja
-Plug 'mattn/emmet-vim' " plugin for emmet
+" Plug 'ryanoasis/vim-devicons' " Plugin for NERDTree Icons
+" Plug 'lifepillar/vim-mucomplete' " plugin for autocompletion
+" Plug 'mitsuhiko/vim-jinja' " plugin for jinja
+" Plug 'mattn/emmet-vim' " plugin for emmet
+Plug 'realamirali/hashemi.vim'
+Plug 'maxboisvert/vim-simple-complete'
 
 call plug#end()
 
@@ -37,7 +47,7 @@ set softtabstop=4 " Set softtabstop to control how many columns vim uses when yo
 set shiftwidth=4 " Set shiftwidth to control how many columns text is indented with the reindent operations (<< and >>) and automatic C-style indentation. 
 setlocal foldmethod=indent " Set folding method
 set t_Co=256 " makes Vim use 256 colors
-set nowrap " Don't Wrap lines!
+" set nowrap " Don't Wrap lines!
 colorscheme dracula "Set colorScheme
 set nocp " This changes the values of a LOT of options, enabling features which are not Vi compatible but really really nice
 set clipboard=unnamed
@@ -62,8 +72,8 @@ noremap <silent> #7 :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<C
 " spell checking
 map <F8> :setlocal spell! spelllang=en_us<CR>
 
-" paste mode with <F10>
-set pastetoggle=<F10>
+" paste mode with <F2>
+set pastetoggle=<F2>
 
 " plugins
 "indentLine 
@@ -123,18 +133,11 @@ let g:asyncrun_open = 8
 let g:gist_detect_filetype = 1
 let g:gist_clip_command = 'xclip -selection clipboard'
 
-" mucomplete configs
-set completeopt+=menuone,noselect
-
-
 " gvim configs
 if has('gui_running')
     if has('win32')
         " Set Gvim font
         set guifont=Consolas:h11
-        " Copy/Paste 
-        source $VIMRUNTIME\mswin.vim
-        behave mswin
     endif
     " Remove top bars
     set guioptions-=T
@@ -142,5 +145,13 @@ if has('gui_running')
     set lines=45 columns=125
 endif
 
-autocmd FileType python :noremap <F5> :AsyncRun -raw python % <CR>
-autocmd FileType go :noremap <F5> :AsyncRun go run % <CR>
+" run/compile
+aut FileType python :noremap <F5> :AsyncRun -raw python % <CR>
+aut FileType go :noremap <F5> :AsyncRun go run % <CR>
+
+" check pylint with <F10>
+aut FileType python :noremap <F10> :AsyncRun pylint ./% <CR><CR>
+
+" simple-complete config
+set complete-=t
+set complete-=i
