@@ -53,8 +53,7 @@ set t_Co=256 " makes Vim use 256 colors
 " set nowrap " Don't Wrap lines!
 colorscheme dracula "Set colorScheme
 set nocp " This changes the values of a LOT of options, enabling features which are not Vi compatible but really really nice
-set clipboard=unnamed
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 set autoindent " Automatic indentation
 set cindent " This turns on C style indentation
 set si " Smart indent
@@ -158,3 +157,8 @@ aut FileType python :noremap <F10> :AsyncRun pylint ./% <CR><CR>
 " simple-complete config
 set complete-=t
 set complete-=i
+
+" set powershell as term shell for windows use
+if has('win32')
+    set shell=powershell.exe
+endif
