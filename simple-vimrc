@@ -13,7 +13,6 @@ set t_Co=256 " makes Vim use 256 colors
 colorscheme slate "Set colorScheme
 set nocp " This changes the values of a LOT of options, enabling features which are not Vi compatible but really really nice
 set clipboard^=unnamed,unnamedplus
-" set clipboard=unnamedplus
 set autoindent " Automatic indentation
 set cindent " This turns on C style indentation
 set si " Smart indent
