@@ -21,13 +21,11 @@ Plug 'scrooloose/nerdtree' " Plugin for file manager
 Plug 'Yggdroot/indentLine' " Plugin for indent guides
 Plug 'tpope/vim-fugitive' " Plugin for git interigation
 Plug 'jiangmiao/auto-pairs' " Plugin for match the second of (, [ and others
-Plug 'ollykel/v-vim' " Plugin for support Vlang
 Plug 'mattn/gist-vim' " Plugin for make github gist
 Plug 'mattn/webapi-vim' " Plugin for req Gist-Vim
 Plug 'skywind3000/asyncrun.vim' " Plugin for running commands in vim
 " Plug 'jmcomets/vim-pony' " Plugin for help in django projects
 " Plug 'FredKSchott/CoVim' " Co Operate with vim
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' } " Plugin for writing mode
 Plug 'ConradIrwin/vim-bracketed-paste' " Plugin for auto pastemode
 " Plug 'ryanoasis/vim-devicons' " Plugin for NERDTree Icons
 " Plug 'lifepillar/vim-mucomplete' " plugin for autocompletion
@@ -36,12 +34,12 @@ Plug 'ConradIrwin/vim-bracketed-paste' " Plugin for auto pastemode
 Plug 'realamirali/hashemi.vim'
 Plug 'maxboisvert/vim-simple-complete'
 " Plug 'metakirby5/codi.vim' " plugin for real-time and interactive scratchpad
-Plug 'AshyIsMe/2048' " 2048 Game
 " Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Jedi Plugin for python
 Plug 'terryma/vim-multiple-cursors'
 "Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'cheap-glitch/vim-v', { 'for': 'v' } " Vlang plugin
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
@@ -74,7 +72,7 @@ setlocal foldmethod=indent
 set t_Co=256
 
 " Don't Wrap lines!
-" set nowrap
+set nowrap
 
 "Set colorScheme
 colo dracula 
@@ -121,6 +119,8 @@ set splitbelow
 " Set for new vsplit it open right of current buffer
 set splitright
 
+" Make backspace do his job again!
+set backspace=2
 
 " auto comment and uncooment with F6 and F7 key
 autocmd FileType c,cpp,java,go let b:comment_leader = '// '
@@ -136,8 +136,10 @@ map <F8> :setlocal spell! spelllang=en_us<CR>
 " paste mode with <F2>
 set pastetoggle=<F2>
 
+" Disable quote concealing in JSON files
+let g:vim_json_conceal = 0
 
-"indentLine 
+" indentLine 
 let g:indentLine_char = '|'
 
 
