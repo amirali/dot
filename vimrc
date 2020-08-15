@@ -122,6 +122,10 @@ set splitright
 " Make backspace do his job again!
 set backspace=2
 
+" Change vim cursor in insert mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
 " auto comment and uncooment with F6 and F7 key
 autocmd FileType c,cpp,java,go let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
