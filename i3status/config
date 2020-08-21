@@ -1,0 +1,53 @@
+general {
+	output_format = "i3bar"
+	colors = true
+	color_good = "#50FA7B"
+	color_degraded = "#F1FA8C"
+	color_bad = "#FF5555"
+}
+
+order += "ipv6"
+order += "disk /"
+order += "wireless wlp3s0"
+order += "ethernet enp5s0"
+order += "battery 0"
+order += "memory"
+order += "tztime local"
+
+wireless wlp3s0 {
+    format_up = "W: (%quality at %essid, %bitrate) %ip"
+    format_down = "W: down"
+}
+
+ethernet enp5s0 {
+    format_up = "E: %ip (%speed)"
+    format_down = "E: down"
+}
+
+battery 0 {
+        format = "%status %percentage %remaining %emptytime"
+        format_down = "No battery"
+        status_chr = "⚡ CHR"
+        status_bat = "🔋 BAT"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+        hide_if_equals_localtime = true
+}
+
+load {
+        format = "%5min"
+}
+
+memory {
+        format = "MEMORY: %free"
+}
+
+disk "/" {
+        format = "%free"
+}
