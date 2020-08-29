@@ -40,6 +40,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'cheap-glitch/vim-v', { 'for': 'v' } " Vlang plugin
 Plug 'cespare/vim-toml'
+Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
 
@@ -269,3 +270,5 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+let g:ycm_autoclose_preview_window_after_insertion = 1
