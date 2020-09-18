@@ -15,7 +15,7 @@
 " vim-plug
 call plug#begin('~/vimfiles/plugged')
 
-Plug 'dracula/vim', { 'as': 'dracula' } " Dracula theme
+Plug 'altercation/vim-colors-solarized'
 Plug 'itchyny/lightline.vim' " Plugin for bottom statusbar
 Plug 'scrooloose/nerdtree' " Plugin for file manager
 Plug 'Yggdroot/indentLine' " Plugin for indent guides
@@ -40,7 +40,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'cheap-glitch/vim-v', { 'for': 'v' } " Vlang plugin
 Plug 'cespare/vim-toml'
-Plug 'ycm-core/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
 
@@ -75,8 +75,11 @@ set t_Co=256
 " Don't Wrap lines!
 set nowrap
 
+"Set Dark background
+set background=dark
+
 "Set colorScheme
-colo dracula 
+colo solarized
 
 " Not compatible with VI
 set nocp
@@ -166,7 +169,7 @@ noremap <silent> #4 :tabnext<CR>
 " lightline configs
 set noshowmode
 let g:lightline = {
-    \ 'colorscheme': 'dracula',
+    \ 'colorscheme': 'solarized',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -209,11 +212,10 @@ let g:gist_clip_command = 'xclip -selection clipboard'
 if has('gui_running')
     if has('win32')
         " Set Gvim font
-        set guifont=Consolas:h11
+        set guifont=Cascadia\ Mono:h11
     endif
     " Remove top bars
-    set guioptions-=T
-    set guioptions-=m
+    set guioptions=
     " set startup size
     set lines=45 columns=125
 endif
