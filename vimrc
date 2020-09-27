@@ -13,7 +13,7 @@
 " <c-T> open terminal
 
 " vim-plug
-call plug#begin('~/vimfiles/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'itchyny/lightline.vim' " Plugin for bottom statusbar
@@ -40,7 +40,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'cheap-glitch/vim-v', { 'for': 'v' } " Vlang plugin
 Plug 'cespare/vim-toml'
-" Plug 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -68,6 +70,7 @@ set shiftwidth=4
 
 " Set folding method
 setlocal foldmethod=indent
+set nofoldenable
 
 " makes Vim use 256 colors
 set t_Co=256
