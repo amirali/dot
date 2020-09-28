@@ -48,7 +48,7 @@ call plug#end()
 
 
 " Display line numbers on the left side
-set number
+set number relativenumber
 
 " This makes Vim show a status line even when only one window is shown
 set ls=2
