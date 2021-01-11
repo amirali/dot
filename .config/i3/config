@@ -41,7 +41,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -57,7 +57,6 @@ bindsym $mod+Shift+d exec --no-startup-id rofi -show window
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -106,16 +105,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1 Playground"
-set $ws2 "2 Chrome"
+set $ws1 "1"
+set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9 Notes"
-set $ws10 "10 Spotify"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -205,8 +204,8 @@ client.background       #F8F8F2
 
 for_window [class="^.*"] border pixel 3
 for_window [class="^Floatme&"] floating enable
-for_window [class="Spotify"] move to workspace "10 Spotify"
-for_window [title=".*Keep.*"] move to workspace $ws9
+for_window [class="Spotify"] move to workspace "3"
+for_window [title=".*Keep.*"] move to workspace $ws3
 assign [class="chrome"] $ws2
 
 gaps outer 5
@@ -215,6 +214,10 @@ gaps inner 5
 smart_gaps on
 smart_borders no_gaps
 
-bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots'
+bindsym $mod+Print exec scrot -e 'mv $f ~/Pictures/screenshots/'
+bindsym Print exec scrot --select -e 'xclip -selection clipboard -target image/png -i $f && mv $f ~/Pictures/screenshots/'
 
 exec_always --no-startup-id feh --bg-fill ~/Pictures/background.jpg
+exec setxkbmap us,ir -option "grp:alt_shift_toggle"
+
+bindsym $mod+l exec i3lock --color=282a36

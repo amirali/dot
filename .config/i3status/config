@@ -25,17 +25,6 @@ ethernet enp5s0 {
     format_down = "E: down"
 }
 
-battery 0 {
-        format = "%status %percentage"
-        format_down = "No battery"
-        status_chr = "⚡ CHR"
-        status_bat = "🔋 BAT"
-        status_unk = "? UNK"
-        status_full = "☻ FULL"
-        path = "/sys/class/power_supply/BAT%d/uevent"
-        low_threshold = 10
-}
-
 tztime local {
         format = "%Y-%m(%b)-%d %H:%M:%S"
 }
@@ -45,7 +34,7 @@ load {
 }
 
 memory {
-        format = "%free"
+        format = "%used - %available"
 }
 
 disk "/" {

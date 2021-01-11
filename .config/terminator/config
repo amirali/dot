@@ -1,0 +1,31 @@
+[global_config]
+  title_transmit_bg_color = "#ff5555"
+  title_receive_bg_color = "#8be9fd"
+  suppress_multiple_term_dialog = True
+[keybindings]
+  go_up = <Primary>Up
+  go_down = <Primary>Down
+  go_left = <Primary>Left
+  go_right = <Primary>Right
+  split_horiz = <Primary>h
+  split_vert = <Primary>v
+[profiles]
+  [[default]]
+    background_color = "#1e1f29"
+    cursor_color = "#aaaaaa"
+    font = Hack 10
+    foreground_color = "#f8f8f2"
+    show_titlebar = False
+    scrollbar_position = hidden
+    palette = "#44475a:#ff5555:#50fa7b:#f1fa8c:#8be9fd:#bd93f9:#ff79c6:#94a3a5:#000000:#ff5555:#50fa7b:#f1fa8c:#8be9fd:#bd93f9:#ff79c6:#ffffff"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
