@@ -15,7 +15,6 @@
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'altercation/vim-colors-solarized'
 Plug 'itchyny/lightline.vim' " Plugin for bottom statusbar
 Plug 'scrooloose/nerdtree' " Plugin for file manager
 Plug 'Yggdroot/indentLine' " Plugin for indent guides
@@ -41,8 +40,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'cheap-glitch/vim-v', { 'for': 'v' } " Vlang plugin
 Plug 'cespare/vim-toml'
 Plug 'ycm-core/YouCompleteMe'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -73,7 +71,8 @@ setlocal foldmethod=indent
 set nofoldenable
 
 " makes Vim use 256 colors
-set t_Co=256
+" set t_Co=256
+set termguicolors
 
 " Don't Wrap lines!
 set nowrap
@@ -82,7 +81,7 @@ set nowrap
 set background=dark
 
 "Set colorScheme
-colo solarized
+colo dracula
 
 " Not compatible with VI
 set nocp
@@ -172,7 +171,7 @@ noremap <silent> #4 :tabnext<CR>
 " lightline configs
 set noshowmode
 let g:lightline = {
-    \ 'colorscheme': 'solarized',
+    \ 'colorscheme': 'dracula',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
