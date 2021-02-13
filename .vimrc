@@ -72,7 +72,7 @@ set nofoldenable
 
 " makes Vim use 256 colors
 " set t_Co=256
-set termguicolors
+" set termguicolors
 
 " Don't Wrap lines!
 set nowrap
@@ -81,7 +81,7 @@ set nowrap
 set background=dark
 
 "Set colorScheme
-colo dracula
+" colo dracula
 
 " Not compatible with VI
 set nocp
@@ -227,6 +227,8 @@ endif
 aut FileType python :noremap <F5> :AsyncRun -raw python % <CR>
 aut FileType go :noremap <F5> :AsyncRun go run % <CR>
 aut FileType vim :noremap <F5> :so % <CR>
+aut FileType cpp :noremap <F5> :!g++ % && ./a.out <CR>
+aut FileType c :noremap <F5> :!gcc % && ./a.out <CR>
 
 map <c-Z> :AsyncStop<CR>
 
