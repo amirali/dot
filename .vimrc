@@ -42,6 +42,9 @@ Plug 'cespare/vim-toml'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 
@@ -72,7 +75,7 @@ set nofoldenable
 
 " makes Vim use 256 colors
 " set t_Co=256
-" set termguicolors
+set termguicolors
 
 " Don't Wrap lines!
 set nowrap
@@ -81,7 +84,7 @@ set nowrap
 set background=dark
 
 "Set colorScheme
-" colo dracula
+colo dracula
 
 " Not compatible with VI
 set nocp
@@ -278,3 +281,7 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+
+let g:fzf_command_prefix = 'Fzf'
+nnoremap <silent> <leader>f :FzfFiles<CR>
