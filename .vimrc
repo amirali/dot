@@ -46,6 +46,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-surround'
+Plug 'morhetz/gruvbox'
+Plug 'codota/tabnine-vim'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -287,3 +290,5 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 let g:fzf_command_prefix = 'Fzf'
 nnoremap <silent> <leader>f :FzfFiles<CR>
+
+" autocmd FileType javascript colo gruvbox
