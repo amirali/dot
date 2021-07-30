@@ -26,11 +26,14 @@ Plug 'skywind3000/asyncrun.vim' " Plugin for running commands in vim
 " Plug 'jmcomets/vim-pony' " Plugin for help in django projects
 " Plug 'FredKSchott/CoVim' " Co Operate with vim
 Plug 'ConradIrwin/vim-bracketed-paste' " Plugin for auto pastemode
-" Plug 'ryanoasis/vim-devicons' " Plugin for NERDTree Icons
+Plug 'ryanoasis/vim-devicons' " Plugin for NERDTree Icons
 " Plug 'lifepillar/vim-mucomplete' " plugin for autocompletion
 " Plug 'mitsuhiko/vim-jinja' " plugin for jinja
-" Plug 'mattn/emmet-vim' " plugin for emmet
-Plug 'realamirali/hashemi.vim'
+Plug 'mattn/emmet-vim' " plugin for emmet
+Plug 'alvan/vim-closetag'
+Plug 'posva/vim-vue'
+Plug 'leafgarland/typescript-vim'
+Plug 'amirali/hashemi.vim'
 Plug 'maxboisvert/vim-simple-complete'
 " Plug 'metakirby5/codi.vim' " plugin for real-time and interactive scratchpad
 " Plug 'davidhalter/jedi-vim', { 'for': 'python' } " Jedi Plugin for python
@@ -49,6 +52,8 @@ Plug 'tpope/vim-surround'
 Plug 'morhetz/gruvbox'
 Plug 'codota/tabnine-vim'
 Plug 'fatih/vim-go'
+
+Plug 'ollykel/v-vim'
 
 call plug#end()
 
@@ -303,3 +308,9 @@ let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_generate_tags = 1
+
+autocmd FileType javascript,css,html,vue set tabstop=2
+autocmd FileType javascript,css,html,vue set softtabstop=2
+autocmd FileType javascript,css,html,vue set shiftwidth=2
+
+let g:closetag_filenames = '*.html,*.vue'
