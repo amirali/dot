@@ -13,7 +13,9 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:FiraCode Nerd Font 8
+
+workspace_layout tabbed
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -41,37 +43,22 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
+# start rofi
 bindsym $mod+d exec --no-startup-id "rofi -combi-modi drun,run -show combi"
 bindsym $mod+Shift+d exec --no-startup-id rofi -show window
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -96,12 +83,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -155,12 +136,6 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -181,26 +156,26 @@ bar {
     position top
 
 	colors {
-        background #282A36
-        statusline #F8F8F2
-        separator  #44475A
+        background #1f222d
+        statusline #81a1c1
+        separator  #000000
 
-        focused_workspace  #44475A #44475A #F8F8F2
-        active_workspace   #282A36 #44475A #F8F8F2
-        inactive_workspace #282A36 #282A36 #BFBFBF
-        urgent_workspace   #FF5555 #FF5555 #F8F8F2
-        binding_mode       #FF5555 #FF5555 #F8F8F2
+        focused_workspace  #1f222d #1f222d #81a1c1
+        active_workspace   #1f222d #252936 #5e81ac
+        inactive_workspace #1f222d #1f222d #4c566a
+        urgent_workspace   #1f222d #1f222d #ee829f
+        binding_mode       #1f222d #81a1c1 #2e3440
 	}
 }
 
  
-# class                 border  bground text    indicator child_border
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-client.background       #F8F8F2
+# class                 border  bground text    indicator
+client.focused          #81a1c1 #81a1c1 #ffffff #81a1c1
+client.focused_inactive #2e3440 #2e3440 #888888 #2e3440
+client.unfocused        #2e3440 #2e3440 #888888 #2e3440
+client.urgent           #900000 #900000 #ffffff #900000
+client.placeholder      #2e3440 #2e3440 #888888 #2e3440
+client.background       #242424
 
 for_window [class="^.*"] border pixel 3
 for_window [class="^Floatme&"] floating enable
@@ -215,9 +190,9 @@ smart_gaps on
 smart_borders no_gaps
 
 bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots/'
-bindsym --release $mod+Shift+s exec scrot --select -e 'xclip -selection clipboard -target image/png -i $f && mv $f ~/Pictures/screenshots/'
+bindsym --release $mod+Shift+s exec scrot --select -e 'xclip -selection clipboard -target image/png -i $f && rm $f'
 
 exec_always --no-startup-id feh --bg-fill ~/Pictures/background.jpg
 exec setxkbmap us,ir -option "grp:alt_shift_toggle"
 
-bindsym $mod+l exec i3lock --color=282a36
+bindsym $mod+l exec i3lock -e --color=2E3440
