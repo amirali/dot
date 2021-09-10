@@ -16,6 +16,10 @@
 " Git: fugitive command for using git
 "
 " D*/Dviews/Dmodels/Durls: pony commands for access to django components
+"
+" <Leader>f: fzf
+"
+" <Leader>p: prettier
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
@@ -31,7 +35,6 @@ Plug 'ConradIrwin/vim-bracketed-paste' " Plugin for auto pastemode
 Plug 'ryanoasis/vim-devicons' " Plugin for NERDTree Icons
 Plug 'mattn/emmet-vim' " plugin for emmet
 Plug 'alvan/vim-closetag'
-Plug 'posva/vim-vue'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'cespare/vim-toml'
@@ -45,6 +48,12 @@ Plug 'psf/black', { 'branch': 'stable' }
 Plug 'ollykel/v-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-commentary'
+Plug 'leafOfTree/vim-vue-plugin'
+Plug 'prettier/vim-prettier', {
+			\ 'do': 'yarn install',
+			\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'vue', 'html'],
+			\ 'branch': 'release/0.x'
+			\ }
 
 call plug#end()
 
@@ -204,3 +213,19 @@ au FileType html,css EmmetInstall
 " Comment toggle bind to <c-/>
 " & I still don't know why forward-slash is known as '_' :/
 noremap <c-_> :Commentary<CR>
+
+" vue
+let g:vim_vue_plugin_config = { 
+			\ 'syntax': {
+			\    'template': ['html'],
+			\    'script': ['javascript'],
+			\    'style': ['css'],
+			\ },
+			\ 'full_syntax': [],
+			\ 'initial_indent': [],
+			\ 'attribute': 0,
+			\ 'keyword': 0,
+			\ 'foldexpr': 0,
+			\ 'debug': 0,
+			\ }
+let g:vim_vue_plugin_load_full_syntax = 1

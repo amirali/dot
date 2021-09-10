@@ -2,9 +2,9 @@ OS = $(shell awk '/^ID=/' /etc/os-release | sed 's/ID=//' | sed 's/[.]0/./')
 
 install:
 ifeq ($(OS),fedora)
-	sudo dnf install vim kitty tmux cmake gcc-c++ make python3-devel golang nodejs npm i3-gaps i3status fzf
+	sudo dnf install vim kitty tmux cmake gcc-c++ make python3-devel golang nodejs npm i3-gaps i3status fzf feh i3lock
 else ifeq ($(OS),arch)
-	sudo pacman -S vim kitty tmux cmake go nodejs npm i3-gaps i3status fzf
+	sudo pacman -S vim kitty tmux cmake go nodejs npm i3-gaps i3status fzf feh i3lock
 endif
 	cp -r .vim .vimrc .config ~/
 	vim +PlugInstall +qa
