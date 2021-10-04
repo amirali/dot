@@ -1,5 +1,16 @@
-My dot files and config and other shits
+# Dotfiles for vim, tmux, kitty, i3, rofi
 
+## install the base (vim, kitty, tmux, ...)
 ```
-pacman -S i3-gaps i3status i3lock terminator vim lxappearance rofi scrot nm-applet
+make # or `make base`
+```
+
+## install i3
+```
+make i3
+```
+
+## install all
+```
+make all
 ```

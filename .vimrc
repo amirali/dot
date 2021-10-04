@@ -21,7 +21,11 @@
 "
 " <Leader>p: prettier
 
-" vim-plug
+if empty(glob("~/.vim/autoload/plug.vim"))
+	sil !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Plugins
 call plug#begin('~/.vim/plugged')
 
 Plug 'itchyny/lightline.vim' " Plugin for statusbar
@@ -38,11 +42,10 @@ Plug 'alvan/vim-closetag'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'cespare/vim-toml'
-Plug 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --go-completer' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
-Plug 'codota/tabnine-vim'
 Plug 'fatih/vim-go'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'ollykel/v-vim'
@@ -54,9 +57,14 @@ Plug 'prettier/vim-prettier', {
 			\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'vue', 'html'],
 			\ 'branch': 'release/0.x'
 			\ }
+Plug 'wsdjeg/vim-todo'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
+
+" Don't apply settings if plugins are not installed yet
+if !empty(glob("~/.vim/plugged/"))
 
 set number relativenumber
 set ls=2
@@ -229,3 +237,13 @@ let g:vim_vue_plugin_config = {
 			\ 'debug': 0,
 			\ }
 let g:vim_vue_plugin_load_full_syntax = 1
+
+" temperary settings for showing whitespaces
+set list
+" set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+set listchars=tab:→\ ,eol:↲
+
+noremap <silent> <leader>g :Goyo<CR>
+
+" End if of applying condition (set your plugins configs before this)
+endif
