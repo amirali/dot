@@ -6,7 +6,7 @@ nnoremap <leader><leader> <cmd>lua require"amirali.telescope".wrap(require("tele
 nnoremap <leader>fb <cmd>lua require"amirali.telescope".wrap(require("telescope.builtin").file_browser)()<CR>
 nnoremap <leader>fp <cmd>lua require"amirali.telescope".installed_plugins()<CR>
 nnoremap <leader>pp <cmd>lua require"amirali.telescope".projects()<CR>
-nnoremap <leader>ps <cmd>lua require"amirali.telescope".snapp()<CR>
+nnoremap <leader>pm <cmd>lua require"amirali.telescope".miare()<CR>
 nnoremap <C-p> <cmd>lua require"amirali.telescope".git_files()<CR>
 nnoremap <C-q> <cmd>lua require"amirali.telescope".quickfix()<CR>
 nnoremap ?? <cmd>lua require"amirali.telescope".wrap(require("telescope.builtin").live_grep)()<CR>

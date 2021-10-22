@@ -153,8 +153,8 @@ function M.projects(path)
   }):find()
 end
 
-function M.snapp()
-  M.projects "~/src/repos/snapp"
+function M.miare()
+  M.projects "~/src/repos/miare"
 end
 
 function M.installed_plugins()

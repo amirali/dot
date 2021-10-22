@@ -37,7 +37,10 @@ actions:setup {
     },
   },
   {
-    predicate = utils.compose(utils.make_language_predicate "lua", utils.make_path_predicate "plugins.lua"),
+    predicate = utils.compose(
+      utils.make_language_predicate "lua",
+      utils.make_path_predicate "plugins.lua"
+    ),
     actions = {
       run = function(bufnr)
         vim.c.luafile(vim.api.nvim_buf_get_name(bufnr))
@@ -57,33 +60,10 @@ actions:setup {
     },
   },
   {
-    predicate = utils.make_language_predicate "rust",
-    actions = {
-      run = function(_)
-        vim.cmd [[ vnew | term cargo run ]]
-      end,
-      build = function(_)
-        vim.cmd [[ vnew | term cargo check ]]
-      end,
-      test_all = function(_)
-        vim.cmd [[ RustTest! ]]
-      end,
-      test_this = function(_)
-        vim.cmd [[ RustTest ]]
-      end,
-    },
-  },
-  {
-    predicate = utils.make_path_predicate "gitlab.snapp.ir",
-    actions = {
-      -- format = function() end,
-    },
-  },
-  {
     predicate = utils.make_language_predicate "go",
     actions = {
       format = function(bufnr)
-        require("amirrezaask.go").format(bufnr)
+        require("amirali.go").format(bufnr)
       end,
       build = function(_)
         vim.cmd [[ vnew | term go build ]]
