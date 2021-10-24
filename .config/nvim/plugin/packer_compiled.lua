@@ -107,7 +107,7 @@ _G.packer_plugins = {
     path = "/home/amirali/.local/share/nvim/site/pack/packer/start/dockerfile.vim"
   },
   ["gitsigns.nvim"] = {
-    config = { "\27LJ\2\nù\3\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\14\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\3=\3\15\0025\3\16\0=\3\17\2B\0\2\1K\0\1\0\28current_line_blame_opts\1\0\2\ndelay\3†\6\18virt_text_pos\beol\nsigns\1\0\2\nnumhl\1\23current_line_blame\1\17changedelete\1\0\2\ttext\a~-\nnumhl\21GitSignsChangeNr\14topdelete\1\0\2\ttext\b‚Äæ\nnumhl\21GitSignsDeleteNr\vdelete\1\0\2\ttext\6_\nnumhl\21GitSignsDeleteNr\vchange\1\0\2\ttext\6|\nnumhl\21GitSignsChangeNr\badd\1\0\0\1\0\2\ttext\6|\nnumhl\18GitSignsAddNr\nsetup\rgitsigns\frequire\0" },
+    config = { "\27LJ\2\nù\3\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\14\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\3=\3\15\0025\3\16\0=\3\17\2B\0\2\1K\0\1\0\28current_line_blame_opts\1\0\2\18virt_text_pos\beol\ndelay\3†\6\nsigns\1\0\2\nnumhl\1\23current_line_blame\1\17changedelete\1\0\2\nnumhl\21GitSignsChangeNr\ttext\a~-\14topdelete\1\0\2\nnumhl\21GitSignsDeleteNr\ttext\b‚Äæ\vdelete\1\0\2\nnumhl\21GitSignsDeleteNr\ttext\6_\vchange\1\0\2\nnumhl\21GitSignsChangeNr\ttext\6|\badd\1\0\0\1\0\2\nnumhl\18GitSignsAddNr\ttext\6|\nsetup\rgitsigns\frequire\0" },
     loaded = true,
     path = "/home/amirali/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
@@ -237,6 +237,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/amirali/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
   },
+  ["v-vim"] = {
+    config = { "\27LJ\2\n7\0\0\2\0\3\0\0056\0\0\0009\0\1\0+\1\2\0=\1\2\0K\0\1\0\26v_autofmt_bufwritepre\6g\bvim\0" },
+    loaded = true,
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/v-vim"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/amirali/.local/share/nvim/site/pack/packer/start/vim-commentary"
@@ -266,10 +271,27 @@ _G.packer_plugins = {
   ["vim-toml"] = {
     loaded = true,
     path = "/home/amirali/.local/share/nvim/site/pack/packer/start/vim-toml"
+  },
+  ["yapf.nvim"] = {
+    config = { "\27LJ\2\nt\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\nstyle,/home/amirali/src/repos/miare/setup.cfg\fcommand\tyapf\nsetup\tyapf\frequire\0" },
+    loaded = true,
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/yapf.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: yapf.nvim
+time([[Config for yapf.nvim]], true)
+try_loadstring("\27LJ\2\nt\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\nstyle,/home/amirali/src/repos/miare/setup.cfg\fcommand\tyapf\nsetup\tyapf\frequire\0", "config", "yapf.nvim")
+time([[Config for yapf.nvim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+try_loadstring("\27LJ\2\nÑ\1\0\0\3\0\4\0\b+\0\0\0007\0\0\0006\0\1\0'\2\2\0B\0\2\0029\0\3\0B\0\1\1K\0\1\0\27color_picker_on_cursor\14colorizer\frequire8_PICKER_ASHKAN_KIANI_COPYRIGHT_2020_LONG_NAME_HERE_ú\1\1\0\3\0\6\0\v3\0\0\0007\0\1\0006\0\2\0009\0\3\0'\2\4\0B\0\2\0016\0\2\0009\0\3\0'\2\5\0B\0\2\1K\0\1\0+ command! ColorPicker lua ColorPicker 1 autocmd BufEnter * ColorizerAttachToBuffer \bcmd\bvim\16ColorPicker\0\0", "config", "nvim-colorizer.lua")
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: v-vim
+time([[Config for v-vim]], true)
+try_loadstring("\27LJ\2\n7\0\0\2\0\3\0\0056\0\0\0009\0\1\0+\1\2\0=\1\2\0K\0\1\0\26v_autofmt_bufwritepre\6g\bvim\0", "config", "v-vim")
+time([[Config for v-vim]], false)
 -- Config for: todo-comments.nvim
 time([[Config for todo-comments.nvim]], true)
 try_loadstring("\27LJ\2\ns\0\0\3\0\6\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\0016\0\3\0009\0\4\0005\2\5\0B\0\2\1K\0\1\0\1\0\1\n<M-e>\23:TodoTelescope<CR>\bmap\bvim\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
@@ -280,12 +302,8 @@ try_loadstring("\27LJ\2\n´\2\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\
 time([[Config for dial.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\nù\3\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\14\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\3=\3\15\0025\3\16\0=\3\17\2B\0\2\1K\0\1\0\28current_line_blame_opts\1\0\2\ndelay\3†\6\18virt_text_pos\beol\nsigns\1\0\2\nnumhl\1\23current_line_blame\1\17changedelete\1\0\2\ttext\a~-\nnumhl\21GitSignsChangeNr\14topdelete\1\0\2\ttext\b‚Äæ\nnumhl\21GitSignsDeleteNr\vdelete\1\0\2\ttext\6_\nnumhl\21GitSignsDeleteNr\vchange\1\0\2\ttext\6|\nnumhl\21GitSignsChangeNr\badd\1\0\0\1\0\2\ttext\6|\nnumhl\18GitSignsAddNr\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+try_loadstring("\27LJ\2\nù\3\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\14\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\3=\3\15\0025\3\16\0=\3\17\2B\0\2\1K\0\1\0\28current_line_blame_opts\1\0\2\18virt_text_pos\beol\ndelay\3†\6\nsigns\1\0\2\nnumhl\1\23current_line_blame\1\17changedelete\1\0\2\nnumhl\21GitSignsChangeNr\ttext\a~-\14topdelete\1\0\2\nnumhl\21GitSignsDeleteNr\ttext\b‚Äæ\vdelete\1\0\2\nnumhl\21GitSignsDeleteNr\ttext\6_\vchange\1\0\2\nnumhl\21GitSignsChangeNr\ttext\6|\badd\1\0\0\1\0\2\nnumhl\18GitSignsAddNr\ttext\6|\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-try_loadstring("\27LJ\2\nÑ\1\0\0\3\0\4\0\b+\0\0\0007\0\0\0006\0\1\0'\2\2\0B\0\2\0029\0\3\0B\0\1\1K\0\1\0\27color_picker_on_cursor\14colorizer\frequire8_PICKER_ASHKAN_KIANI_COPYRIGHT_2020_LONG_NAME_HERE_ú\1\1\0\3\0\6\0\v3\0\0\0007\0\1\0006\0\2\0009\0\3\0'\2\4\0B\0\2\0016\0\2\0009\0\3\0'\2\5\0B\0\2\1K\0\1\0+ command! ColorPicker lua ColorPicker 1 autocmd BufEnter * ColorizerAttachToBuffer \bcmd\bvim\16ColorPicker\0\0", "config", "nvim-colorizer.lua")
-time([[Config for nvim-colorizer.lua]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads

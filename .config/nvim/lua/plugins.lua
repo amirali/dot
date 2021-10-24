@@ -190,5 +190,21 @@ require("packer").startup {
         vim.g.curshold_updatime = 1000
       end,
     }
+    use {
+      "ollykel/v-vim",
+      config = function()
+        vim.g.v_autofmt_bufwritepre = true
+      end,
+    }
+    use {
+      "amirali/yapf.nvim",
+      requires = { "nvim-lua/plenary.nvim" },
+      config = function()
+        require("yapf").setup {
+          command = "yapf",
+          style = "/home/amirali/src/repos/miare/setup.cfg",
+        }
+      end,
+    }
   end,
 }

@@ -37,7 +37,7 @@ local support_formatting = { "rust" }
 
 local function make_on_attach()
   return function(client)
-    vim.imap {
+    vim.nmap {
       ["<c-s>"] = { vim.lsp.buf.signature_help, "" },
       ["<c-d>"] = { vim.lsp.diagnostic.show_line_diagnostics, "" },
       ["R"] = { rename, "Rename current symbol under curser", "IDE" },
@@ -101,5 +101,7 @@ if has_nlua then
 end
 
 lspconfig.jedi_language_server.setup { on_attach = on_attach }
+
+lspconfig.sorbet.setup { on_attach = on_attach }
 
 return M

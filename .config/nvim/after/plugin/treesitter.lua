@@ -5,17 +5,15 @@ end
 
 treesitter.setup {
   ensure_installed = {
-    "go",
-    "lua",
     "python",
-    "rust",
+    "lua",
+    "go",
+    "ruby",
     "query",
     "toml",
-    "php",
     "yaml",
     "json",
     "dockerfile",
-    "c",
     "gomod",
     "html",
     "bash",
