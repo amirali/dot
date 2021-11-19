@@ -49,4 +49,13 @@ return packer.startup(function()
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} },
   }
+  use {
+    'amirali/yapf.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('yapf').setup {
+        style = '/home/amirali/src/repos/miare/setup.cfg',
+      }
+    end,
+  }
 end)
