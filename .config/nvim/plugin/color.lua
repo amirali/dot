@@ -1,1 +1,0 @@
-vim.colorscheme "nord"

@@ -69,248 +69,119 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["FixCursorHold.nvim"] = {
+  LuaSnip = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["Vim-Jinja2-Syntax"] = {
+  ["alpha-nvim"] = {
+    config = { "\27LJ\2\n_\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\topts\27alpha.themes.dashboard\nsetup\nalpha\frequire\0" },
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/Vim-Jinja2-Syntax"
-  },
-  ["actions.nvim"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/actions.nvim"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+    url = "https://github.com/goolord/alpha-nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
-  },
-  ["cmp-nvim-lua"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-path"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/cmp-path"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["dial.nvim"] = {
-    config = { "\27LJ\2\n´\2\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0ã\2\t\t\t\t\tnmap <C-a> <Plug>(dial-increment)\n\t\t\t\t\tnmap <C-x> <Plug>(dial-decrement)\n\t\t\t\t\tvmap <C-a> <Plug>(dial-increment)\n\t\t\t\t\tvmap <C-x> <Plug>(dial-decrement)\n\t\t\t\t\tvmap g<C-a> <Plug>(dial-increment-additional)\n\t\t\t\t\tvmap g<C-x> <Plug>(dial-decrement-additional)\n\t\t\t\t\bcmd\bvim\0" },
+  cmp_luasnip = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/dial.nvim"
-  },
-  ["dockerfile.vim"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/dockerfile.vim"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["gitsigns.nvim"] = {
-    config = { "\27LJ\2\nù\3\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\14\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\3=\3\15\0025\3\16\0=\3\17\2B\0\2\1K\0\1\0\28current_line_blame_opts\1\0\2\18virt_text_pos\beol\ndelay\3†\6\nsigns\1\0\2\nnumhl\1\23current_line_blame\1\17changedelete\1\0\2\nnumhl\21GitSignsChangeNr\ttext\a~-\14topdelete\1\0\2\nnumhl\21GitSignsDeleteNr\ttext\b‚Äæ\vdelete\1\0\2\nnumhl\21GitSignsDeleteNr\ttext\6_\vchange\1\0\2\nnumhl\21GitSignsChangeNr\ttext\6|\badd\1\0\0\1\0\2\nnumhl\18GitSignsAddNr\ttext\6|\nsetup\rgitsigns\frequire\0" },
+    config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0" },
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["lir.nvim"] = {
+  ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/lir.nvim"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  ["lsp-status.nvim"] = {
+  ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
-  },
-  ["lsp_extensions.nvim"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim"
-  },
-  ["lspkind-nvim"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
-  },
-  ["luv-vimdocs"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/luv-vimdocs"
-  },
-  ["nginx.vim"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nginx.vim"
-  },
-  ["nline.nvim"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nline.nvim"
-  },
-  ["nlua.nvim"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nlua.nvim"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["nord.nvim"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nord.nvim"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    url = "https://github.com/shaunsingh/nord.nvim"
+  },
+  ["nvim-autopairs"] = {
+    config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
+    loaded = true,
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-cmp"
-  },
-  ["nvim-colorizer.lua"] = {
-    config = { "\27LJ\2\nÑ\1\0\0\3\0\4\0\b+\0\0\0007\0\0\0006\0\1\0'\2\2\0B\0\2\0029\0\3\0B\0\1\1K\0\1\0\27color_picker_on_cursor\14colorizer\frequire8_PICKER_ASHKAN_KIANI_COPYRIGHT_2020_LONG_NAME_HERE_ú\1\1\0\3\0\6\0\v3\0\0\0007\0\1\0006\0\2\0009\0\3\0'\2\4\0B\0\2\0016\0\2\0009\0\3\0'\2\5\0B\0\2\1K\0\1\0+ command! ColorPicker lua ColorPicker 1 autocmd BufEnter * ColorizerAttachToBuffer \bcmd\bvim\16ColorPicker\0\0" },
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
-  },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-dap"
-  },
-  ["nvim-dap-virtual-text"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-luaref"] = {
+  ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-luaref"
-  },
-  ["nvim-nonicons"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-nonicons"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
-  },
-  ["nvim-treesitter-textobjects"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects"
-  },
-  ["nvim-ts-context-commentstring"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  },
-  playground = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/playground"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/plenary.nvim"
-  },
-  ["popup.nvim"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/popup.nvim"
-  },
-  ["sitruuna.vim"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/sitruuna.vim"
-  },
-  tabular = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/tabular"
-  },
-  ["telescope-dap.nvim"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim"
-  },
-  ["telescope-fzf-native.nvim"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim"
-  },
-  ["telescope-fzy-native.nvim"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/telescope.nvim"
-  },
-  ["todo-comments.nvim"] = {
-    config = { "\27LJ\2\ns\0\0\3\0\6\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\0016\0\3\0009\0\4\0005\2\5\0B\0\2\1K\0\1\0\1\0\1\n<M-e>\23:TodoTelescope<CR>\bmap\bvim\nsetup\18todo-comments\frequire\0" },
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/todo-comments.nvim"
-  },
-  ["v-vim"] = {
-    config = { "\27LJ\2\n7\0\0\2\0\3\0\0056\0\0\0009\0\1\0+\1\2\0=\1\2\0K\0\1\0\26v_autofmt_bufwritepre\6g\bvim\0" },
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/v-vim"
-  },
-  ["vim-commentary"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/vim-commentary"
-  },
-  ["vim-jdaddy"] = {
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/opt/vim-jdaddy"
-  },
-  ["vim-json"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/vim-json"
-  },
-  ["vim-scriptease"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/vim-scriptease"
-  },
-  ["vim-surround"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/vim-surround"
-  },
-  ["vim-syntax-extra"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/vim-syntax-extra"
-  },
-  ["vim-toml"] = {
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/vim-toml"
-  },
-  ["yapf.nvim"] = {
-    config = { "\27LJ\2\nt\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\nstyle,/home/amirali/src/repos/miare/setup.cfg\fcommand\tyapf\nsetup\tyapf\frequire\0" },
-    loaded = true,
-    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/yapf.nvim"
+    path = "/home/amirali/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: yapf.nvim
-time([[Config for yapf.nvim]], true)
-try_loadstring("\27LJ\2\nt\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\nstyle,/home/amirali/src/repos/miare/setup.cfg\fcommand\tyapf\nsetup\tyapf\frequire\0", "config", "yapf.nvim")
-time([[Config for yapf.nvim]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-try_loadstring("\27LJ\2\nÑ\1\0\0\3\0\4\0\b+\0\0\0007\0\0\0006\0\1\0'\2\2\0B\0\2\0029\0\3\0B\0\1\1K\0\1\0\27color_picker_on_cursor\14colorizer\frequire8_PICKER_ASHKAN_KIANI_COPYRIGHT_2020_LONG_NAME_HERE_ú\1\1\0\3\0\6\0\v3\0\0\0007\0\1\0006\0\2\0009\0\3\0'\2\4\0B\0\2\0016\0\2\0009\0\3\0'\2\5\0B\0\2\1K\0\1\0+ command! ColorPicker lua ColorPicker 1 autocmd BufEnter * ColorizerAttachToBuffer \bcmd\bvim\16ColorPicker\0\0", "config", "nvim-colorizer.lua")
-time([[Config for nvim-colorizer.lua]], false)
--- Config for: v-vim
-time([[Config for v-vim]], true)
-try_loadstring("\27LJ\2\n7\0\0\2\0\3\0\0056\0\0\0009\0\1\0+\1\2\0=\1\2\0K\0\1\0\26v_autofmt_bufwritepre\6g\bvim\0", "config", "v-vim")
-time([[Config for v-vim]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-try_loadstring("\27LJ\2\ns\0\0\3\0\6\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\0016\0\3\0009\0\4\0005\2\5\0B\0\2\1K\0\1\0\1\0\1\n<M-e>\23:TodoTelescope<CR>\bmap\bvim\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
-time([[Config for todo-comments.nvim]], false)
--- Config for: dial.nvim
-time([[Config for dial.nvim]], true)
-try_loadstring("\27LJ\2\n´\2\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0ã\2\t\t\t\t\tnmap <C-a> <Plug>(dial-increment)\n\t\t\t\t\tnmap <C-x> <Plug>(dial-decrement)\n\t\t\t\t\tvmap <C-a> <Plug>(dial-increment)\n\t\t\t\t\tvmap <C-x> <Plug>(dial-decrement)\n\t\t\t\t\tvmap g<C-a> <Plug>(dial-increment-additional)\n\t\t\t\t\tvmap g<C-x> <Plug>(dial-decrement-additional)\n\t\t\t\t\bcmd\bvim\0", "config", "dial.nvim")
-time([[Config for dial.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\nù\3\0\0\5\0\18\0\0216\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\14\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\3=\3\15\0025\3\16\0=\3\17\2B\0\2\1K\0\1\0\28current_line_blame_opts\1\0\2\18virt_text_pos\beol\ndelay\3†\6\nsigns\1\0\2\nnumhl\1\23current_line_blame\1\17changedelete\1\0\2\nnumhl\21GitSignsChangeNr\ttext\a~-\14topdelete\1\0\2\nnumhl\21GitSignsDeleteNr\ttext\b‚Äæ\vdelete\1\0\2\nnumhl\21GitSignsDeleteNr\ttext\6_\vchange\1\0\2\nnumhl\21GitSignsChangeNr\ttext\6|\badd\1\0\0\1\0\2\nnumhl\18GitSignsAddNr\ttext\6|\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType json ++once lua require("packer.load")({'vim-jdaddy'}, { ft = "json" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-vim.cmd("augroup END")
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+try_loadstring("\27LJ\2\n_\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\topts\27alpha.themes.dashboard\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
+time([[Config for alpha-nvim]], false)
 if should_profile then save_profiles() end
 
 end)
