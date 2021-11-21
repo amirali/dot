@@ -46,6 +46,10 @@ cmd [[
   autocmd FileType lua,yaml setlocal shiftwidth=2 tabstop=2
 ]]
 
+cmd [[
+  autocmd FileType go setlocal noexpandtab
+]]
+
 opt.completeopt = 'menuone,noselect'
 
 cmd [[command Term :botright vsplit term://$SHELL]]
