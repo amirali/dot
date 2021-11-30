@@ -1,6 +1,5 @@
 local g = vim.g
 
-g.nvim_tree_gitignore = true
 g.nvim_tree_quit_on_open = false
 g.nvim_tree_indent_markers = true
 g.nvim_tree_git_hl = true
@@ -18,9 +17,14 @@ g.nvim_tree_icons = {
 }
 require('nvim-tree').setup {
 	open_on_setup = true,
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
 	view = {
 		width = 32,
-		auto_resize = true
+		auto_resize = true,
 	},
 	filters = {
 		dotfiles = true,
