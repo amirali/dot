@@ -10,7 +10,7 @@ require'lualine'.setup {
   sections = {
     lualine_a = {{'mode', separator = { left = '', right = '' }, right_padding = 2}},
     lualine_b = {'branch', 'diff',
-                  {'diagnostics', sources={'nvim_lsp', 'coc'}}},
+                  {'diagnostics', sources={'nvim_diagnostic', 'coc'}}},
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_z = {{'location', separator = { left = '', right = '' }, left_padding = 2}},
