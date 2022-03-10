@@ -10,7 +10,8 @@ opt.swapfile = false
 
 opt.number = true
 opt.relativenumber = true
-opt.foldmethod = 'marker'
+opt.foldmethod = 'expr'
+cmd [[set foldexpr=nvim_treesitter#foldexpr()]]
 opt.colorcolumn = '100'
 opt.splitright = true
 opt.splitbelow = true
@@ -33,7 +34,6 @@ opt.lazyredraw = true
 opt.synmaxcol = 240
 
 opt.termguicolors = true
-cmd [[colo nord]]
 
 opt.expandtab = true
 opt.shiftwidth = 4

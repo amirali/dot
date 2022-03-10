@@ -1,10 +1,8 @@
 local g = vim.g
 
-g.nvim_tree_quit_on_open = false
 g.nvim_tree_indent_markers = true
 g.nvim_tree_git_hl = true
 g.nvim_tree_highlight_opened_files = true
-g.nvim_tree_disable_window_picker = true
 g.nvim_tree_respect_buf_cwd = true
 g.nvim_tree_width_allow_resize = true
 g.nvim_tree_show_icons = {
@@ -30,4 +28,12 @@ require('nvim-tree').setup {
 		dotfiles = true,
 		custom = { '.git', 'venv' },
 	},
+  actions = {
+    open_file = {
+      window_picker = {
+        enable = true
+      },
+      quit_on_open = false,
+    },
+  },
 }

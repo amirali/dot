@@ -34,9 +34,6 @@ return packer.startup(function()
 	use {
 		'lewis6991/gitsigns.nvim',
 		requires = { 'nvim-lua/plenary.nvim' },
-		config = function()
-			require('gitsigns').setup()
-		end
 	} -- git signs
 	use {
 	'goolord/alpha-nvim',
@@ -54,7 +51,7 @@ return packer.startup(function()
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('yapf').setup {
-        style = '/home/amirali/src/repos/miare/setup.cfg',
+        style = '/home/amirali/src/miare/setup.cfg',
       }
     end,
   }

@@ -1,7 +1,7 @@
 require('nvim-treesitter.configs').setup {
-	highlight = {
-		enable = true,
-	},
+  highlight = {
+    enable = true,
+  },
   ensure_installed = {
     'python',
     'go',
@@ -14,5 +14,6 @@ require('nvim-treesitter.configs').setup {
     'regex',
     'vue',
     'vim',
+    'rust',
   }
 }
