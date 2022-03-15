@@ -32,3 +32,7 @@ map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
 -- Disable recording macros (jfn)
 map('n', 'Q', '<nop>', default_opts)
+
+-- map hop bindings
+map('n', '<leader>j', ":lua require'hop'.hint_words()<CR>", noremap)
+map('n', '<leader>l', ":lua require'hop'.hint_lines()<CR>", noremap)

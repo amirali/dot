@@ -16,6 +16,10 @@ return packer.startup(function()
 	use 'kyazdani42/nvim-web-devicons' -- devicons
 	use 'nvim-treesitter/nvim-treesitter' -- treesitter
 	use 'shaunsingh/nord.nvim' -- colorscheme 'nord'
+  use {
+    'amirali/catppuccin.nvim', -- watch https://github.com/catppuccin/nvim/issues/95
+    as = 'catppuccin',
+  }
 	use 'neovim/nvim-lspconfig' -- lsp
 	use {
 		'hrsh7th/nvim-cmp',
@@ -61,4 +65,13 @@ return packer.startup(function()
       require('Comment').setup()
     end
   }
+  use 'phaazon/hop.nvim'
+  use {
+    'folke/todo-comments.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require'todo-comments'.setup {}
+    end,
+  }
+  use 'ellisonleao/glow.nvim'
 end)
