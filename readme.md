@@ -5,11 +5,6 @@
 make # or `make base`
 ```
 
-## install i3
-```
-make i3
-```
-
 ## install all
 ```
 make all
