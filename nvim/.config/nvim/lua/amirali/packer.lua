@@ -74,4 +74,5 @@ return packer.startup(function()
     end,
   }
   use 'ellisonleao/glow.nvim'
+  use 'Joorem/vim-haproxy'
 end)
