@@ -18,6 +18,7 @@ endif
 	git submodule update --init
 	stow --verbose */
 	nvim +PackerSync
+	pip3 install -U thefuck pip
 
 lsp:
 	# Python

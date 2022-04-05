@@ -7,11 +7,17 @@ ZSH_THEME="bubble-gum"
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(
+    ansible
+    git
+    git-auto-fetch
+    shell-proxy
+    thefuck
+    tmux
+    z
     zsh-autosuggestions
     zsh-completions
     zsh-syntax-highlighting
     bgnotify
-    zsh-z
 )
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
@@ -23,3 +29,4 @@ if [ -f "$HOME/.cargo/env" ]; then
 fi
 
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
+eval $(thefuck --alias)
