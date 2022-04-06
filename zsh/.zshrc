@@ -12,7 +12,6 @@ plugins=(
     git-auto-fetch
     shell-proxy
     thefuck
-    tmux
     z
     zsh-autosuggestions
     zsh-completions
