@@ -33,6 +33,7 @@
 
 [alias]
 	ap = add --patch
+	edit = !nvim -p $(git status --short | awk '$1 ~ /^M|A|U/ {print $2}')
 
 [credential]
 	helper = cache
