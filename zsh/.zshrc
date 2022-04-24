@@ -29,3 +29,7 @@ fi
 
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
 eval $(thefuck --alias)
+
+if [ -f "$HOME/.profile" ]; then
+    source $HOME/.profile
+fi
