@@ -10,3 +10,6 @@
 [submodule "zsh/.oh-my-zsh/custom/plugins/zsh-z"]
 	path = zsh/.oh-my-zsh/custom/plugins/zsh-z
 	url = https://github.com/agkozak/zsh-z
+[submodule "ssh/.ssh"]
+	path = ssh/.ssh
+	url = git@github.com:amirali/ssh
