@@ -28,6 +28,12 @@ if [ -f "$HOME/.cargo/env" ]; then
 fi
 
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
+
+if [ "`uname -s`" = "Darwin" ]; then
+	export PATH=/opt/homebrew/opt/python@3.10/bin:$PATH
+	export PATH=/Users/amirali/Library/Python/3.10/bin:$PATH
+fi
+
 eval $(thefuck --alias)
 
 if [ -f "$HOME/.profile" ]; then
