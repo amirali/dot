@@ -1,6 +1,5 @@
 local g = vim.g
 
-g.nvim_tree_indent_markers = true
 g.nvim_tree_git_hl = true
 g.nvim_tree_highlight_opened_files = true
 g.nvim_tree_respect_buf_cwd = true
@@ -22,7 +21,6 @@ require('nvim-tree').setup {
   },
 	view = {
 		width = 32,
-		auto_resize = true,
 	},
 	filters = {
 		dotfiles = true,
@@ -34,6 +32,11 @@ require('nvim-tree').setup {
         enable = true
       },
       quit_on_open = false,
+    },
+  },
+  renderer = {
+    indent_markers = {
+      enable = true,
     },
   },
 }
