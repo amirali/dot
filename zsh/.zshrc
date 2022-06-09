@@ -39,3 +39,7 @@ eval $(thefuck --alias)
 if [ -f "$HOME/.profile" ]; then
     source $HOME/.profile
 fi
+
+autoload -U bashcompinit
+bashcompinit
+eval "$(register-python-argcomplete pipx)"
