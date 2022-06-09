@@ -39,9 +39,14 @@
 [credential]
 	helper = cache
 
-[url "git@git.miare.ir"]
-	insteadOf = https://git.miare.ir
+[url "git@git.miare.ir:"]
+	insteadOf = https://git.miare.ir/
 [core]
 	editor = nvim
 [commit]
 	gpgsign = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
