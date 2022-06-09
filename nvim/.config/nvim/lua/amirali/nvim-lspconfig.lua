@@ -49,7 +49,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'jedi_language_server', 'gopls', 'sorbet', 'rust_analyzer', 'ansiblels' }
+local servers = { 'jedi_language_server', 'gopls', 'sorbet', 'rust_analyzer', 'ansiblels', 'dartls' }
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
