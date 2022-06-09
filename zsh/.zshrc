@@ -43,3 +43,6 @@ fi
 autoload -U bashcompinit
 bashcompinit
 eval "$(register-python-argcomplete pipx)"
+
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
