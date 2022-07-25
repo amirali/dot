@@ -11,7 +11,6 @@ local packer = require('packer')
 
 return packer.startup(function()
 	use 'wbthomason/packer.nvim' -- packer itself
-	use 'kyazdani42/nvim-tree.lua' -- file explorer
 	use 'lukas-reineke/indent-blankline.nvim' -- indention guide
 	use {
 		'windwp/nvim-autopairs',
@@ -45,13 +44,6 @@ return packer.startup(function()
 		'lewis6991/gitsigns.nvim',
 		requires = { 'nvim-lua/plenary.nvim' },
 	} -- git signs
-	use {
-	'goolord/alpha-nvim',
-		requires = { 'kyazdani42/nvim-web-devicons' },
-		config = function ()
-			require'alpha'.setup(require'alpha.themes.dashboard'.opts)
-		end
-	}
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} },

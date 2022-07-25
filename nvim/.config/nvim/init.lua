@@ -1,18 +1,15 @@
 local sources = {
   'settings',
-  'keymaps',
+  'amirali.keymaps',
   'amirali.packer',
   'amirali.nvim-treesitter',
-  'amirali.nvim-tree',
   'amirali.lualine',
-  'amirali.alpha-nvim',
   'amirali.gitsigns',
   'amirali.indent-blankline',
   'amirali.nvim-cmp',
   'amirali.nvim-lspconfig',
   'amirali.telescope',
   'amirali.hop',
-  -- 'amirali.nord',
   'amirali.catppuccin',
 }
 
