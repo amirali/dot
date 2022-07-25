@@ -74,4 +74,11 @@ return packer.startup(function()
   use 'ellisonleao/glow.nvim'
   use 'Joorem/vim-haproxy'
   use 'lepture/vim-jinja'
+  use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require('neogit').setup({})
+    end
+  }
 end)
