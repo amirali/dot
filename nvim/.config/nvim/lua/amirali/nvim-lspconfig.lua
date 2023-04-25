@@ -49,7 +49,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'jedi_language_server', 'gopls', 'sorbet', 'rust_analyzer', 'ansiblels', 'dartls' }
+local servers = { 'jedi_language_server', 'gopls', 'solargraph', 'rust_analyzer', 'ansiblels', 'dartls', 'vls' }
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
@@ -60,3 +60,22 @@ for _, lsp in ipairs(servers) do
 		}
 	}
 end
+
+nvim_lsp.lua_ls.setup {
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        globals = {'vim'},
+      },
+      workspace = {
+        library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}

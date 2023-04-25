@@ -1,8 +1,8 @@
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    -- theme = 'nord',
-    theme = 'auto',
+    theme = 'nord',
+    -- theme = 'auto',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},

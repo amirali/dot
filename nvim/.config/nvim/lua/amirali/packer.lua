@@ -53,7 +53,7 @@ return packer.startup(function()
     requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('yapf').setup {
-        style = '/home/amirali/src/miare/setup.cfg',
+        style = '/Users/amirali/src/miare/setup.cfg',
       }
     end,
   }
@@ -80,5 +80,30 @@ return packer.startup(function()
     config = function()
       require('neogit').setup({})
     end
+  }
+  use 'rhysd/vim-wasm'
+  use 'terrastruct/d2-vim'
+  use 'github/copilot.vim'
+  use 'fatih/vim-go'
+  use {
+    'lukas-reineke/headlines.nvim',
+    after = 'nvim-treesitter',
+    config = function()
+      require("headlines").setup({
+          markdown = {
+              headline_highlights = {
+                  "Headline1",
+                  "Headline2",
+                  "Headline3",
+                  "Headline4",
+                  "Headline5",
+                  "Headline6",
+              },
+              codeblock_highlight = "CodeBlock",
+              dash_highlight = "Dash",
+              quote_highlight = "Quote",
+          },
+      })
+    end,
   }
 end)

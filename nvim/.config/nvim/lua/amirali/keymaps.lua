@@ -39,10 +39,11 @@ nnoremap('<leader>l', ":lua require'hop'.hint_lines()<cr>")
 
 -- temp cargo run
 local cargo_run = function()
-  print("hello from rust")
-  map('n', '<leader>run', ':!cargo run<cr>', noremap)
+  nnoremap('<leader>run', ':!cargo run<cr>')
+  nnoremap('<leader>build', ':!cargo build<cr>')
+  nnoremap('<leader>up', ':!cargo update<cr>')
 end
-vim.api.nvim_create_autocmd({"BufEnter"}, {
+vim.api.nvim_create_autocmd("BufEnter", {
   pattern = {"*.rs"},
   callback = cargo_run,
 })

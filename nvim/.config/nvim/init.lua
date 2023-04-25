@@ -10,7 +10,8 @@ local sources = {
   'amirali.nvim-lspconfig',
   'amirali.telescope',
   'amirali.hop',
-  'amirali.catppuccin',
+  'amirali.miare',
+  -- 'amirali.catppuccin',
 }
 
 for _, source in ipairs(sources) do
@@ -19,3 +20,11 @@ for _, source in ipairs(sources) do
     print('Failed to load ' .. source .. '\n' .. fault .. '\n----------')
   end
 end
+
+vim.g.nord_italic = false
+vim.g.nord_bold = false
+vim.g.nord_contrast = true
+vim.g.nord_borders = false
+vim.g.nord_disable_background = false
+vim.g.nord_uniform_diff_background = true
+require('nord').set()
