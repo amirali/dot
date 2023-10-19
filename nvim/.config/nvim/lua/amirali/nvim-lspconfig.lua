@@ -31,9 +31,9 @@ local on_attach = function(client, bufnr)
 	local opts = { noremap=true, silent=true }
 
 	buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-	buf_set_keymap('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
+	buf_set_keymap('n', 'gd', '<cmd>lua require"telescope.builtin".lsp_definitions{}<CR>', opts)
 	buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-	buf_set_keymap('n', 'gi', '<cmd>Telescope lsp_implementations<CR>', opts)
+	buf_set_keymap('n', 'gi', '<cmd>lua require"telescope.builtin".lsp_implementations{}<CR>', opts)
 	buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 	buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
 	buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
@@ -41,7 +41,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 	buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 	buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-	buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+	buf_set_keymap('n', 'gr', '<cmd>lua require"telescope.builtin".lsp_references{}<CR>', opts)
 	buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
 	buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 	buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
@@ -49,7 +49,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = { 'jedi_language_server', 'gopls', 'solargraph', 'rust_analyzer', 'ansiblels', 'dartls', 'vls' }
+local servers = {'gopls', 'solargraph', 'rust_analyzer', 'ansiblels', 'dartls', 'vls', 'dockerls', 'denols'}
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
@@ -60,6 +60,19 @@ for _, lsp in ipairs(servers) do
 		}
 	}
 end
+
+nvim_lsp['anakin_language_server'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  settings = {
+    anakinln = {
+      yapf_style_config = '/Users/amirali/src/miare/setup.cfg'
+    }
+  }
+}
 
 nvim_lsp.lua_ls.setup {
   settings = {

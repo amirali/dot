@@ -11,6 +11,9 @@ local sources = {
   'amirali.telescope',
   'amirali.hop',
   'amirali.miare',
+  'amirali.flutter',
+  'amirali.dap',
+  'amirali.test',
   -- 'amirali.catppuccin',
 }
 

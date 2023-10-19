@@ -43,7 +43,7 @@ opt.smartindent = true
 cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
 
 cmd [[
-  autocmd FileType lua,yaml setlocal shiftwidth=2 tabstop=2
+  autocmd FileType lua,yaml,dart setlocal shiftwidth=2 tabstop=2
 ]]
 
 -- set yaml.ansible filetype (https://github.com/pearofducks/ansible-vim/blob/master/ftdetect/ansible.vim)

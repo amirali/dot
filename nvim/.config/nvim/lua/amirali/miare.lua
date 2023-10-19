@@ -10,7 +10,7 @@ if vim.fn.getcwd() == vim.fn.expand('~').."/src/miare/django" then
   vim.api.nvim_create_user_command(
     'TestFile',
     function (opts)
-      vim.cmd("tabnew term://" .. vim.env.VIRTUAL_ENV .. "/bin/python manage.py test --keepdb -s " .. vim.fn.bufname('%'))
+      vim.cmd("tabnew term://" .. vim.env.VIRTUAL_ENV .. "/bin/python manage.py test --keepdb " .. vim.fn.bufname('%'))
     end,
     {}
   )

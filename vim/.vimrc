@@ -1,5 +1,5 @@
 " Amirali Esfandiari's vimrc
-" 
+"
 " [Hotkeys]
 " <F3>  nexttab
 " <F4>  previoustab
@@ -59,6 +59,8 @@ Plug 'prettier/vim-prettier', {
 			\ }
 Plug 'wsdjeg/vim-todo'
 Plug 'junegunn/goyo.vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'terrastruct/d2-vim'
 
 call plug#end()
 
@@ -77,7 +79,7 @@ set nofoldenable
 set termguicolors
 set nowrap
 set background=dark
-colo nord
+colo catppuccin
 set nocp
 set clipboard^=unnamed,unnamedplus
 set autoindent
@@ -103,13 +105,13 @@ let &t_EI = "\e[2 q"
 " spell checking
 map <F8> :setlocal spell! spelllang=en_us<CR>
 
-" indentLine 
+" indentLine
 let g:indentLine_char = '|'
 
 " toggle showing NERDTree with <F9>
 map <F9> :NERDTreeToggle<CR>
 
-" open a NERDTree automatically when vim starts up with no file 
+" open a NERDTree automatically when vim starts up with no file
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -223,7 +225,7 @@ au FileType html,css EmmetInstall
 noremap <c-_> :Commentary<CR>
 
 " vue
-let g:vim_vue_plugin_config = { 
+let g:vim_vue_plugin_config = {
 			\ 'syntax': {
 			\    'template': ['html'],
 			\    'script': ['javascript'],

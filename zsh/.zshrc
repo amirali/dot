@@ -1,5 +1,6 @@
-# Path to oh-my-zsh
+source ~/.profile
 export ZSH="${HOME}/.oh-my-zsh"
+[ ! -d "$ZSH" ] && git clone https://github.com/ohmyzsh/ohmyzsh.git --single-branch --depth 1 .oh-my-zsh
 
 # Theme
 ZSH_THEME="bubble-gum"
@@ -45,4 +46,16 @@ bashcompinit
 eval "$(register-python-argcomplete pipx)"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export DENO_INSTALL="/Users/amirali/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+export PATH="$PATH:/opt/homebrew/lib/ruby/gems/3.1.0/bin"
+
+# Wasmer
+export WASMER_DIR="/Users/amirali/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+
+alias djvanilla="cd `mktemp -d`; virtualenv venv; source venv/bin/activate; pip install django; django-admin startproject test_vanilla .; python manage.py startapp web"
+alias infmiare="pushd ~/src/miare/infrastructure; anssh -user=root -inv=production_common.ini -inv=production_sah.ini -inv=production_pol.ini -inv=staging.ini; popd"
+alias vim="nvim"
 
