@@ -59,3 +59,6 @@ alias djvanilla="cd `mktemp -d`; virtualenv venv; source venv/bin/activate; pip 
 alias infmiare="pushd ~/src/miare/infrastructure; anssh -user=root -inv=production_common.ini -inv=production_sah.ini -inv=production_pol.ini -inv=staging.ini; popd"
 alias vim="nvim"
 
+alias blumail="POP_SMTP_HOST=mail.bluprint.ir POP_SMTP_PORT=465 POP_SMTP_USERNAME=amirali@bluprint.ir POP_SMTP_PASSWORD= pop"
+
+alias download="aria2c -x 16 -s 16 -k 1M -c"
