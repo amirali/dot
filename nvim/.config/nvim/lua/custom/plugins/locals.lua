@@ -1,8 +1,15 @@
 return {
   {
-    dir = "/Users/amirali/src/github.com/amirali/whid",
-    config = function()
-      require('whid').setup()
-    end
+    dir = "~/src/github.com/amirali/whid",
+    opts = {},
+  },
+
+  {
+    dir = "~/src/github.com/amirali/rest-ui.nvim",
+    opts = {
+      triggers = {
+        on_save = "request",
+      },
+    },
   }
 }
