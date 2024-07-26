@@ -30,9 +30,12 @@ fi
 
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
 
+export DENO_INSTALL="/home/amirali/.deno"
+
 if [ "`uname -s`" = "Darwin" ]; then
-	export PATH=/opt/homebrew/opt/python@3.10/bin:$PATH
-	export PATH=/Users/amirali/Library/Python/3.10/bin:$PATH
+    export PATH=/opt/homebrew/opt/python@3.10/bin:$PATH
+    export PATH=/Users/amirali/Library/Python/3.10/bin:$PATH
+    export DENO_INSTALL="/Users/amirali/.deno"
 fi
 
 eval $(thefuck --alias)
@@ -46,7 +49,6 @@ bashcompinit
 eval "$(register-python-argcomplete pipx)"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export DENO_INSTALL="/Users/amirali/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 export PATH="$PATH:/opt/homebrew/lib/ruby/gems/3.1.0/bin"
@@ -62,3 +64,15 @@ alias vim="nvim"
 alias blumail="POP_SMTP_HOST=mail.bluprint.ir POP_SMTP_PORT=465 POP_SMTP_USERNAME=amirali@bluprint.ir POP_SMTP_PASSWORD= pop"
 
 alias download="aria2c -x 16 -s 16 -k 1M -c"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+export ANDROID_HOME="/home/amirali/Android/Sdk"
+export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools"
+
+export PATH="$PATH:/usr/local/go/bin"
+
+alias cheat="cht.sh"
