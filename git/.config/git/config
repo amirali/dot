@@ -36,6 +36,7 @@
 [alias]
 	ap = add --patch
 	edit = !nvim -p $(git status --short | awk '$1 ~ /^M|A|U/ {print $2}')
+	ignore = "!gi() { curl -sL -o .gitignore "https://www.toptal.com/developers/gitignore/api/$*" ;}; gi"
 
 [credential]
 	helper = cache
