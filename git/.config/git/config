@@ -41,10 +41,6 @@
 [credential]
 	helper = cache
 
-[url "git@git.miare.ir:"]
-	insteadOf = https://git.miare.ir/
-[url "git@git.miare.ir:"]
-	insteadOf = https://git.miare.ir:
 [core]
 	editor = nvim
 [commit]
