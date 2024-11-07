@@ -55,9 +55,9 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 	window:set_config_overrides(overrides)
 end)
 
-wezterm.on("gui-startup", function()
-	local _, _, window = wezterm.mux.spawn_window({})
-	window:gui_window():maximize()
-end)
+-- wezterm.on("gui-startup", function()
+-- 	local _, _, window = wezterm.mux.spawn_window({})
+-- 	window:gui_window():maximize()
+-- end)
 
 return config
