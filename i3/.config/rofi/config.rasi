@@ -1,6 +1,5 @@
 configuration {
     font: "Roboto Condensed 13";
-	theme: "nord";
 	width: 33;
 	location: 2;
 }
