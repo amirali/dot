@@ -1,7 +1,7 @@
 local awful = require("awful")
 local kl = require("modules.keyboard_layout")
 
-local kbdcfg = kl.kbdcfg({ type = "tui" })
+local kbdcfg = kl.kbdcfg({ type = "tui", tui_wrap_left = "⌨ " })
 kbdcfg.add_primary_layout("English", "En", "us")
 kbdcfg.add_primary_layout("Persian", "Fa", "ir")
 kbdcfg.bind()
