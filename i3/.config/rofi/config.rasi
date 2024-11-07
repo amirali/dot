@@ -3,3 +3,5 @@ configuration {
 	width: 33;
 	location: 2;
 }
+
+@theme "nord"

@@ -6,14 +6,11 @@ general {
 	color_bad = "#FF5555"
 }
 
-order += ""
-order += "ipv6"
 order += "wireless wlp3s0"
 order += "ethernet enp5s0"
 order += "battery 0"
 order += "memory"
 order += "volume master"
-order += "path_exists VPN"
 order += "tztime local"
 
 wireless wlp3s0 {
@@ -48,10 +45,6 @@ volume master {
         device = "default"
         mixer = "Master"
         mixer_idx = 0
-}
-
-path_exists VPN {
-    path = "/proc/sys/net/ipv4/conf/proton0"
 }
 
 battery 0 {
