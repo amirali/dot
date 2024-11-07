@@ -13,3 +13,6 @@
 [submodule "ssh/.ssh"]
 	path = ssh/.ssh
 	url = git@github.com:amirali/ssh
+[submodule "awesome/.config/awesome/modules/keyboard_layout"]
+	path = awesome/.config/awesome/modules/keyboard_layout
+	url = https://github.com/echuraev/keyboard_layout.git
