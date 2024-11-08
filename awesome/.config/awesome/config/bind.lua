@@ -88,6 +88,11 @@ awful.keyboard.append_global_keybindings({
 		helpers.client.resize_client(client.focus, "right")
 	end, { description = "resize to the right", group = "client" }),
 
+	-- Toggle titlebar
+	awful.key({ mod, ctrl }, "t", function()
+		awful.titlebar.toggle(client.focus)
+	end, { description = "toggle title bar", group = "client" }),
+
 	-- Programs
 
 	awful.key({ mod }, "Return", function()
