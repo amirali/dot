@@ -8,35 +8,37 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
 screen.connect_signal("request::desktop_decoration", function(s)
 	awesome.connect_signal("live::reload", function()
-		awful.wallpaper {
+		awful.wallpaper({
 			screen = s,
-			bg = beautiful.bg
-		}
+			bg = beautiful.bg,
+		})
 	end)
 end)
 
 function live(w, properties)
-    local widget = w()
+	local widget = w()
 
 	for property, arg in pairs(properties) do
 		widget[property] = beautiful[arg]
 	end
 
-    awesome.connect_signal("live::reload", function()
+	awesome.connect_signal("live::reload", function()
 		for property, arg in pairs(properties) do
 			widget[property] = beautiful[arg]
 		end
-        widget:emit_signal("widget::redraw_needed")
-    end)
+		widget:emit_signal("widget::redraw_needed")
+	end)
 
-    return widget
+	return widget
 end
 
 function hovercursor(widget)
 	local oldcursor, oldwibox
 	widget:connect_signal("mouse::enter", function()
 		local wb = mouse.current_wibox
-		if wb == nil then return end
+		if wb == nil then
+			return
+		end
 		oldcursor, oldwibox = wb.cursor, wb
 		wb.cursor = "hand2"
 	end)
@@ -51,7 +53,7 @@ end
 
 function markup(args)
 	local fg = beautiful[args.fg] or beautiful.fg
-	local text = '<span foreground="' .. fg .. '">' .. args.text .. '</span>'
+	local text = '<span foreground="' .. fg .. '">' .. args.text .. "</span>"
 	return text
 end
 
@@ -60,11 +62,11 @@ function colortext(args)
 	local fg = beautiful[table.fg] or beautiful.fg
 	local font = table.font or user.font
 	local text = table.text or "N/A"
-	local textbox = wibox.widget {
+	local textbox = wibox.widget({
 		markup = markup({ text = text, fg = fg }),
 		font = font,
-		widget = wibox.widget.textbox
-	}
+		widget = wibox.widget.textbox,
+	})
 
 	awesome.connect_signal("live::reload", function()
 		textbox.markup = markup({ text = text, fg = fg })
@@ -77,22 +79,21 @@ function button(widget)
 	local img
 
 	if widget.type == "text" then
-		img = wibox.widget {
-			markup = '<span foreground="' .. beautiful.fg .. '">' .. widget.image .. '</span>',
+		img = wibox.widget({
+			markup = '<span foreground="' .. beautiful.fg .. '">' .. widget.image .. "</span>",
 			font = widget.font or user.fonticon,
 			align = "center",
-			widget = wibox.widget.textbox
-		}
+			widget = wibox.widget.textbox,
+		})
 
 		awesome.connect_signal("live::reload", function()
-			img.markup = '<span foreground="' .. beautiful.fg .. '">' .. widget.image .. '</span>'
+			img.markup = '<span foreground="' .. beautiful.fg .. '">' .. widget.image .. "</span>"
 		end)
 	elseif widget.type == "image" then
 		img = wibox.widget.imagebox(widget.image)
 	else
 		img = live(wibox.widget.imagebox, { image = "calla" })
 	end
-	
 
 	if widget.size then
 		width = widget.size
@@ -111,20 +112,20 @@ function button(widget)
 		end
 	end
 
-	local button = hovercursor(wibox.widget {
+	local button = hovercursor(wibox.widget({
 		{
 			img,
 			margins = dpi(5),
-			widget = wibox.container.margin
+			widget = wibox.container.margin,
 		},
 		forced_width = width,
 		forced_height = height,
 		buttons = { awful.button({}, 1, widget.run) },
 		shape = function(cr, width, height)
-					gears.shape.rounded_rect(cr, width, height, dpi(10))
-				end,
-		widget = live(wibox.container.background, { bg = "bgmid" })
-	})
+			gears.shape.rounded_rect(cr, width, height, dpi(10))
+		end,
+		widget = live(wibox.container.background, { bg = "bgmid" }),
+	}))
 
 	return button
 end
