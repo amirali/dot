@@ -4,11 +4,12 @@ local beautiful = require("beautiful")
 
 -- Manage new windows
 
-client.connect_signal('manage', function(c)
-
+client.connect_signal("manage", function(c)
 	-- Put new windows in stack
 
-	if not awesome.startup then awful.client.setslave(c) end
+	if not awesome.startup then
+		awful.client.setslave(c)
+	end
 	if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
 		awful.placement.no_offscreen(c)
 	end
@@ -25,32 +26,32 @@ client.connect_signal('manage', function(c)
 		cr:paint()
 		c.icon = img._native
 	end
-
 end)
 
 -- Sloppy focus
 
 client.connect_signal("mouse::enter", function(c)
-    c:activate { context = "mouse_enter", raise = false }
+	c:activate({ context = "mouse_enter", raise = false })
 end)
 
 -- Layouts and tag table
 
 screen.connect_signal("request::desktop_decoration", function(s)
 	tag.connect_signal("request::default_layouts", function()
-    	awful.layout.append_default_layouts({
+		awful.layout.append_default_layouts({
 			awful.layout.suit.tile,
 			awful.layout.suit.floating,
-    	})
+		})
 	end)
 
-    awful.tag({ "1", "2", "3" }, s, awful.layout.layouts[1])
+	awful.tag({ "1", "2", "3" }, s, awful.layout.layouts[1])
+	s.mypromptbox = awful.widget.prompt()
 end)
 
 -- Touchpad gestures
 
 awesome.connect_signal("touchpad::gesture", function(direction)
-	require("naughty").notification{text="test"}
+	require("naughty").notification({ text = "test" })
 	if direction == "left" then
 		awful.tag.viewprev()
 	elseif direction == "right" then

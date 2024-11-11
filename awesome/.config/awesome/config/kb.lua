@@ -15,4 +15,8 @@ kbdcfg.widget:buttons(awful.util.table.join(
 	end)
 ))
 
+awesome.connect_signal("kbdcfg::set_english", function()
+	kbdcfg.switch_by_name("English")
+end)
+
 return kbdcfg

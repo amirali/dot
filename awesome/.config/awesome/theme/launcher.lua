@@ -40,7 +40,7 @@ local settings = button({
 
 local shutdown = button({
 	type = "text",
-	image = "",
+	image = "⏻",
 	run = function()
 		awful.spawn.with_shell(user.shutdown)
 	end,
@@ -48,7 +48,7 @@ local shutdown = button({
 
 local reboot = button({
 	type = "text",
-	image = "",
+	image = "⟲",
 	run = function()
 		awful.spawn.with_shell(user.reboot)
 	end,

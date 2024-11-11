@@ -16,50 +16,50 @@ naughty.config.defaults.title = "Notification"
 
 -- Rules
 
-ruled.notification.connect_signal('request::rules', function()
+ruled.notification.connect_signal("request::rules", function()
 	-- Critical
-	ruled.notification.append_rule {
-		rule       = { urgency = 'critical' },
-		properties = { bg = beautiful.bg_normal, fg = beautiful.fg_urgent, timeout = 0 }
-	}
+	ruled.notification.append_rule({
+		rule = { urgency = "critical" },
+		properties = { bg = beautiful.bg_normal, fg = beautiful.fg_urgent, timeout = 0 },
+	})
 
 	-- Normal
-	ruled.notification.append_rule {
-		rule       = { urgency = 'normal' },
-		properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 }
-	}
+	ruled.notification.append_rule({
+		rule = { urgency = "normal" },
+		properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 },
+	})
 
 	-- Low
-	ruled.notification.append_rule {
-		rule       = { urgency = 'low' },
-		properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 }
-	}
+	ruled.notification.append_rule({
+		rule = { urgency = "low" },
+		properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 },
+	})
 
 	awesome.connect_signal("live::reload", function()
 		-- Critical
-		ruled.notification.append_rule {
-			rule       = { urgency = 'critical' },
-			properties = { bg = beautiful.bg_normal, fg = beautiful.fg_urgent, timeout = 0 }
-		}
+		ruled.notification.append_rule({
+			rule = { urgency = "critical" },
+			properties = { bg = beautiful.bg_normal, fg = beautiful.fg_urgent, timeout = 0 },
+		})
 
 		-- Normal
-		ruled.notification.append_rule {
-			rule       = { urgency = 'normal' },
-			properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 }
-		}
+		ruled.notification.append_rule({
+			rule = { urgency = "normal" },
+			properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 },
+		})
 
 		-- Low
-		ruled.notification.append_rule {
-			rule       = { urgency = 'low' },
-			properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 }
-		}
+		ruled.notification.append_rule({
+			rule = { urgency = "low" },
+			properties = { bg = beautiful.bg_normal, fg = beautiful.fg_normal, timeout = 5 },
+		})
 	end)
 end)
 
 -- Notification
 
 naughty.connect_signal("request::display", function(n)
-	naughty.layout.box {
+	naughty.layout.box({
 		notification = n,
 		type = "notification",
 		bg = beautiful.bg_normal,
@@ -72,29 +72,29 @@ naughty.connect_signal("request::display", function(n)
 								{
 									{
 										naughty.widget.title,
-										layout = wibox.layout.align.horizontal
+										layout = wibox.layout.align.horizontal,
 									},
 									top = dpi(5),
 									bottom = dpi(5),
 									left = dpi(10),
 									right = dpi(10),
-									widget = wibox.container.margin
+									widget = wibox.container.margin,
 								},
 								shape = function(cr, width, height)
-											gears.shape.rounded_rect(cr, width, height, dpi(10))
-										end,
-								widget = live(wibox.container.background, { bg = "bgmid" })
+									gears.shape.rounded_rect(cr, width, height, dpi(10))
+								end,
+								widget = live(wibox.container.background, { bg = "bgmid" }),
 							},
 							margins = dpi(5),
-							widget = wibox.container.margin
+							widget = wibox.container.margin,
 						},
 						strategy = "min",
 						width = dpi(300),
-						widget = wibox.container.constraint
+						widget = wibox.container.constraint,
 					},
 					strategy = "max",
 					width = dpi(400),
-					widget = wibox.container.constraint
+					widget = wibox.container.constraint,
 				},
 				{
 					{
@@ -103,20 +103,20 @@ naughty.connect_signal("request::display", function(n)
 							bottom = dpi(10),
 							left = dpi(15),
 							right = dpi(15),
-							widget = wibox.container.margin
+							widget = wibox.container.margin,
 						},
 						strategy = "min",
 						height = dpi(60),
-						widget = wibox.container.constraint
+						widget = wibox.container.constraint,
 					},
 					strategy = "max",
 					width = dpi(400),
-					widget = wibox.container.constraint
+					widget = wibox.container.constraint,
 				},
-				layout = wibox.layout.align.vertical
-			},	
+				layout = wibox.layout.align.vertical,
+			},
 			id = "background_role",
-			widget = naughty.container.background
-		}
-	}
+			widget = naughty.container.background,
+		},
+	})
 end)
