@@ -137,11 +137,11 @@ awful.keyboard.append_global_keybindings({
 	-- Brightness
 
 	awful.key({}, "XF86MonBrightnessUp", function()
-		awful.spawn.with_shell("brightnessctl s 5%+")
+		awful.spawn.with_shell("sudo brightnessctl s 5%+")
 		awesome.emit_signal("widget::brightness")
 	end, { description = "raise brightness", group = "brightness" }),
 	awful.key({}, "XF86MonBrightnessDown", function()
-		awful.spawn.with_shell("brightnessctl s 5%-")
+		awful.spawn.with_shell("sudo brightnessctl s 5%-")
 		awesome.emit_signal("widget::brightness")
 	end, { description = "lower brightness", group = "brightness" }),
 
