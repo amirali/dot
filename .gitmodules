@@ -16,3 +16,6 @@
 [submodule "awesome/.config/awesome/modules/keyboard_layout"]
 	path = awesome/.config/awesome/modules/keyboard_layout
 	url = https://github.com/echuraev/keyboard_layout.git
+[submodule "awesome/.config/awesome/modules/awesome_switcher"]
+	path = awesome/.config/awesome/modules/awesome_switcher
+	url = https://github.com/troglobit/awesome-switcher.git

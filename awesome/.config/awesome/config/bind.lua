@@ -1,6 +1,7 @@
 local awful = require("awful")
 local helpers = require("helpers")
 local kbdcfg = require("config.kb")
+local switcher = require("config.switcher")
 
 local mod = user.mod
 local ctrl = "Control"
@@ -40,7 +41,7 @@ awful.keyboard.append_global_keybindings({
 		awful.layout.inc(-1)
 	end, { description = "previous layout", group = "awesome" }),
 	awful.key({ alt }, "Tab", function()
-		awful.client.focus.byidx(1)
+		switcher.switch(1, alt, "Alt_L", "Shift", "Tab")
 	end, { description = "next window", group = "awesome" }),
 	awful.key({ mod, shift }, "Tab", function()
 		awful.client.focus.byidx(-1)
