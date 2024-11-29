@@ -6,10 +6,6 @@ general {
 	color_bad = "#FF5555"
 }
 
-order += "wireless wlp3s0"
-order += "ethernet enp5s0"
-order += "battery 0"
-order += "memory"
 order += "volume master"
 order += "tztime local"
 
