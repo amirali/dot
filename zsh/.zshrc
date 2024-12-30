@@ -7,6 +7,9 @@ ZSH_THEME="bubble-gum"
 
 COMPLETION_WAITING_DOTS="true"
 
+# Catppuccin ZSH syntax highlighting
+source $ZSH/custom/plugins/zsh-syntax-highlighting/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+
 plugins=(
     ansible
     git
@@ -76,3 +79,5 @@ export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools"
 export PATH="$PATH:/usr/local/go/bin"
 
 alias cheat="cht.sh"
+
+export PATH=$PATH:/Users/amirali/.spicetify
