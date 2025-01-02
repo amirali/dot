@@ -143,3 +143,5 @@ R = function(name)
   RELOAD(name)
   return require(name)
 end
+
+vim.cmd("let $NEOVIM_LISTEN_ADDRESS = '" .. vim.fn.serverlist()[1] .. "'")

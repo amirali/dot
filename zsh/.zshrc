@@ -62,7 +62,6 @@ export WASMER_DIR="/Users/amirali/.wasmer"
 
 alias djvanilla="cd `mktemp -d`; virtualenv venv; source venv/bin/activate; pip install django; django-admin startproject test_vanilla .; python manage.py startapp web"
 alias infmiare="pushd ~/src/miare/infrastructure; anssh -user=root -inv=production_common.ini -inv=production_sah.ini -inv=production_pol.ini -inv=staging.ini; popd"
-alias vim="nvim"
 
 alias blumail="POP_SMTP_HOST=mail.bluprint.ir POP_SMTP_PORT=465 POP_SMTP_USERNAME=amirali@bluprint.ir POP_SMTP_PASSWORD= pop"
 
@@ -81,3 +80,22 @@ export PATH="$PATH:/usr/local/go/bin"
 alias cheat="cht.sh"
 
 export PATH=$PATH:/Users/amirali/.spicetify
+
+function nvr() {
+    args=()
+    for element in $@; do
+        echo $element
+        if [[ -e $element ]]; then
+            element="$(pwd)/$element"
+            echo $element
+        fi
+        args+=("$element")
+    done
+    nvim --server "$NEOVIM_LISTEN_ADDRESS" --remote $args
+}
+
+if [[ -n $NEOVIM_LISTEN_ADDRESS ]]; then
+    alias vim="nvr"
+else
+    alias vim=nvim
+fi
