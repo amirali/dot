@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 local config = {}
 
-config.color_scheme = "Catppuccin Mocchiato"
+config.color_scheme = "Catppuccin Macchiato"
 config.hide_tab_bar_if_only_one_tab = true
 -- config.font = wezterm.font "FiraCode Nerd Font"
 config.bidi_enabled = true
