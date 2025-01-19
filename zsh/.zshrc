@@ -26,10 +26,7 @@ zinit snippet OMZP::command-not-found
 zinit snippet OMZP::cp
 zinit snippet OMZP::deno
 zinit snippet OMZP::gh
-zinit snippet OMZP::man
 zinit snippet OMZP::ssh
-zinit snippet OMZP::sudo
-zinit snippet OMZP::z
 zinit snippet OMZP::git-auto-fetch
 zinit ice as"completion"; zinit snippet OMZP::docker/completions/_docker
 zinit ice as"completion"; zinit snippet OMZP::docker-compose/_docker-compose
@@ -47,6 +44,7 @@ setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_find_no_dups
+set -o vi
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
