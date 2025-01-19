@@ -1,5 +1,0 @@
-require("config.main")
-require("config.bind")
-require("config.rule")
-require("config.shot")
-require("config.kb")
