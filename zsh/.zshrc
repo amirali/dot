@@ -1,85 +1,81 @@
-source ~/.profile
-export ZSH="${HOME}/.oh-my-zsh"
-[ ! -d "$ZSH" ] && git clone https://github.com/ohmyzsh/ohmyzsh.git --single-branch --depth 1 .oh-my-zsh
+[ -f ~/.profile ] && source ~/.profile
 
-# Theme
-ZSH_THEME="bubble-gum"
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit"
+ZSH_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"
 
-COMPLETION_WAITING_DOTS="true"
-
-# Catppuccin ZSH syntax highlighting
-source $ZSH/custom/plugins/zsh-syntax-highlighting/catppuccin_macchiato-zsh-syntax-highlighting.zsh
-
-plugins=(
-    ansible
-    git
-    git-auto-fetch
-    shell-proxy
-    thefuck
-    z
-    zsh-autosuggestions
-    zsh-completions
-    zsh-syntax-highlighting
-    bgnotify
-)
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
-setopt INC_APPEND_HISTORY
-source "${ZSH}/oh-my-zsh.sh"
-
-if [ -f "$HOME/.cargo/env" ]; then
-    source ~/.cargo/env
+if [ ! -d "$ZINIT_HOME" ]; then
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
+source "${ZINIT_HOME}/zinit.zsh"
 
-export DENO_INSTALL="/home/amirali/.deno"
+zinit light nullxception/roundy
 
-if [ "`uname -s`" = "Darwin" ]; then
-    export PATH=/opt/homebrew/opt/python@3.10/bin:$PATH
-    export PATH=/Users/amirali/Library/Python/3.10/bin:$PATH
-    export DENO_INSTALL="/Users/amirali/.deno"
-fi
+zinit light zsh-users/zsh-completions
+autoload -Uz compinit && compinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-eval $(thefuck --alias)
+zinit light Aloxaf/fzf-tab
 
-if [ -f "$HOME/.profile" ]; then
-    source $HOME/.profile
-fi
+zinit light zsh-users/zsh-syntax-highlighting
 
-autoload -U bashcompinit
-bashcompinit
-eval "$(register-python-argcomplete pipx)"
+zinit light zsh-users/zsh-autosuggestions
 
+zinit snippet OMZP::command-not-found
+zinit snippet OMZP::cp
+zinit snippet OMZP::deno
+zinit snippet OMZP::gh
+zinit snippet OMZP::man
+zinit snippet OMZP::ssh
+zinit snippet OMZP::sudo
+zinit snippet OMZP::z
+zinit snippet OMZP::git-auto-fetch
+zinit ice as"completion"; zinit snippet OMZP::docker/completions/_docker
+zinit ice as"completion"; zinit snippet OMZP::docker-compose/_docker-compose
+zinit ice as"completion"; zinit snippet OMZP::pip/_pip
+
+source "$ZSH_HOME/catppuccin-macchiato-zsh-syntax-highlighting.zsh"
+
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+zstyle ':completion:*:git-checkout:*' sort false
+
+alias ls='ls --color'
+alias grep='grep --color'
+alias l='ls -lFh'
+alias ll='ls -l'
+alias la='ls -lAFh'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias tar='tar tf'
+command -v bit >/dev/null && alias git=bit
+
+eval "$(fzf --zsh)"
+
+[ ! -d ~/.autoenv ] && git clone 'https://github.com/hyperupcall/autoenv' ~/.autoenv
+source ~/.autoenv/activate.sh
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Fuck Python & MacOS
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export PATH="$DENO_INSTALL/bin:$PATH"
-
-export PATH="$PATH:/opt/homebrew/lib/ruby/gems/3.1.0/bin"
-
-# Wasmer
-export WASMER_DIR="/Users/amirali/.wasmer"
-[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
-
-alias djvanilla="cd `mktemp -d`; virtualenv venv; source venv/bin/activate; pip install django; django-admin startproject test_vanilla .; python manage.py startapp web"
-alias infmiare="pushd ~/src/miare/infrastructure; anssh -user=root -inv=production_common.ini -inv=production_sah.ini -inv=production_pol.ini -inv=staging.ini; popd"
-
-alias blumail="POP_SMTP_HOST=mail.bluprint.ir POP_SMTP_PORT=465 POP_SMTP_USERNAME=amirali@bluprint.ir POP_SMTP_PASSWORD= pop"
-
-alias download="aria2c -x 16 -s 16 -k 1M -c"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-export ANDROID_HOME="/home/amirali/Android/Sdk"
-export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools"
-
-export PATH="$PATH:/usr/local/go/bin"
-
-alias cheat="cht.sh"
-
-export PATH=$PATH:/Users/amirali/.spicetify
 
 function nvr() {
     args=()
@@ -99,3 +95,5 @@ if [[ -n $NEOVIM_LISTEN_ADDRESS ]]; then
 else
     alias vim=nvim
 fi
+
+export PATH=$PATH:~/.spicetify
