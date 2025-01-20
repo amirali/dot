@@ -1,0 +1,5 @@
+- src: community.docker
+  version: latest
+
+- src: community.general
+  version: latest

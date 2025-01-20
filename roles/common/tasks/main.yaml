@@ -1,0 +1,12 @@
+- name: Install required packages
+  include_tasks: install_packages.yaml
+
+- name: Link dotfiles
+  ansible.builtin.file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  with_items: "{{ dotfiles }}"
+  tags:
+    - link_files
+

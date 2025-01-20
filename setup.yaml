@@ -1,0 +1,10 @@
+- name: Setup new system
+  hosts:
+    - localhost
+  # become: yes
+  gather_facts: true
+  roles:
+    - common
+    - docker
+    - containers
+

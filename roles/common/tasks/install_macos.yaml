@@ -1,0 +1,23 @@
+- name: Add Taps
+  community.general.homebrew_tap:
+    name: "{{ item }}"
+  with_items:
+    - hashicorp/tap
+    - homebrew/cask-versions
+    - homebrew/services
+    - terrastruct/d2
+    - tinygo-org/tools
+
+- name: Install formulas
+  community.general.homebrew:
+    name: "{{ item }}"
+    update_homebrew: true
+    install_options:
+     - "--formula"
+  with_items: "{{ macos_formulas }}"
+
+- name: Install casks
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+    update_homebrew: true
+  with_items: "{{ macos_casks }}"

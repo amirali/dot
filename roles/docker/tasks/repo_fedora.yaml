@@ -1,0 +1,37 @@
+---
+- name: Ensure old versions of Docker are not installed.
+  package:
+    name:
+      - docker
+      - docker-common
+      - docker-engine
+    state: absent
+
+- name: Install dnf-plugins-core
+  ansible.builtin.package:
+    name: dnf-plugins-core
+    state: present
+
+- name: Add Docker CE repository
+  ansible.builtin.command:
+    cmd: dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+  args:
+    creates: /etc/yum.repos.d/docker-ce.repo
+
+- name: Configure containerd on RHEL 8.
+  block:
+    - name: Ensure runc is not installed.
+      package:
+        name: runc
+        state: absent
+
+    - name: Ensure container-selinux is installed.
+      package:
+        name: container-selinux
+        state: present
+
+    - name: Ensure containerd.io is installed.
+      package:
+        name: containerd.io
+        state: present
+  when: ansible_distribution_major_version | int == 8

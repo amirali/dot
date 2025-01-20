@@ -1,0 +1,37 @@
+macos_formulas:
+  - git
+  - curl
+  - vim
+  - zsh
+  - htop
+  - aria2
+  - bit-git
+  - ca-certificates
+  - cmake
+  - fd
+  - ffmpeg
+  - fontconfig
+  - fzf
+  - gcc
+  - gdal
+  - git-delta
+  - go
+  - imagemagick
+  - jq
+  - m-cli
+  - neovim
+  - python@3.10
+  - ripgrep
+  - sqlite
+  - tinygo
+  - tmux
+
+macos_casks:
+  - flameshot
+  - ghostty
+  - insomnia
+  - kap
+  - iina
+  - persepolis-download-manager
+  - vlc
+  - wezterm-nightly

@@ -1,0 +1,16 @@
+pop_os_packages:
+  - git
+  - curl
+  - neovim
+  - zsh
+  - htop
+  - ripgrep
+  - python3-pip
+  - python3-dev
+  - fzf
+  - golang
+  - tmux
+  - cmake
+  - make
+  - wezterm
+  - aria2

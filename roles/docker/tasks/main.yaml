@@ -1,0 +1,29 @@
+- name: Install Docker
+  block:
+    - name: Add Docker repo on Fedora
+      ansible.builtin.include_tasks: repo_fedora.yaml
+      when: ansible_facts['os_family'] == 'RedHat'
+
+    - name: Add Docker repo on Pop!_OS
+      ansible.builtin.include_tasks: repo_pop_os.yaml
+      when: ansible_facts['os_family'] == 'Debian'
+
+    - name: Install Docker on Fedora/Pop!_OS
+      ansible.builtin.package:
+        name: "{{ docker_packages }}"
+        state: present
+      when: ansible_facts['os_family'] != 'Darwin'
+
+    - name: Install Docker on macOS
+      ansible.builtin.homebrew_cask:
+        name: docker
+        state: present
+      when: ansible_facts['os_family'] == 'Darwin'
+
+    - name: Enable Docker service
+      ansible.builtin.systemd:
+        name: docker
+        enabled: yes
+        state: started
+      when: ansible_facts['os_family'] != 'Darwin'
+

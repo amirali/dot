@@ -1,4 +1,3 @@
-**/packer_compiled.lua
-fonts/.fonts/.uuid
 **/.DS_Store
-tmux/.config/tmux/plugins/
+roles/common/files/dotfiles/.config/tmux/plugins/
+roles/common/files/dotfiles/.fonts/.uuid

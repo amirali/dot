@@ -1,0 +1,16 @@
+dotfiles:
+  - src: "{{ role_path }}/files/dotfiles/.zshrc"
+    dest: "~/.zshrc"
+  - src: "{{ role_path }}/files/dotfiles/.config/zsh"
+    dest: "~/.config/zsh"
+  - src: "{{ role_path }}/files/dotfiles/.config/wezterm"
+    dest: "~/.config/wezterm"
+  - src: "{{ role_path }}/files/dotfiles/.config/tmux"
+    dest: "~/.config/tmux"
+  - src: "{{ role_path }}/files/dotfiles/.config/nvim"
+    dest: "~/.config/nvim"
+  - src: "{{ role_path }}/files/dotfiles/.config/git"
+    dest: "~/.config/git"
+  - src: "{{ role_path }}/files/dotfiles/.fonts"
+    dest: "~/.fonts"
+

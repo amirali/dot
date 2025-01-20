@@ -1,0 +1,16 @@
+fedora_packages:
+  - git
+  - curl
+  - neovim
+  - zsh
+  - htop
+  - ripgrep
+  - python3-devel
+  - fzf
+  - golang
+  - tmux
+  - cmake
+  - make
+  - gcc-c++
+  - wezterm
+  - aria2
