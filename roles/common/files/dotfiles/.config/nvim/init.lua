@@ -103,6 +103,9 @@ vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<', '<gv')
 
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
 vim.filetype.add {
   extension = {
     templ = 'templ',
@@ -145,3 +148,16 @@ R = function(name)
 end
 
 vim.cmd("let $NEOVIM_LISTEN_ADDRESS = '" .. vim.fn.serverlist()[1] .. "'")
+
+vim.api.nvim_create_user_command('Wwf', function(opts)
+  local custom_path = opts.args
+  local filename = vim.fn.expand '%:t' -- Get the current file's name
+  if filename == '' and not custom_path then
+    error 'No file name.'
+    return
+  end
+  local path = custom_path or filename
+  require('conform').setup { format_on_save = nil }
+  vim.cmd('write ' .. path)
+  require('conform').setup(require('plugins.conform').opts)
+end, { desc = 'Write the current file without conform formatting', nargs = '?', complete = 'dir' })

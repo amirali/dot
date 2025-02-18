@@ -10,7 +10,7 @@ fi
 
 source "${ZINIT_HOME}/zinit.zsh"
 
-zinit light nullxception/roundy
+# zinit light nullxception/roundy
 
 zinit light zsh-users/zsh-completions
 autoload -Uz compinit && compinit
@@ -31,6 +31,13 @@ zinit snippet OMZP::git-auto-fetch
 zinit ice as"completion"; zinit snippet OMZP::docker/completions/_docker
 zinit ice as"completion"; zinit snippet OMZP::docker-compose/_docker-compose
 zinit ice as"completion"; zinit snippet OMZP::pip/_pip
+
+# zinit wait lucid for MichaelAquilina/zsh-autoswitch-virtualenv
+# export AUTOSWITCH_FILE="venv"
+
+zinit light MichaelAquilina/zsh-you-should-use
+
+zinit ice pick"async.zsh" src"pure.zsh"; zinit light sindresorhus/pure
 
 source "$ZSH_HOME/catppuccin-macchiato-zsh-syntax-highlighting.zsh"
 
@@ -95,3 +102,5 @@ else
 fi
 
 export PATH=$PATH:~/.spicetify
+
+alias download="aria2c -x 16 -s 16 -k 1M -c"
