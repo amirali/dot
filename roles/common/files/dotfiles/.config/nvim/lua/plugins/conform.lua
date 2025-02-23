@@ -27,6 +27,7 @@ return { -- Autoformat
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
       python = { 'isort', 'black' },
+      go = { 'gofmt', 'goimoports' },
       --
       -- You can use a sub-list to tell conform to run *until* a formatter
       -- is found.
@@ -35,6 +36,7 @@ return { -- Autoformat
       -- typescriptreact = { { 'prettierd', 'prettier' } },
       typescript = { 'deno_fmt' },
       typescriptreact = { 'deno_fmt' },
+      rust = { 'rustfmt' },
     },
   },
 }

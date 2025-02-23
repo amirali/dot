@@ -106,6 +106,14 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
+-- vim.api.nvim_create_autocmd({ 'FileType' }, {
+--   pattern = { '*.go' },
+--   callback = function()
+vim.keymap.set('n', '<leader>ee', 'oif err != nil {<CR>}<Esc>Oreturn err<Esc>')
+vim.keymap.set('n', '<leader>ef', 'oif err != nil {<CR>}<Esc>Olog.Fatalf("error: %s\\n", err.Error())<Esc>jj')
+--   end,
+-- })
+
 vim.filetype.add {
   extension = {
     templ = 'templ',
