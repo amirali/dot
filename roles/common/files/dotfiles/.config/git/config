@@ -37,6 +37,8 @@
 	ap = add --patch
 	edit = !nvim -p $(git status --short | awk '$1 ~ /^M|A|U/ {print $2}')
 	ignore = "!gi() { curl -sL -o .gitignore "https://www.toptal.com/developers/gitignore/api/$*" ;}; gi"
+	ls = log --oneline --decorate --graph --pretty='%C(yellow)%h%Cred%d %Creset%s%C(yellow) %aN %Cblue%ar' --
+	last = log -1 HEAD --stat --pretty=medium
 
 [credential]
 	helper = cache
