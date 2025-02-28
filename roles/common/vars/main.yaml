@@ -13,4 +13,6 @@ dotfiles:
     dest: "~/.config/git"
   - src: "{{ role_path }}/files/dotfiles/.fonts"
     dest: "~/.fonts"
+  - src: "{{ role_path }}/files/dotfiles/.config/zed"
+    dest: "~/.config/zed"
 

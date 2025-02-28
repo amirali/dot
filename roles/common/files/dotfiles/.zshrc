@@ -22,6 +22,8 @@ zinit light zsh-users/zsh-syntax-highlighting
 
 zinit light zsh-users/zsh-autosuggestions
 
+zinit light arzzen/calc.plugin.zsh
+
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::cp
 zinit snippet OMZP::deno
