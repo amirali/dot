@@ -66,5 +66,14 @@ return {
       on_close = function()
       end,
     }
-  end
+  end,
+  keys = {
+    {
+      '<leader>zz',
+      function()
+        require('zen-mode').toggle()
+      end,
+      desc = 'toggle zenmode',
+    },
+  },
 }

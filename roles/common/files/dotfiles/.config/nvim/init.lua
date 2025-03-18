@@ -25,6 +25,9 @@ vim.opt.smartcase = true
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
 
+-- Enable editorconfig
+vim.g.editorconfig = true
+
 -- Decrease update time
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
@@ -122,7 +125,7 @@ vim.filetype.add {
 
 vim.opt.foldmethod = 'expr'
 vim.cmd [[set foldexpr=nvim_treesitter#foldexpr()]]
-vim.opt.colorcolumn = '100'
+vim.opt.colorcolumn = '80'
 vim.cmd [[au BufWritePre * :%s/\s\+$//e]]
 
 local disabled_built_ins = {
