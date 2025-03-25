@@ -39,6 +39,8 @@
 	ignore = "!gi() { curl -sL -o .gitignore "https://www.toptal.com/developers/gitignore/api/$*" ;}; gi"
 	ls = log --oneline --decorate --graph --pretty='%C(yellow)%h%Cred%d %Creset%s%C(yellow) %aN %Cblue%ar' --
 	last = log -1 HEAD --stat --pretty=medium
+	cp = cherry-pick
+	setup-jira-hook = !curl -sL https://gist.githubusercontent.com/raw/ae9e546e0adefd4d5657f14bd1e1a3d7 -o .git/hooks/prepare-commit-msg && chmod +x .git/hooks/prepare-commit-msg
 
 [credential]
 	helper = cache
