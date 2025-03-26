@@ -209,3 +209,46 @@ end, {
     return { 'auto', 'camel', 'snake' }
   end,
 })
+
+local function diff_with_saved()
+  local buf = vim.api.nvim_get_current_buf()
+  if not vim.bo[buf].modified then
+    print("No changes in the buffer.")
+    return
+  end
+
+  -- Get the current file path
+  local file_path = vim.api.nvim_buf_get_name(buf)
+  if file_path == "" then
+    print("Buffer is unnamed. Cannot diff with saved file.")
+    return
+  end
+
+  -- Create a new scratch buffer to hold the saved file contents
+  local saved_buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_option(saved_buf, "buftype", "nofile")
+
+  -- Read the file contents and set them in the new buffer
+  local lines = {}
+  local file = io.open(file_path, "r")
+  if file then
+    for line in file:lines() do
+      table.insert(lines, line)
+    end
+    file:close()
+  else
+    print("Failed to open file: " .. file_path)
+    return
+  end
+  vim.api.nvim_buf_set_lines(saved_buf, 0, -1, false, lines)
+
+  -- Open the saved buffer in a vertical split
+  vim.api.nvim_command("vsplit")
+  local win = vim.api.nvim_get_current_win()
+  vim.api.nvim_win_set_buf(win, saved_buf)
+
+  -- Enable diff mode in both buffers
+  vim.api.nvim_buf_set_option(buf, "diff", true)
+  vim.api.nvim_buf_set_option(saved_buf, "diff", true)
+end
+vim.api.nvim_create_user_command("DiffSaved", diff_with_saved, {})
