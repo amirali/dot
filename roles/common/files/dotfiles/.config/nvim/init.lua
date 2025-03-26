@@ -172,3 +172,40 @@ vim.api.nvim_create_user_command('Wwf', function(opts)
   vim.cmd('write ' .. path)
   require('conform').setup(require('plugins.conform').opts)
 end, { desc = 'Write the current file without conform formatting', nargs = '?', complete = 'dir' })
+
+---@param to '"c"'|'"s"'|'"a"'|'"camel"'|'"snake"'|'"auto"'
+local function switch_case(to)
+  to = to or 'auto'
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local word = vim.fn.expand '<cword>'
+  local word_start = vim.fn.matchstrpos(vim.fn.getline '.', '\\k*\\%' .. (col + 1) .. 'c\\k*')[2]
+
+  -- camelCase to snake_case
+  if to:match("^[as]") ~= nil and word:find '[a-z][A-Z]' then
+    local snake_case_word = word:gsub('([a-z])([A-Z])', '%1_%2'):lower()
+    vim.api.nvim_buf_set_text(0, line - 1, word_start, line - 1, word_start + #word, { snake_case_word })
+    return
+  end
+
+  -- snake_case
+  if to:match("^[ac]") ~= nil and word:find '_[a-z]' then
+    local camel_case_word = word:gsub('(_)([a-z])', function(_, l)
+      return l:upper()
+    end)
+    vim.api.nvim_buf_set_text(0, line - 1, word_start, line - 1, word_start + #word, { camel_case_word })
+    return
+  end
+end
+vim.api.nvim_create_user_command('SwitchCase', function(opts)
+  local to = opts.args
+  if to == '' then
+    to = 'auto'
+  end
+  switch_case(to)
+end, {
+  desc = 'Switch variable casing. camelCase to snake_case and vice-versa.',
+  nargs = '?',
+  complete = function()
+    return { 'auto', 'camel', 'snake' }
+  end,
+})
