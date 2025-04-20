@@ -28,12 +28,7 @@ return { -- Autoformat
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
       python = {
-        -- To fix auto-fixable lint errors.
-        'ruff_fix',
-        -- To run the Ruff formatter.
-        'ruff_format',
-        -- To organize the imports.
-        'ruff_organize_imports',
+        'isort', 'black'
       },
       go = { 'gofmt', 'goimoports' },
       --

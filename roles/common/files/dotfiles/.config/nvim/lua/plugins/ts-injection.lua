@@ -1,4 +1,4 @@
 return {
-  "DariusCorvus/tree-sitter-language-injection.nvim",
+  'DariusCorvus/tree-sitter-language-injection.nvim',
   opts = {},
 }

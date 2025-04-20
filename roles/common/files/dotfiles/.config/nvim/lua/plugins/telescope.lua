@@ -21,16 +21,20 @@ return {
       -- [[ Configure Telescope ]]
       require('telescope').setup {
         pickers = {
-          find_files = { theme = 'dropdown' },
-          grep_string = { theme = 'dropdown' },
-          live_grep = { theme = 'dropdown' },
-          diagnostics = { theme = 'dropdown' },
-          buffers = { theme = 'dropdown' },
-          help_tags = { theme = 'dropdown' },
+          find_files = { theme = 'ivy' },
+          grep_string = { theme = 'ivy' },
+          live_grep = { theme = 'ivy' },
+          diagnostics = { theme = 'ivy' },
+          buffers = { theme = 'ivy' },
+          help_tags = { theme = 'ivy' },
+          lsp_definitions = { theme = 'ivy' },
+          lsp_references = { theme = 'ivy' },
+          lsp_implementations = { theme = 'ivy' },
+          lsp_type_definitions = { theme = 'ivy' },
         },
         extensions = {
           ['ui-select'] = {
-            require('telescope.themes').get_dropdown(),
+            require('telescope.themes').get_ivy(),
           },
         },
       }

@@ -26,7 +26,7 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
 
 -- Enable editorconfig
-vim.g.editorconfig = true
+-- vim.g.editorconfig = true
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -252,3 +252,8 @@ local function diff_with_saved()
   vim.api.nvim_buf_set_option(saved_buf, "diff", true)
 end
 vim.api.nvim_create_user_command("DiffSaved", diff_with_saved, {})
+
+
+vim.keymap.set('n', '<leader>dds', function()
+  vim.cmd[[!python manage.py shell < %]]
+end, {desc = 'run file with django shell'})
