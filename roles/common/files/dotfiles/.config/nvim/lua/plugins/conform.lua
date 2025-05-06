@@ -40,6 +40,7 @@ return { -- Autoformat
       typescript = { 'deno_fmt' },
       typescriptreact = { 'deno_fmt' },
       rust = { 'rustfmt' },
+      sql = { 'sqruff' },
     },
   },
 }

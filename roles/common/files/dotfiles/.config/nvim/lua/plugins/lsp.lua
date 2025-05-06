@@ -4,6 +4,8 @@ return { -- LSP Configuration & Plugins
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
+    'williamboman/mason-null-ls.nvim',
+    'jose-elias-alvarez/null-ls.nvim',
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -108,6 +110,33 @@ return { -- LSP Configuration & Plugins
           }
         end,
       },
+    }
+
+    require('null-ls').setup {
+      sources = {
+        require('null-ls').builtins.formatting.prettier, -- Example for JS/TS/HTML/CSS
+        require('null-ls').builtins.formatting.black, -- Python
+        require('null-ls').builtins.formatting.stylua, -- Lua
+      },
+      on_attach = function(client, bufnr)
+        if client.supports_method 'textDocument/formatting' then
+          -- Format on save
+          local group = vim.api.nvim_create_augroup('LspFormatting', {})
+          vim.api.nvim_clear_autocmds { group = group, buffer = bufnr }
+          vim.api.nvim_create_autocmd('BufWritePre', {
+            group = group,
+            buffer = bufnr,
+            callback = function()
+              vim.lsp.buf.format { bufnr = bufnr }
+            end,
+          })
+        end
+      end,
+    }
+
+    require('mason-null-ls').setup {
+      ensure_installed = { 'prettier', 'black', 'stylua' }, -- list your desired formatters
+      automatic_installation = true,
     }
   end,
 }
