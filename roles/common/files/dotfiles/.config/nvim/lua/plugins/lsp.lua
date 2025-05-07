@@ -135,7 +135,7 @@ return { -- LSP Configuration & Plugins
     }
 
     require('mason-null-ls').setup {
-      ensure_installed = { 'prettier', 'black', 'stylua' }, -- list your desired formatters
+      ensure_installed = { 'prettier', 'black', 'isort', 'stylua' }, -- list your desired formatters
       automatic_installation = true,
     }
   end,
