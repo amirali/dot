@@ -15,6 +15,9 @@ return {
       -- Your DBUI configuration
       vim.g.db_ui_use_nerd_fonts = 1
     end,
+    keys = {
+      { '<leader>db', '<cmd>DBUIToggle<cr>', desc = 'Open DB UI' },
+    },
   },
   -- { -- optional saghen/blink.cmp completion source
   --   'saghen/blink.cmp',
