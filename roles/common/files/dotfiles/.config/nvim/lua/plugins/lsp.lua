@@ -114,8 +114,9 @@ return { -- LSP Configuration & Plugins
 
     require('null-ls').setup {
       sources = {
-        require('null-ls').builtins.formatting.prettier, -- Example for JS/TS/HTML/CSS
-        require('null-ls').builtins.formatting.black, -- Python
+        -- require('null-ls').builtins.formatting.prettier, -- Example for JS/TS/HTML/CSS
+        -- require('null-ls').builtins.formatting.black, -- Python
+        require('null-ls').builtins.formatting.ruff, -- Python
         require('null-ls').builtins.formatting.stylua, -- Lua
       },
       on_attach = function(client, bufnr)
@@ -132,10 +133,13 @@ return { -- LSP Configuration & Plugins
           })
         end
       end,
+      keys = {
+        {"<leader>f", function() vim.lsp.buf.format() end, desc = "Format current buffer"}
+      },
     }
 
     require('mason-null-ls').setup {
-      ensure_installed = { 'prettier', 'black', 'isort', 'stylua' }, -- list your desired formatters
+      ensure_installed = { 'prettier', 'isort', 'stylua' }, -- list your desired formatters
       automatic_installation = true,
     }
   end,
