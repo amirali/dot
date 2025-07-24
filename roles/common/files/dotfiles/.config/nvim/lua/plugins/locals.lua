@@ -7,4 +7,8 @@ return {
   --     },
   --   },
   -- }
+  -- {
+  --   dir = '~/src/github.com/amirali/django-shell.nvim',
+  --   opts = {},
+  -- },
 }

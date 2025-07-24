@@ -5,6 +5,12 @@ local config = {}
 config.color_scheme = "Catppuccin Macchiato"
 config.hide_tab_bar_if_only_one_tab = true
 -- config.font = wezterm.font "FiraCode Nerd Font"
+config.font = wezterm.font_with_fallback({})
+config.harfbuzz_features = {
+	"calt=0", -- disable contextual alternates
+	"liga=0", -- disable ligatures
+}
+
 config.bidi_enabled = true
 config.font_size = 11
 

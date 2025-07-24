@@ -2,7 +2,7 @@ return { -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
   dependencies = {
     'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
+    { 'williamboman/mason-lspconfig.nvim', tag = 'v1.32.0' },
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     'williamboman/mason-null-ls.nvim',
     'jose-elias-alvarez/null-ls.nvim',
@@ -99,6 +99,7 @@ return { -- LSP Configuration & Plugins
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
+      automatic_enable = true,
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
@@ -134,7 +135,13 @@ return { -- LSP Configuration & Plugins
         end
       end,
       keys = {
-        {"<leader>f", function() vim.lsp.buf.format() end, desc = "Format current buffer"}
+        {
+          '<leader>f',
+          function()
+            vim.lsp.buf.format()
+          end,
+          desc = 'Format current buffer',
+        },
       },
     }
 

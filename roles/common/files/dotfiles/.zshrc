@@ -73,15 +73,15 @@ alias la='ls -lAFh'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias tar='tar tf'
+# alias tar='tar tf'
 command -v bit >/dev/null && alias git=bit
 
 eval "$(fzf --zsh)"
 
-[ ! -d ~/.autoenv ] && git clone 'https://github.com/hyperupcall/autoenv' ~/.autoenv
-source ~/.autoenv/activate.sh
+# [ ! -d ~/.autoenv ] && git clone 'https://github.com/hyperupcall/autoenv' ~/.autoenv
+# source ~/.autoenv/activate.sh
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Fuck Python & MacOS
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
@@ -105,6 +105,25 @@ else
     alias vim=nvim
 fi
 
-export PATH=$PATH:~/.spicetify
+export PATH=$PATH:~/go/bin:~/.luarocks/bin
+
+eval $(luarocks path)
+
+export PATH=$PATH:~/.spicetify:~/Downloads/pycharm-2024.3.4/bin
 
 alias download="aria2c -x 16 -s 16 -k 1M -c"
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+function mkpymod() {
+    mkdir $1
+    touch $1/__init__.py
+}
+
+alias cd=pushd
+
+export PATH=$PATH:/home/amirali/.spicetify

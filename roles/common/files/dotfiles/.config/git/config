@@ -1,7 +1,7 @@
 [user]
 	email = amiralinull@gmail.com
 	name = Amirali Esfandiari
-	signingkey = 2281F35155532174
+	signingkey = 3EE1777A14240E58
 [init]
 	defaultBranch = main
 
@@ -43,7 +43,7 @@
 	setup-jira-hook = !curl -sL https://gist.githubusercontent.com/raw/ae9e546e0adefd4d5657f14bd1e1a3d7 -o .git/hooks/prepare-commit-msg && chmod +x .git/hooks/prepare-commit-msg
 
 [credential]
-	helper = cache
+	helper = store
 
 [core]
 	editor = nvim

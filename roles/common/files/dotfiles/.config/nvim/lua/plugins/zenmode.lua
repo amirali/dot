@@ -1,7 +1,7 @@
 return {
-  "folke/zen-mode.nvim",
+  'folke/zen-mode.nvim',
   config = function()
-    require("zen-mode").setup {
+    require('zen-mode').setup {
       window = {
         backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
         -- height and width can be:
@@ -42,30 +42,38 @@ return {
         -- - listen_on unix:/tmp/kitty
         kitty = {
           enabled = false,
-          font = "+4", -- font size increment
+          font = '+4', -- font size increment
         },
         -- this will change the font size on alacritty when in zen mode
         -- requires  Alacritty Version 0.10.0 or higher
         -- uses `alacritty msg` subcommand to change font size
         alacritty = {
           enabled = false,
-          font = "14", -- font size
+          font = '14', -- font size
         },
         -- this will change the font size on wezterm when in zen mode
         -- See alse also the Plugins/Wezterm section in this projects README
         wezterm = {
           enabled = false,
           -- can be either an absolute font size or the number of incremental steps
-          font = "+4", -- (10% increase per step)
+          font = '+4', -- (10% increase per step)
         },
       },
       -- callback where you can add custom code when the Zen window opens
-      on_open = function(win)
-      end,
+      on_open = function(win) end,
       -- callback where you can add custom code when the Zen window closes
-      on_close = function()
-      end,
+      on_close = function() end,
     }
+    --
+    -- 2. Auto-enter ZenMode on every buffer/window
+    vim.api.nvim_create_autocmd({ 'VimEnter', 'BufWinEnter', 'VimResized' }, {
+      callback = function()
+        -- only trigger in “real” file buffers
+        if vim.bo.filetype ~= '' and vim.bo.buftype == '' then
+          vim.cmd 'silent! ZenMode'
+        end
+      end,
+    })
   end,
   keys = {
     {

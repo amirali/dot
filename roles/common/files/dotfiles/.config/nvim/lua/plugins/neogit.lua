@@ -10,6 +10,8 @@ return {
     require('neogit').setup {}
   end,
 
+  tag = 'v2.0.0',
+
   keys = {
     { '<leader>g', '<cmd>Neogit<cr>', desc = 'Open Neogit' },
   },

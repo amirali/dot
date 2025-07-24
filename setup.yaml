@@ -1,7 +1,8 @@
 - name: Setup new system
   hosts:
     - localhost
-  # become: yes
+      # become: yes
+      # become_user: root
   gather_facts: true
   roles:
     - common
