@@ -136,7 +136,7 @@ local disabled_built_ins = {
   '2html_plugin',
   'logipat',
   'rrhelper',
-  'spellfile_plugin',
+  -- 'spellfile_plugin',
   'matchit',
 }
 
@@ -267,3 +267,6 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.keymap.set('n', '<leader>f', function()
   vim.lsp.buf.format()
 end, { desc = 'Format current buffer' })
+
+vim.opt.spell = true
+vim.opt.spelllang = 'en_us'

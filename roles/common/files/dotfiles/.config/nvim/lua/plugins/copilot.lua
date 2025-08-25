@@ -7,7 +7,7 @@ return {
       require('copilot').setup {
         panel = {
           enabled = false, -- help
-          auto_refresh = false,
+          auto_refresh = true,
           keymap = {
             jump_prev = '<C-p>',
             jump_next = '<C-n>',
@@ -22,7 +22,7 @@ return {
         },
         suggestion = {
           enabled = false,
-          auto_trigger = false,
+          auto_trigger = true,
           hide_during_completion = true,
           debounce = 75,
           keymap = {
