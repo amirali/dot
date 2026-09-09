@@ -12,6 +12,13 @@
     state: present
   when: ansible_facts['os_family'] == 'Debian'
 
+- name: Install GNOME packages on Arch (pacman)
+  become: true
+  ansible.builtin.package:
+    name: "{{ gnome_packages_arch }}"
+    state: present
+  when: ansible_facts['pkg_mgr'] == 'pacman'
+
 - name: Ensure Nordic theme is cloned into user's .themes
   ansible.builtin.git:
     repo: "{{ nordic_repo }}"

@@ -11,3 +11,9 @@ gnome_packages_debian:
   - gsconnect
   - gnome-shell-extensions
   - gnome-extensions-app
+
+# Arch package list (pacman)
+gnome_packages_arch:
+  - gsconnect
+  - gnome-shell-extensions
+  - papirus-icon-theme
