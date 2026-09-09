@@ -1,0 +1,77 @@
+- name: Install GNOME packages on Fedora
+  become: true
+  ansible.builtin.package:
+    name: "{{ gnome_packages_fedora }}"
+    state: present
+  when: ansible_facts['os_family'] == 'RedHat'
+
+- name: Install GNOME packages on Debian/Pop!_OS
+  become: true
+  ansible.builtin.package:
+    name: "{{ gnome_packages_debian }}"
+    state: present
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: Ensure Nordic theme is cloned into user's .themes
+  ansible.builtin.git:
+    repo: "{{ nordic_repo }}"
+    dest: "{{ ansible_env.HOME }}/.themes/Nordic"
+    depth: 1
+    update: yes
+  become: false
+
+- name: Copy Nordic icons if present
+  ansible.builtin.command:
+    cmd: "sh -c 'mkdir -p {{ ansible_env.HOME }}/.icons && cp -r {{ ansible_env.HOME }}/.themes/Nordic/icons/* {{ ansible_env.HOME }}/.icons/ || true'"
+  args:
+    executable: /bin/bash
+  become: false
+
+- name: Set GTK and icon theme via gsettings
+  ansible.builtin.command:
+    cmd: |
+      gsettings set org.gnome.desktop.interface gtk-theme "Nordic" || true
+      gsettings set org.gnome.desktop.interface icon-theme "Papirus" || true
+  become: false
+  environment:
+    XDG_RUNTIME_DIR: "{{ ansible_env.XDG_RUNTIME_DIR | default(ansible_env.HOME + '/.cache') }}"
+  ignore_errors: true
+
+- name: Ensure custom keybinding list contains ghostty entry
+  ansible.builtin.shell: |
+    current=$(gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings || "[]")
+    cb_path="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom-ghostty/"
+    if ! echo "$current" | grep -q "$cb_path"; then
+      if [ "$current" = "[]" ]; then
+        new="['$cb_path']"
+      else
+        new=$(echo "$current" | sed "s/]$/, '$cb_path']/")
+      fi
+      gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "$new" || true
+    fi
+  args:
+    executable: /bin/bash
+  become: false
+  ignore_errors: true
+
+- name: Configure custom keybinding values for ghostty
+  ansible.builtin.command:
+    cmd: |
+      CB="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom-ghostty/"
+      gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$CB name 'Ghostty' || true
+      gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$CB command 'ghostty' || true
+      gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$CB binding '<Control><Alt>t' || true
+  become: false
+  ignore_errors: true
+
+- name: Enable common GNOME extensions if gnome-extensions available
+  ansible.builtin.shell: |
+    for ext in "tactile@github.com" "gsconnect@andyholmes.github.io" "clipboard-indicator@tudmotu.com"; do
+      if command -v gnome-extensions >/dev/null 2>&1; then
+        gnome-extensions enable "$ext" || true
+      fi
+    done
+  args:
+    executable: /bin/bash
+  become: false
+  ignore_errors: true

@@ -1,0 +1,13 @@
+nordic_repo: "https://github.com/EliverLara/Nordic.git"
+
+# package lists are coarse — adjust per-distro if needed
+gnome_packages_fedora:
+  - gsconnect
+  - gnome-extensions-app
+  - gnome-shell-extension-user-theme
+  - gnome-shell-extension-clipboard
+
+gnome_packages_debian:
+  - gsconnect
+  - gnome-shell-extensions
+  - gnome-extensions-app
