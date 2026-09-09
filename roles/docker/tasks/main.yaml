@@ -1,23 +1,16 @@
 - name: Install Podman (container runtime)
   block:
-    - name: Add distro-specific repo/tasks for Podman on Fedora
-      ansible.builtin.include_tasks: repo_fedora.yaml
-      when: ansible_facts['os_family'] == 'RedHat'
-
-    - name: Add distro-specific repo/tasks for Podman on Pop!_OS
-      ansible.builtin.include_tasks: repo_pop_os.yaml
-      when: ansible_facts['os_family'] == 'Debian'
-
     - name: Install Podman and shims on Fedora/Pop!_OS
+      become: true
       ansible.builtin.package:
         name: "{{ container_runtime_packages }}"
         state: present
       when: ansible_facts['os_family'] in ['RedHat','Debian']
 
     - name: Enable podman socket
+      become: true
       ansible.builtin.systemd:
         name: podman.socket
         enabled: yes
         state: started
       when: ansible_facts['os_family'] in ['RedHat','Debian']
-
