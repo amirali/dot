@@ -12,8 +12,35 @@ else
   echo "No ghostty config found in repo; skipping copy"
 fi
 
-# Set GTK/Shell theme to Nordic (user must have theme installed)
-echo "Applying Nordic theme gsettings (no package install)."
+# Set GTK/Shell theme to Nordic (install from https://github.com/EliverLara/Nordic if missing)
+echo "Applying Nordic theme (installing from EliverLara/Nordic if needed)."
+NORDIC_REPO="https://github.com/EliverLara/Nordic.git"
+if command -v git >/dev/null 2>&1; then
+  mkdir -p "$HOME/.themes" "$HOME/.icons"
+  # clone into a temp dir then copy themes/icons that match 'Nordic'
+  tmpdir=$(mktemp -d)
+  if git -C "$HOME/.themes" rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    : # noop
+  fi
+  if [ ! -d "$HOME/.themes/Nordic" ]; then
+    echo "Cloning Nordic theme into $tmpdir"
+    git clone --depth 1 "$NORDIC_REPO" "$tmpdir/Nordic" || true
+    # copy any theme dirs that contain 'Nordic' in name
+    if [ -d "$tmpdir/Nordic" ]; then
+      find "$tmpdir/Nordic" -maxdepth 2 -type d -name 'Nordic*' -exec cp -r {} "$HOME/.themes/" \; || true
+      # some repos include icons directory
+      if [ -d "$tmpdir/Nordic/icons" ]; then
+        cp -r "$tmpdir/Nordic/icons"/* "$HOME/.icons/" 2>/dev/null || true
+      fi
+    fi
+    rm -rf "$tmpdir"
+  else
+    echo "Nordic theme already present in $HOME/.themes"
+  fi
+else
+  echo "git not found; cannot install Nordic theme automatically"
+fi
+
 if command -v gsettings >/dev/null 2>&1; then
   gsettings set org.gnome.desktop.interface gtk-theme "Nordic" || true
   gsettings set org.gnome.desktop.interface icon-theme "Papirus" || true
