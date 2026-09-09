@@ -22,6 +22,7 @@
       POSTGRES_PASSWORD: pass
     volumes:
       - postgres_data:/var/lib/postgresql/data
+  ignore_errors: true
   tags:
     - containers
 
@@ -36,5 +37,6 @@
       - "6379:6379"
     volumes:
       - redis_data:/data
+  ignore_errors: true
   tags:
     - containers
