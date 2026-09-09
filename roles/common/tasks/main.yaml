@@ -2,20 +2,13 @@
   include_tasks: install_packages.yaml
 
 - name: Link dotfiles
-  block:
-    - name: Backup existing non-symlink dest
-      ansible.builtin.shell: |
-        if [ -e "{{ item.dest }}" ] && [ ! -L "{{ item.dest }}" ]; then
-          mv "{{ item.dest }}" "{{ item.dest }}.backup"
-        fi
-      args:
-        executable: /bin/bash
-
-    - name: Create symlink to dotfile
-      ansible.builtin.file:
-        src: "{{ item.src }}"
-        dest: "{{ item.dest }}"
-        state: link
+  ansible.builtin.shell: |
+    if [ -e "{{ item.dest }}" ] && [ ! -L "{{ item.dest }}" ]; then
+      mv "{{ item.dest }}" "{{ item.dest }}.backup"
+    fi
+    ln -sfn "{{ item.src }}" "{{ item.dest }}"
+  args:
+    executable: /bin/bash
   loop: "{{ dotfiles }}"
   tags:
     - link_files
