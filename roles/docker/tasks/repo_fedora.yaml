@@ -1,15 +1,6 @@
 ---
-- name: Ensure old versions of Docker are not installed.
-  become: true
-  package:
-    name:
-      - docker
-      - docker-common
-      - docker-engine
-      - docker-ce-rootless-extras
-      - docker-ce-cli
-      - docker-ce
-      - docker-compose-plugin
-    state: absent
+# Skipping removal of existing Docker packages — user requested Docker remain installed.
+# Previously this role removed Docker packages to avoid conflicts with podman-docker.
+# If you want automatic migration in future, add a controlled migration task.
 
 # Fedora provides podman in main repos; no 3rd-party Docker CE repo required.
