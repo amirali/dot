@@ -4,7 +4,6 @@ nordic_repo: "https://github.com/EliverLara/Nordic.git"
 gnome_packages_fedora:
   - gnome-extensions-app
   - gnome-shell-extension-user-theme
-  - gnome-shell-extension-clipboard
 
 gnome_packages_debian:
   - gnome-shell-extensions
@@ -20,3 +19,5 @@ gnome_shell_extensions:
   - tactile@github.com
   - gsconnect@andyholmes.github.io
   - clipboard-indicator@tudmotu.com
+  - appindicatorsupport@rgcjonas.gmail.com
+  - boostvolume@shaquib.dev
