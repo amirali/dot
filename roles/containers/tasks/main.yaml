@@ -10,6 +10,7 @@
     - containers
 
 - name: Set up a PostGIS container
+  become: true
   community.docker.docker_container:
     name: postgres
     image: postgis/postgis:16-3.5-alpine
@@ -25,6 +26,7 @@
     - containers
 
 - name: Set up a Redis container
+  become: true
   community.docker.docker_container:
     name: redis
     image: redis:alpine
