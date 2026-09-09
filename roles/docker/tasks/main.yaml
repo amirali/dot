@@ -1,29 +1,23 @@
-- name: Install Docker
+- name: Install Podman (container runtime)
   block:
-    - name: Add Docker repo on Fedora
+    - name: Add distro-specific repo/tasks for Podman on Fedora
       ansible.builtin.include_tasks: repo_fedora.yaml
       when: ansible_facts['os_family'] == 'RedHat'
 
-    - name: Add Docker repo on Pop!_OS
+    - name: Add distro-specific repo/tasks for Podman on Pop!_OS
       ansible.builtin.include_tasks: repo_pop_os.yaml
       when: ansible_facts['os_family'] == 'Debian'
 
-    - name: Install Docker on Fedora/Pop!_OS
+    - name: Install Podman and shims on Fedora/Pop!_OS
       ansible.builtin.package:
-        name: "{{ docker_packages }}"
+        name: "{{ container_runtime_packages }}"
         state: present
-      when: ansible_facts['os_family'] != 'Darwin'
+      when: ansible_facts['os_family'] in ['RedHat','Debian']
 
-    - name: Install Docker on macOS
-      ansible.builtin.homebrew_cask:
-        name: docker
-        state: present
-      when: ansible_facts['os_family'] == 'Darwin'
-
-    - name: Enable Docker service
+    - name: Enable podman socket
       ansible.builtin.systemd:
-        name: docker
+        name: podman.socket
         enabled: yes
         state: started
-      when: ansible_facts['os_family'] != 'Darwin'
+      when: ansible_facts['os_family'] in ['RedHat','Debian']
 

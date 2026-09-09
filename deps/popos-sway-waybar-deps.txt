@@ -1,0 +1,19 @@
+# Pop!_OS / Ubuntu packages for Sway + Waybar
+sway
+wlroots
+waybar
+swaybg
+swayidle
+swaylock
+wayland-protocols
+pipewire
+pipewire-pulse
+wireplumber
+wl-clipboard
+grim
+slurp
+mako
+wofi
+alsa-utils
+pulsemixer
+wezterm

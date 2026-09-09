@@ -1,3 +1,4 @@
-docker_packages:
-  - docker-ce
-  - docker-compose-plugin
+container_runtime_packages:
+  - podman
+  - podman-docker
+  - podman-compose

@@ -1,0 +1,25 @@
+# Arch Linux packages for Sway + Waybar + common Wayland tooling
+sway
+wlroots
+waybar
+swaybg
+swayidle
+swaylock
+wayland-protocols
+xdg-desktop-portal-wlr
+pipewire
+pipewire-pulse
+wireplumber
+wl-clipboard
+grim
+slurp
+mako
+wofi
+alsa-utils
+pulsemixer
+alacritty
+mako
+grim
+slurp
+swaynag
+seatd

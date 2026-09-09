@@ -1,9 +1,10 @@
-- name: Install requirements packages for docker
+- name: Install requirements packages for container tooling
   ansible.builtin.command:
     cmd: "{{ ansible_facts['python']['executable'] }} -m pip install --break-system-packages {{ item }}"
   with_items:
     - "requests==2.31.0"
     - docker
+    - podman
   tags:
     - containers
 

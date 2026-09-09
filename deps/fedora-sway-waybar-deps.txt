@@ -1,0 +1,20 @@
+# Fedora packages for Sway + Waybar + Wayland tooling
+sway
+wlroots
+waybar
+swaybg
+swayidle
+swaylock
+wayland-protocols
+xdg-desktop-portal-wlr
+pipewire
+pipewire-pulseaudio
+wireplumber
+wl-clipboard
+grim
+slurp
+mako
+wofi
+alsa-utils
+pulsemixer
+wezterm
