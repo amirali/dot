@@ -16,7 +16,7 @@
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
         state: link
-  with_items: "{{ dotfiles }}"
+  loop: "{{ dotfiles }}"
   tags:
     - link_files
 
