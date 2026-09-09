@@ -15,4 +15,10 @@ dotfiles:
     dest: "~/.fonts"
   - src: "{{ role_path }}/files/dotfiles/.config/zed"
     dest: "~/.config/zed"
+  - src: "{{ role_path }}/files/dotfiles/.bashrc"
+    dest: "~/.bashrc"
+  - src: "{{ role_path }}/files/dotfiles/.bash_profile"
+    dest: "~/.bash_profile"
+  - src: "{{ role_path }}/files/dotfiles/.bash_logout"
+    dest: "~/.bash_logout"
 
