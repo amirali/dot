@@ -20,11 +20,29 @@
     update: yes
   become: false
 
-- name: Copy Nordic icons if present
-  ansible.builtin.command:
-    cmd: "sh -c 'mkdir -p {{ ansible_env.HOME }}/.icons && cp -r {{ ansible_env.HOME }}/.themes/Nordic/icons/* {{ ansible_env.HOME }}/.icons/ || true'"
-  args:
-    executable: /bin/bash
+- name: Ensure ~/.icons exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.icons"
+    state: directory
+    mode: '0755'
+  become: false
+
+- name: Find Nordic icon directories
+  ansible.builtin.find:
+    paths: "{{ ansible_env.HOME }}/.themes/Nordic/icons"
+    file_type: directory
+    depth: 2
+  register: nordic_icon_dirs
+  ignore_errors: true
+  become: false
+
+- name: Copy each Nordic icon directory into ~/.icons
+  ansible.builtin.copy:
+    src: "{{ item.path }}"
+    dest: "{{ ansible_env.HOME }}/.icons/"
+    remote_src: yes
+  loop: "{{ nordic_icon_dirs.files | default([]) }}"
+  when: nordic_icon_dirs is defined and nordic_icon_dirs.matched > 0
   become: false
 
 - name: Set GTK and icon theme via gsettings
@@ -64,14 +82,14 @@
   become: false
   ignore_errors: true
 
-- name: Enable common GNOME extensions if gnome-extensions available
-  ansible.builtin.shell: |
-    for ext in "tactile@github.com" "gsconnect@andyholmes.github.io" "clipboard-indicator@tudmotu.com"; do
-      if command -v gnome-extensions >/dev/null 2>&1; then
-        gnome-extensions enable "$ext" || true
-      fi
-    done
-  args:
-    executable: /bin/bash
+- name: Enable common GNOME extensions
+  ansible.builtin.command:
+    cmd: "gnome-extensions enable {{ item }}"
+  loop:
+    - "tactile@github.com"
+    - "gsconnect@andyholmes.github.io"
+    - "clipboard-indicator@tudmotu.com"
+  register: enable_ext_results
+  failed_when: false
   become: false
   ignore_errors: true
