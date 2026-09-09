@@ -1,0 +1,55 @@
+return {}
+
+-- return {
+--   'paulfrische/mpd.nvim',
+--   config = function()
+--     require('mpd').setup {
+--       host = 'localhost',
+--       port = 6600,
+--       keepalive = true,
+--       -- Enable the statusline component (see the section below)
+--       statusline = {
+--         enabled = true,
+--         -- Optional: customize the statusline format
+--         format = '%artist% - %title%',
+--       },
+--     }
+--   end,
+--   keys = {
+--     {
+--       'mm',
+--       function()
+--         require('mpd').actions {}
+--       end,
+--       desc = 'Actions',
+--     },
+--     {
+--       'mf',
+--       function()
+--         require('mpd').find_song {}
+--       end,
+--       desc = 'Find Song',
+--     },
+--     {
+--       'mp',
+--       function()
+--         require('mpd').toggle()
+--       end,
+--       desc = 'Play/Pause',
+--     },
+--     {
+--       'm.',
+--       function()
+--         require('mpd').next()
+--       end,
+--       desc = 'Next',
+--     },
+--     {
+--       'm,',
+--       function()
+--         require('mpd').prev()
+--       end,
+--       desc = 'Previous',
+--     },
+--   },
+-- }

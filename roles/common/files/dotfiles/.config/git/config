@@ -1,7 +1,7 @@
 [user]
 	email = amiralinull@gmail.com
 	name = Amirali Esfandiari
-	signingkey = 3EE1777A14240E58
+	signingkey = F56B05AD3C693B9B
 [init]
 	defaultBranch = main
 
@@ -47,6 +47,7 @@
 
 [core]
 	editor = nvim
+	askpass = 
 [commit]
 	gpgsign = true
 [filter "lfs"]

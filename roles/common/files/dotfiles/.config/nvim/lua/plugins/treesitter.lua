@@ -1,16 +1,43 @@
-return   {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    config = function()
-      -- [[ Configure Treesitter ]]
+return {
+  'nvim-treesitter/nvim-treesitter',
+  build = ':TSUpdate',
+  branch = 'main',
+  -- main = 'nvim-treesitter.configs',
+  lazy = false,
 
-      ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'go', 'python', 'lua', 'gleam', 'javascript', 'typescript', 'markdown', 'make' },
-        auto_install = true,
-        highlight = { enable = true },
-        indent = { enable = true },
-      }
-    end,
-  }
-
+  opts = {
+    ensure_installed = {
+      'python',
+      'lua',
+      'go',
+      'html',
+      'gitignore',
+      'gitcommit',
+      'diff',
+      'csv',
+      'bash',
+      'dockerfile',
+      'javascript',
+      'json',
+      'make',
+      'sql',
+      'requirements',
+      'vim',
+      'yaml',
+      'ssh_config',
+      'caddy',
+      'c',
+      'luadoc',
+      'markdown',
+      'markdown_inline',
+      'query',
+      'vimdoc',
+    },
+    auto_install = true,
+    highlight = {
+      enable = true,
+      additional_vim_regex_highlighting = {},
+    },
+    indent = { enable = true },
+  },
+}

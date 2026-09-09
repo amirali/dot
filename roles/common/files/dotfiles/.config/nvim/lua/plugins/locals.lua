@@ -11,4 +11,12 @@ return {
   --   dir = '~/src/github.com/amirali/django-shell.nvim',
   --   opts = {},
   -- },
+  -- {
+  --   dir = '~/src/github.com/amirali/jira.nvim',
+  --   opts = {
+  --     jira_url = 'https://jira.arasdp.ir',
+  --     jira_email = 'a.esfandiari@arasdp.ir',
+  --     jira_api_token = 'NjkxNzk1NzM0ODE5OnKv7xcUdid9Z7vmSeZyi3avv02I',
+  --   },
+  -- },
 }

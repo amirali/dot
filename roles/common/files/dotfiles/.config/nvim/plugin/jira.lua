@@ -1,0 +1,71 @@
+-- local M = {}
+-- local start_time = nil
+-- local issue_key = nil
+-- local jira_url = nil
+-- local jira_email = nil
+-- local jira_api_token = nil
+--
+-- -- Configure your Jira details
+-- function M.setup(config)
+-- 	jira_url = config.jira_url
+-- 	jira_email = config.jira_email
+-- 	jira_api_token = config.jira_api_token
+-- end
+--
+-- -- Start tracking time
+-- function M.start(issue)
+-- 	if start_time then
+-- 		print("Tracking already in progress for " .. issue_key)
+-- 		return
+-- 	end
+-- 	issue_key = issue
+-- 	start_time = os.time()
+-- 	print("Started tracking for " .. issue_key)
+-- end
+--
+-- -- Stop tracking and report to Jira
+-- function M.stop()
+-- 	if not start_time or not issue_key then
+-- 		print("No tracking in progress.")
+-- 		return
+-- 	end
+-- 	local end_time = os.time()
+-- 	local duration = end_time - start_time
+-- 	local seconds = duration % 60
+-- 	local minutes = math.floor((duration / 60) % 60)
+-- 	local hours = math.floor(duration / 3600)
+-- 	local time_str = string.format("%dh %dm %ds", hours, minutes, seconds)
+-- 	print("Tracked " .. time_str .. " for " .. issue_key)
+-- 	M.report_worklog(duration)
+-- 	start_time = nil
+-- 	issue_key = nil
+-- end
+--
+-- -- Report worklog to Jira
+-- function M.report_worklog(seconds)
+-- 	if not jira_url or not jira_email or not jira_api_token then
+-- 		print("Jira config missing. Call setup() first.")
+-- 		return
+-- 	end
+-- 	local url = string.format("%s/rest/api/3/issue/%s/worklog", jira_url, issue_key)
+-- 	local payload = string.format([[{"timeSpentSeconds": %d}]], seconds)
+-- 	local auth = "Basic " ..
+-- 	vim.fn.system("echo -n " .. jira_email .. ":" .. jira_api_token .. " | base64"):gsub("\n", "")
+-- 	local cmd = string.format(
+-- 		'curl -X POST -H "Authorization: %s" -H "Content-Type: application/json" -d \'%s\' "%s"',
+-- 		auth, payload, url
+-- 	)
+-- 	local result = vim.fn.system(cmd)
+-- 	print("Jira response: " .. result)
+-- end
+--
+-- -- Neovim commands
+-- vim.api.nvim_create_user_command('JiraStart', function(opts)
+-- 	M.start(opts.args)
+-- end, { nargs = 1 })
+--
+-- vim.api.nvim_create_user_command('JiraStop', function()
+-- 	M.stop()
+-- end, {})
+--
+-- return M

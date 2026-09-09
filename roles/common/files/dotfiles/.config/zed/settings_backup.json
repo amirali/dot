@@ -1,0 +1,71 @@
+{
+  "project_panel": {
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "agent": {
+    "dock": "left",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "ui_font_family": "Iosevka",
+  "buffer_font_family": "Iosevka",
+  "use_system_path_prompts": false,
+  "use_system_prompts": false,
+  "terminal": {
+    "font_family": "Iosevka"
+  },
+  "proxy": "http://127.0.0.1:10808",
+  "session": {
+    "trust_all_worktrees": false
+  },
+  "base_keymap": "VSCode",
+  "agent_servers": {
+    "cursor": {
+      "default_config_options": {
+        "mode": "agent"
+      },
+      "type": "registry"
+    },
+    "github-copilot-cli": {
+      "type": "registry"
+    }
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Catppuccin Frappé",
+    "dark": "Catppuccin Macchiato"
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "Nord Light",
+    "dark": "Nord Dark"
+  },
+  "vim_mode": true,
+  "show_line_numbers": true,
+  "relative_line_numbers": true,
+  "cursorline": true,
+  "scrollbar": {
+    "show": "always"
+  },
+  "soft_wrap": "editor_width",
+  "preferred_line_length": 80,
+  "show_wrap_guides": true,
+  "tab_size": 2,
+  "hard_tabs": false,
+  "format_on_save": "on",
+  "autosave": "on_focus_change",
+  "confirm_quit": false,
+  "auto_indent_on_paste": true,
+  "inlay_hints": {
+    "enabled": true
+  }
+}

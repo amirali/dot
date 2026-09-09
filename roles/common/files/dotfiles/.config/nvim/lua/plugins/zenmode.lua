@@ -66,14 +66,14 @@ return {
     }
     --
     -- 2. Auto-enter ZenMode on every buffer/window
-    vim.api.nvim_create_autocmd({ 'VimEnter', 'BufWinEnter', 'VimResized' }, {
-      callback = function()
-        -- only trigger in “real” file buffers
-        if vim.bo.filetype ~= '' and vim.bo.buftype == '' then
-          vim.cmd 'silent! ZenMode'
-        end
-      end,
-    })
+    -- vim.api.nvim_create_autocmd({ 'VimEnter', 'BufWinEnter', 'VimResized' }, {
+    --   callback = function()
+    --     -- only trigger in “real” file buffers
+    --     if vim.bo.filetype ~= '' and vim.bo.buftype == '' then
+    --       vim.cmd 'silent! ZenMode'
+    --     end
+    --   end,
+    -- })
   end,
   keys = {
     {

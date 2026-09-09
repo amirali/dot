@@ -1,7 +1,7 @@
 return {
     'nvim-telescope/telescope.nvim',
     event = 'VeryLazy',
-    branch = '0.1.x',
+    version = "*",
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
@@ -42,6 +42,7 @@ return {
       -- Enable telescope extensions, if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'yank_history')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -73,5 +74,7 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      vim.keymap.set('n', '<leader>sp', '<cmd>Telescope yank_history<cr>', { desc = '[S]earch [Y]ank History' })
     end,
   }

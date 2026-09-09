@@ -2,10 +2,10 @@ return { -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
   dependencies = {
     'williamboman/mason.nvim',
-    { 'williamboman/mason-lspconfig.nvim', tag = 'v1.32.0' },
+    { 'williamboman/mason-lspconfig.nvim', tag = 'v2.1.0' },
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     'williamboman/mason-null-ls.nvim',
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -20,6 +20,10 @@ return { -- LSP Configuration & Plugins
         end
 
         map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        map('gD', function()
+          vim.cmd 'vsplit'
+          vim.lsp.buf.definition()
+        end, '[G]oto [D]efinition vsplit')
         map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
         map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
         map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
@@ -31,7 +35,7 @@ return { -- LSP Configuration & Plugins
         end, '[R]e[n]ame')
         map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
-        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+        -- map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.
@@ -58,8 +62,8 @@ return { -- LSP Configuration & Plugins
     local capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
     local servers = {
-      gopls = {},
-      ['ruff-lsp'] = {},
+      -- gopls = {},
+      -- ['ruff-lsp'] = {},
 
       lua_ls = {
         settings = {
@@ -78,16 +82,16 @@ return { -- LSP Configuration & Plugins
         },
       },
 
-      ts_ls = {
-        root_dir = require('lspconfig').util.root_pattern { 'package.json', 'tsconfig.json' },
-        single_file_support = false,
-        settings = {},
-      },
-      denols = {
-        root_dir = require('lspconfig').util.root_pattern { 'deno.json', 'deno.jsonc' },
-        single_file_support = false,
-        settings = {},
-      },
+      -- ts_ls = {
+      --   root_dir = require('lspconfig').util.root_pattern { 'package.json', 'tsconfig.json' },
+      --   single_file_support = false,
+      --   settings = {},
+      -- },
+      -- denols = {
+      --   root_dir = require('lspconfig').util.root_pattern { 'deno.json', 'deno.jsonc' },
+      --   single_file_support = false,
+      --   settings = {},
+      -- },
     }
 
     require('mason').setup()
@@ -117,7 +121,7 @@ return { -- LSP Configuration & Plugins
       sources = {
         -- require('null-ls').builtins.formatting.prettier, -- Example for JS/TS/HTML/CSS
         -- require('null-ls').builtins.formatting.black, -- Python
-        require('null-ls').builtins.formatting.ruff, -- Python
+        -- require('null-ls').builtins.formatting.ruff, -- Python
         require('null-ls').builtins.formatting.stylua, -- Lua
       },
       on_attach = function(client, bufnr)
@@ -146,7 +150,7 @@ return { -- LSP Configuration & Plugins
     }
 
     require('mason-null-ls').setup {
-      ensure_installed = { 'prettier', 'isort', 'stylua' }, -- list your desired formatters
+      ensure_installed = { 'isort', 'stylua' }, -- list your desired formatters
       automatic_installation = true,
     }
   end,
