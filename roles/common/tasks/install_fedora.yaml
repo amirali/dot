@@ -1,9 +1,11 @@
 - name: Enable WezTerm repo
+  become: true
   community.general.copr:
     name: wezfurlong/wezterm-nightly
     state: enabled
 
 - name: Install packages
+  become: true
   ansible.builtin.package:
     name: "{{ fedora_packages }}"
     state: present
