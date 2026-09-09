@@ -5,6 +5,8 @@
       - docker
       - docker-common
       - docker-engine
+      - docker-ce
+      - docker-compose-plugin
     state: absent
 
 # Fedora provides podman in main repos; no 3rd-party Docker CE repo required.
