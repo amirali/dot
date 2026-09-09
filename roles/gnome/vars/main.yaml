@@ -1,19 +1,22 @@
 nordic_repo: "https://github.com/EliverLara/Nordic.git"
 
-# package lists are coarse — adjust per-distro if needed
+# package lists for distro-native packages (extensions are handled separately)
 gnome_packages_fedora:
-  - gsconnect
   - gnome-extensions-app
   - gnome-shell-extension-user-theme
   - gnome-shell-extension-clipboard
 
 gnome_packages_debian:
-  - gsconnect
   - gnome-shell-extensions
   - gnome-extensions-app
 
 # Arch package list (pacman)
 gnome_packages_arch:
-  - gsconnect
   - gnome-shell-extensions
   - papirus-icon-theme
+
+# GNOME Shell extensions (UUIDs) — these are not distro packages
+gnome_shell_extensions:
+  - tactile@github.com
+  - gsconnect@andyholmes.github.io
+  - clipboard-indicator@tudmotu.com

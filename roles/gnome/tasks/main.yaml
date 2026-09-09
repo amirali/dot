@@ -89,13 +89,10 @@
   become: false
   ignore_errors: true
 
-- name: Enable common GNOME extensions
+- name: Enable configured GNOME shell extensions
   ansible.builtin.command:
     cmd: "gnome-extensions enable {{ item }}"
-  loop:
-    - "tactile@github.com"
-    - "gsconnect@andyholmes.github.io"
-    - "clipboard-indicator@tudmotu.com"
+  loop: "{{ gnome_shell_extensions }}"
   register: enable_ext_results
   failed_when: false
   become: false
