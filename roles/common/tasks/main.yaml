@@ -3,10 +3,13 @@
 
 - name: Link dotfiles
   ansible.builtin.shell: |
-    if [ -e "{{ item.dest }}" ] && [ ! -L "{{ item.dest }}" ]; then
-      mv "{{ item.dest }}" "{{ item.dest }}.backup"
+    dest="$(eval echo {{ item.dest }})"
+    src="$(eval echo {{ item.src }})"
+    if [ -e "$dest" ] && [ ! -L "$dest" ]; then
+      mv "$dest" "$dest.backup"
     fi
-    ln -sfn "{{ item.src }}" "{{ item.dest }}"
+    mkdir -p "$(dirname "$dest")"
+    ln -sfn "$src" "$dest"
   args:
     executable: /bin/bash
   loop: "{{ dotfiles }}"
