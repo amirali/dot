@@ -5,6 +5,7 @@
     - "requests==2.31.0"
     - docker
     - podman
+  failed_when: false
   tags:
     - containers
 
