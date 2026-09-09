@@ -1,5 +1,6 @@
 ---
 - name: Ensure old versions of Docker are not installed.
+  become: true
   package:
     name:
       - docker
