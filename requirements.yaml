@@ -1,5 +1,5 @@
-- src: community.docker
-  version: latest
-
-- src: community.general
-  version: latest
+collections:
+  - name: community.docker
+    version: latest
+  - name: community.general
+    version: latest
