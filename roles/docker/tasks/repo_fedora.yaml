@@ -6,6 +6,7 @@
       - docker
       - docker-common
       - docker-engine
+      - docker-ce-rootless-extras
       - docker-ce
       - docker-compose-plugin
     state: absent
