@@ -1,4 +1,7 @@
 {
+  "edit_predictions": {
+    "provider": "ollama",
+  },
   "cli_default_open_behavior": "new_window",
   "project_panel": {
     "dock": "right",
@@ -13,6 +16,15 @@
     "dock": "left",
     "favorite_models": [],
     "model_parameters": [],
+    "commit_message_model": {
+      "provider": "copilot_chat",
+      // "model": "qwen3:1.7b",
+    },
+  },
+  "language_models": {
+    "ollama": {
+      "api_url": "http://localhost:11434",
+    },
   },
   "git_panel": {
     "dock": "right",
@@ -47,7 +59,7 @@
         "allow_all": "on",
         "mode": "https://agentclientprotocol.com/protocol/session-modes#agent",
         "agent": "",
-        "model": "gpt-5-mini",
+        "model": "auto",
       },
       "type": "registry",
     },
