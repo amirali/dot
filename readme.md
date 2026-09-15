@@ -1,11 +1,22 @@
-# Dotfiles for vim, tmux, kitty, i3, rofi
+# Dotfiles
 
-## install the base (vim, kitty, tmux, ...)
+Ansible-managed dotfiles and system setup for Fedora, Pop!_OS/Debian, Arch and macOS.
+
+## install ansible + galaxy collections
 ```
-make # or `make base`
+make install-ansible install-roles
 ```
 
-## install all
+## dry-run (check mode)
 ```
-make all
+make run-playbook
 ```
+
+## apply
+```
+make apply-playbook
+```
+
+Roles: `common` (shell, editor, terminal dotfiles + base packages), `docker`,
+`containers`, `gnome` (GNOME desktop + Nordic theme), `niri` (niri compositor +
+waybar + ghostty, Nord-themed).

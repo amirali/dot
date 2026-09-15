@@ -1,21 +1,3 @@
-[submodule "zsh/.oh-my-zsh/custom/plugins/zsh-completions"]
-	path = zsh/.oh-my-zsh/custom/plugins/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions
-[submodule "zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-	path = zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-	path = zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "zsh/.oh-my-zsh/custom/plugins/zsh-z"]
-	path = zsh/.oh-my-zsh/custom/plugins/zsh-z
-	url = https://github.com/agkozak/zsh-z
 [submodule "ssh/.ssh"]
 	path = ssh/.ssh
 	url = git@github.com:amirali/ssh
-[submodule "awesome/.config/awesome/modules/keyboard_layout"]
-	path = awesome/.config/awesome/modules/keyboard_layout
-	url = https://github.com/echuraev/keyboard_layout.git
-[submodule "awesome/.config/awesome/modules/awesome_switcher"]
-	path = awesome/.config/awesome/modules/awesome_switcher
-	url = https://github.com/troglobit/awesome-switcher.git

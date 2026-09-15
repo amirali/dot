@@ -1,0 +1,49 @@
+# niri (via Terra repo) + a minimal Nord-themed Wayland session:
+# waybar as the interactive topbar, ghostty as the default terminal.
+niri_packages_fedora:
+  - niri
+  - waybar
+  - fuzzel
+  - mako
+  - swaybg
+  - swayidle
+  - swaylock
+  - wl-clipboard
+  - grim
+  - slurp
+  - brightnessctl
+  - playerctl
+  - xdg-desktop-portal-gnome
+  - pipewire
+  - pipewire-pulseaudio
+  - wireplumber
+
+niri_packages_arch:
+  - niri
+  - waybar
+  - fuzzel
+  - mako
+  - swaybg
+  - swayidle
+  - swaylock
+  - wl-clipboard
+  - grim
+  - slurp
+  - brightnessctl
+  - playerctl
+  - xdg-desktop-portal-gnome
+  - pipewire
+  - pipewire-pulse
+  - wireplumber
+
+niri_dotfiles:
+  - src: "{{ role_path }}/files/dotfiles/.config/niri"
+    dest: "~/.config/niri"
+  - src: "{{ role_path }}/files/dotfiles/.config/waybar"
+    dest: "~/.config/waybar"
+  - src: "{{ role_path }}/files/dotfiles/.config/ghostty"
+    dest: "~/.config/ghostty"
+  - src: "{{ role_path }}/files/dotfiles/.config/mako"
+    dest: "~/.config/mako"
+  - src: "{{ role_path }}/files/dotfiles/.config/fuzzel"
+    dest: "~/.config/fuzzel"

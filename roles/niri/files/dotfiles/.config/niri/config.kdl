@@ -1,0 +1,74 @@
+// Nord-inspired, edgy (sharp, no rounded corners) niri config.
+// Default terminal: ghostty. Topbar: waybar (spawned at startup).
+
+input {
+    keyboard {
+        xkb {}
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+}
+
+output "eDP-1" {
+    scale 1.0
+}
+
+layout {
+    gaps 10
+    center-focused-column "never"
+
+    // Nord palette: frost blue focus ring, polar-night inactive, no rounding.
+    focus-ring {
+        width 2
+        active-color "#88C0D0"
+        inactive-color "#3B4252"
+    }
+
+    border {
+        off
+    }
+
+    struts {
+        top 40
+    }
+
+    default-column-width { proportion 0.5; }
+}
+
+layer-rule {
+    match namespace="^waybar$"
+    place-within-backdrop true
+}
+
+spawn-at-startup "waybar"
+spawn-at-startup "mako"
+spawn-at-startup "swayidle" "-w" "timeout" "300" "swaylock -f" "timeout" "600" "niri msg action power-off-monitors"
+
+prefer-no-csd
+
+binds {
+    Mod+Return { spawn "ghostty"; }
+    Mod+D { spawn "fuzzel"; }
+    Mod+Q { close-window; }
+    Mod+Shift+E { quit; }
+    Mod+Escape { spawn "swaylock" "-f"; }
+    Print { spawn "sh" "-c" "grim -g \"$(slurp)\" - | wl-copy"; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+
+    Mod+H { focus-column-left; }
+    Mod+L { focus-column-right; }
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+L { move-column-right; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+}
