@@ -2,6 +2,7 @@
 # waybar as the interactive topbar, ghostty as the default terminal.
 niri_packages_fedora:
   - niri
+  - iosevka-nerd-fonts.noarch
   - waybar
   - fuzzel
   - mako
@@ -20,6 +21,7 @@ niri_packages_fedora:
 
 niri_packages_arch:
   - niri
+  - ttf-iosevka-nerd
   - waybar
   - fuzzel
   - mako
