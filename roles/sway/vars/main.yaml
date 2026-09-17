@@ -1,0 +1,50 @@
+sway_packages:
+  - sway
+  - iosevka-nerd-fonts.noarch
+  - waybar
+  - wofi
+  - mako
+  - swaybg
+  - swayidle
+  - swaylock
+  - wl-clipboard
+  - grim
+  - slurp
+  - brightnessctl
+  - playerctl
+  - xdg-desktop-portal-wlr
+  - xdg-desktop-portal-gtk
+  - pipewire
+  - pipewire-pulseaudio
+  - wireplumber
+  - fprintd
+  - fprintd-pam
+  - NetworkManager-tui
+  - mpd
+  - rmpc
+  - kde-connect
+  - kdeconnectd
+  - firewalld
+  - btop
+  - ncdu
+  - ranger
+  - wiremix
+  - calcurse
+  - bluez
+  - bluez-tools
+
+sway_dotfiles:
+  - src: "{{ role_path }}/files/dotfiles/.config/sway"
+    dest: "~/.config/sway"
+  - src: "{{ role_path }}/files/dotfiles/.config/waybar"
+    dest: "~/.config/waybar"
+  - src: "{{ role_path }}/files/dotfiles/.config/ghostty"
+    dest: "~/.config/ghostty"
+  - src: "{{ role_path }}/files/dotfiles/.config/mako"
+    dest: "~/.config/mako"
+  - src: "{{ role_path }}/files/dotfiles/.config/wofi"
+    dest: "~/.config/wofi"
+  - src: "{{ role_path }}/files/dotfiles/.config/mpd"
+    dest: "~/.config/mpd"
+  - src: "{{ role_path }}/files/dotfiles/.config/btop"
+    dest: "~/.config/btop"

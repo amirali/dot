@@ -1,6 +1,6 @@
 # Dotfiles
 
-Ansible-managed dotfiles and system setup for Fedora, Pop!_OS/Debian, Arch and macOS.
+Ansible-managed Fedora dotfiles and system setup.
 
 ## install ansible + galaxy collections
 ```
@@ -18,5 +18,10 @@ make apply-playbook
 ```
 
 Roles: `common` (shell, editor, terminal dotfiles + base packages), `docker`,
-`containers`, `gnome` (GNOME desktop + Nordic theme), `niri` (niri compositor +
-waybar + ghostty, Nord-themed).
+`containers`, `gnome` (GNOME fallback + Nordic theme), and `sway` (primary
+Nord-themed Wayland desktop with Waybar, Wofi, MPD/RMPC, KDE Connect, and
+fingerprint-aware locking).
+
+Enroll a fingerprint once with `fprintd-enroll`. The playbook enables Fedora's
+PAM fingerprint feature so supported authentication prompts, including
+`swaylock`, can use it.

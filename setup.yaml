@@ -4,10 +4,15 @@
       # become: yes
       # become_user: root
   gather_facts: true
+  pre_tasks:
+    - name: Require Fedora
+      ansible.builtin.assert:
+        that:
+          - ansible_distribution == "Fedora"
+        fail_msg: "This setup supports Fedora only."
   roles:
     - common
     - docker
     - containers
     - gnome
-    - niri
-
+    - sway

@@ -81,11 +81,6 @@ eval "$(fzf --zsh)"
 # [ ! -d ~/.autoenv ] && git clone 'https://github.com/hyperupcall/autoenv' ~/.autoenv
 # source ~/.autoenv/activate.sh
 
-# eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Fuck Python & MacOS
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-
 function nvr() {
     args=()
     for element in $@; do

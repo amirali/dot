@@ -1,5 +1,4 @@
 collections:
   - name: community.docker
-    version: latest
   - name: community.general
-    version: latest
+  - name: ansible.posix

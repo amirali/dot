@@ -1,4 +1,0 @@
-- name: Install packages on Pop!_OS
-  ansible.builtin.package:
-    name: "{{ pop_os_packages }}"
-    state: present

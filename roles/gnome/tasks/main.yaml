@@ -3,21 +3,6 @@
   ansible.builtin.package:
     name: "{{ gnome_packages_fedora }}"
     state: present
-  when: ansible_facts['os_family'] == 'RedHat'
-
-- name: Install GNOME packages on Debian/Pop!_OS
-  become: true
-  ansible.builtin.package:
-    name: "{{ gnome_packages_debian }}"
-    state: present
-  when: ansible_facts['os_family'] == 'Debian'
-
-- name: Install GNOME packages on Arch (pacman)
-  become: true
-  ansible.builtin.package:
-    name: "{{ gnome_packages_arch }}"
-    state: present
-  when: ansible_facts['pkg_mgr'] == 'pacman'
 
 - name: Ensure Nordic theme is cloned into user's .themes
   ansible.builtin.git:

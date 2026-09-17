@@ -35,8 +35,15 @@ window#waybar {
 }
 
 #clock,
+#mpd,
+#language,
+#idle_inhibitor,
 #pulseaudio,
 #network,
+#bluetooth,
+#cpu,
+#memory,
+#backlight,
 #battery,
 #tray {
     padding: 0 10px;
@@ -53,4 +60,15 @@ window#waybar {
 
 #network.disconnected {
     color: #bf616a;
+}
+
+#idle_inhibitor.activated,
+#mpd.playing {
+    color: #a3be8c;
+}
+
+#mode {
+    color: #2e3440;
+    background-color: #ebcb8b;
+    padding: 0 8px;
 }

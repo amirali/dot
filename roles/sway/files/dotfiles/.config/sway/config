@@ -1,10 +1,24 @@
-# Nord-themed Sway session sharing the Niri role's Wayland applications.
+# Nord-themed, terminal-first Sway session.
 set $mod Mod4
 set $term ghostty
-set $menu fuzzel
+set $menu wofi --show drun
 
 font pango:Iosevka Nerd Font 11
 floating_modifier $mod normal
+
+input type:keyboard {
+    xkb_layout us,ir
+    xkb_options grp:alt_shift_toggle
+}
+
+input type:pointer {
+    natural_scroll enabled
+}
+
+input type:touchpad {
+    natural_scroll enabled
+    tap enabled
+}
 
 output * bg #2e3440 solid_color
 
@@ -19,25 +33,32 @@ client.focused_inactive #3b4252 #3b4252 #d8dee9 #3b4252 #3b4252
 client.unfocused        #3b4252 #3b4252 #4c566a #3b4252 #3b4252
 client.urgent           #bf616a #bf616a #eceff4 #bf616a #bf616a
 
-exec waybar --config ~/.config/waybar/config-sway.jsonc
-exec mako
+exec_always --no-startup-id waybar
+exec --no-startup-id mako
+exec --no-startup-id sh -c 'pgrep -x mpd >/dev/null || mpd ~/.config/mpd/mpd.conf'
+exec --no-startup-id kdeconnectd
+exec --no-startup-id kdeconnect-indicator
 exec swayidle -w \
-    timeout 300 'swaylock -f -c 2e3440' \
+    timeout 300 'swaylock -f -c 2e3440 --indicator' \
     timeout 600 'swaymsg "output * power off"' \
     resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -c 2e3440'
+    before-sleep 'swaylock -f -c 2e3440 --indicator'
 
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg exit'
-bindsym $mod+Escape exec swaylock -f -c 2e3440
+bindsym $mod+l exec swaylock -f -c 2e3440 --indicator
 bindsym Print exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+m exec $term -e rmpc
+bindsym $mod+n exec $term -e nmtui
+bindsym $mod+p exec $term -e wiremix
+bindsym $mod+Shift+b exec $term -e btop
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+Ctrl+l focus right
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up

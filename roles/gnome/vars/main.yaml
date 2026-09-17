@@ -1,17 +1,8 @@
 nordic_repo: "https://github.com/EliverLara/Nordic.git"
 
-# package lists for distro-native packages (extensions are handled separately)
 gnome_packages_fedora:
   - gnome-extensions-app
   - gnome-shell-extension-user-theme
-
-gnome_packages_debian:
-  - gnome-shell-extensions
-  - gnome-extensions-app
-
-# Arch package list (pacman)
-gnome_packages_arch:
-  - gnome-shell-extensions
   - papirus-icon-theme
 
 # GNOME Shell extensions (UUIDs) — these are not distro packages

@@ -14,3 +14,4 @@ fedora_packages:
   - gcc-c++
   - ghostty
   - aria2
+  - dnf-plugins-core

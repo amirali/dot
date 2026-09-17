@@ -1,16 +1,5 @@
-- name: Include vars on Fedora
+- name: Include Fedora package variables
   ansible.builtin.include_vars: fedora.yaml
-  when: ansible_facts['os_family'] == "RedHat"
 
-- name: Include vars on Pop!_OS
-  ansible.builtin.include_vars: pop_os.yaml
-  when: ansible_facts['os_family'] == "Debian"
-
-- name: Install packages on Fedora
+- name: Install Fedora packages
   ansible.builtin.include_tasks: install_fedora.yaml
-  when: ansible_facts['os_family'] == "RedHat"
-
-- name: Install packages on Pop!_OS
-  ansible.builtin.include_tasks: install_pop_os.yaml
-  when: ansible_facts['os_family'] == "Debian"
-

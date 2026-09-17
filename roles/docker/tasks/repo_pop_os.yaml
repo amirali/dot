@@ -1,6 +1,0 @@
-- name: Update apt package index
-  ansible.builtin.apt:
-    update_cache: yes
-
-# Pop!_OS / Ubuntu provide podman in distro repos; no Docker apt repo required.
-
