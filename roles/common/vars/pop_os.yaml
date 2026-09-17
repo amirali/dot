@@ -12,5 +12,4 @@ pop_os_packages:
   - tmux
   - cmake
   - make
-  - wezterm
   - aria2

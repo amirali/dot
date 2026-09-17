@@ -12,6 +12,5 @@ fedora_packages:
   - cmake
   - make
   - gcc-c++
-  - wezterm
   - ghostty
   - aria2

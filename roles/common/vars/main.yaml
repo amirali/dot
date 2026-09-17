@@ -3,8 +3,6 @@ dotfiles:
     dest: "~/.zshrc"
   - src: "{{ role_path }}/files/dotfiles/.config/zsh"
     dest: "~/.config/zsh"
-  - src: "{{ role_path }}/files/dotfiles/.config/wezterm"
-    dest: "~/.config/wezterm"
   - src: "{{ role_path }}/files/dotfiles/.config/tmux"
     dest: "~/.config/tmux"
   - src: "{{ role_path }}/files/dotfiles/.config/nvim"
@@ -21,4 +19,3 @@ dotfiles:
     dest: "~/.bash_profile"
   - src: "{{ role_path }}/files/dotfiles/.bash_logout"
     dest: "~/.bash_logout"
-

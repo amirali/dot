@@ -1,9 +1,3 @@
-- name: Enable WezTerm repo
-  become: true
-  community.general.copr:
-    name: wezfurlong/wezterm-nightly
-    state: enabled
-
 - name: Enable RPM Fusion repos
   become: true
   ansible.builtin.dnf:
