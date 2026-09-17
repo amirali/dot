@@ -1,7 +1,8 @@
-# niri (via Terra repo) + a minimal Nord-themed Wayland session:
+# Niri (via Terra repo) and Sway with minimal Nord-themed Wayland sessions:
 # waybar as the interactive topbar, ghostty as the default terminal.
 niri_packages_fedora:
   - niri
+  - sway
   - iosevka-nerd-fonts.noarch
   - waybar
   - fuzzel
@@ -21,6 +22,7 @@ niri_packages_fedora:
 
 niri_packages_arch:
   - niri
+  - sway
   - ttf-iosevka-nerd
   - waybar
   - fuzzel
@@ -41,6 +43,8 @@ niri_packages_arch:
 niri_dotfiles:
   - src: "{{ role_path }}/files/dotfiles/.config/niri"
     dest: "~/.config/niri"
+  - src: "{{ role_path }}/files/dotfiles/.config/sway"
+    dest: "~/.config/sway"
   - src: "{{ role_path }}/files/dotfiles/.config/waybar"
     dest: "~/.config/waybar"
   - src: "{{ role_path }}/files/dotfiles/.config/ghostty"

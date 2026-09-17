@@ -14,7 +14,7 @@
 
 # ponytail: Debian/Pop!_OS has no packaged niri, skipping until upstream ships one.
 
-- name: Link niri/waybar/ghostty dotfiles
+- name: Link Niri, Sway, and shared Wayland dotfiles
   ansible.builtin.shell: |
     dest="$(eval echo {{ item.dest }})"
     src="$(eval echo {{ item.src }})"
