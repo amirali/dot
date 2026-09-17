@@ -127,3 +127,5 @@ function mkpymod() {
 alias cd=pushd
 
 export PATH=$PATH:/home/amirali/.spicetify
+
+eval $(starship init zsh)

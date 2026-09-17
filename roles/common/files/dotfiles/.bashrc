@@ -32,7 +32,7 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 export PATH="$HOME/.local/bin:$PATH"
 
 export EDITOR="nvim"
-export VISUAL="cursor"
+export VISUAL="code"
 export BROWSER="firefox"
 export TERMINAL="ghostty"
 
