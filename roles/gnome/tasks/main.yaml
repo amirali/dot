@@ -64,6 +64,7 @@
     cmd: gnome-shell --version
   register: gnome_shell_version_result
   changed_when: false
+  check_mode: false
   become: false
 
 - name: List installed GNOME Shell extensions
@@ -71,6 +72,7 @@
     cmd: gnome-extensions list
   register: installed_gnome_extensions
   changed_when: false
+  check_mode: false
   become: false
 
 - name: Determine missing GNOME Shell extensions
@@ -83,7 +85,9 @@
          | difference(installed_gnome_extensions.stdout_lines) }}
 
 - name: Install missing GNOME Shell extensions
-  when: missing_gnome_extensions | length > 0
+  when:
+    - missing_gnome_extensions | length > 0
+    - not ansible_check_mode
   block:
     - name: Create temporary GNOME extension directory
       ansible.builtin.tempfile:
@@ -142,6 +146,7 @@
     cmd: gnome-extensions list --enabled
   register: enabled_gnome_extensions
   changed_when: false
+  check_mode: false
   become: false
 
 - name: Enable configured GNOME Shell extensions
