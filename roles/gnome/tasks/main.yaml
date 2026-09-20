@@ -59,11 +59,95 @@
   tags:
     - gnome-keybindings
 
-- name: Enable configured GNOME shell extensions
+- name: Get GNOME Shell version
+  ansible.builtin.command:
+    cmd: gnome-shell --version
+  register: gnome_shell_version_result
+  changed_when: false
+  become: false
+
+- name: List installed GNOME Shell extensions
+  ansible.builtin.command:
+    cmd: gnome-extensions list
+  register: installed_gnome_extensions
+  changed_when: false
+  become: false
+
+- name: Determine missing GNOME Shell extensions
+  ansible.builtin.set_fact:
+    gnome_shell_version: >-
+      {{ gnome_shell_version_result.stdout
+         | regex_replace('^GNOME Shell\s+', '') }}
+    missing_gnome_extensions: >-
+      {{ gnome_shell_extensions
+         | difference(installed_gnome_extensions.stdout_lines) }}
+
+- name: Install missing GNOME Shell extensions
+  when: missing_gnome_extensions | length > 0
+  block:
+    - name: Create temporary GNOME extension directory
+      ansible.builtin.tempfile:
+        state: directory
+        suffix: gnome-extensions
+      register: gnome_extension_tempdir
+
+    - name: Resolve compatible GNOME Shell extensions
+      ansible.builtin.uri:
+        url: >-
+          https://extensions.gnome.org/extension-info/?uuid={{ item | urlencode
+          }}&shell_version={{ gnome_shell_version | urlencode }}
+        return_content: true
+      loop: "{{ missing_gnome_extensions }}"
+      loop_control:
+        label: "{{ item }}"
+      register: gnome_extension_metadata
+
+    - name: Verify GNOME Shell extension compatibility
+      ansible.builtin.assert:
+        that:
+          - item.json.download_url is defined
+        fail_msg: >-
+          No compatible release of {{ item.item }} was found for GNOME Shell
+          {{ gnome_shell_version }}.
+      loop: "{{ gnome_extension_metadata.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+
+    - name: Download GNOME Shell extensions
+      ansible.builtin.get_url:
+        url: "https://extensions.gnome.org{{ item.json.download_url }}"
+        dest: "{{ gnome_extension_tempdir.path }}/{{ item.item }}.zip"
+        mode: '0600'
+      loop: "{{ gnome_extension_metadata.results }}"
+      loop_control:
+        label: "{{ item.item }}"
+      register: downloaded_gnome_extensions
+
+    - name: Install GNOME Shell extensions
+      ansible.builtin.command:
+        cmd: "gnome-extensions install --force {{ item.dest }}"
+      loop: "{{ downloaded_gnome_extensions.results }}"
+      loop_control:
+        label: "{{ item.item.item }}"
+      become: false
+  always:
+    - name: Remove temporary GNOME extension directory
+      ansible.builtin.file:
+        path: "{{ gnome_extension_tempdir.path }}"
+        state: absent
+      when: gnome_extension_tempdir.path is defined
+
+- name: List enabled GNOME Shell extensions
+  ansible.builtin.command:
+    cmd: gnome-extensions list --enabled
+  register: enabled_gnome_extensions
+  changed_when: false
+  become: false
+
+- name: Enable configured GNOME Shell extensions
   ansible.builtin.command:
     cmd: "gnome-extensions enable {{ item }}"
-  loop: "{{ gnome_shell_extensions }}"
-  register: enable_ext_results
-  failed_when: false
+  loop: "{{ gnome_shell_extensions | difference(enabled_gnome_extensions.stdout_lines) }}"
+  loop_control:
+    label: "{{ item }}"
   become: false
-  ignore_errors: true
