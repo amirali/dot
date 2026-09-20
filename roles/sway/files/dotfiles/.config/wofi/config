@@ -1,8 +1,0 @@
-show=drun
-allow_images=true
-insensitive=true
-term=ghostty
-width=36%
-height=45%
-location=center
-prompt=run
