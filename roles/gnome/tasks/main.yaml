@@ -47,32 +47,17 @@
     XDG_RUNTIME_DIR: "{{ ansible_env.XDG_RUNTIME_DIR | default(ansible_env.HOME + '/.cache') }}"
   ignore_errors: true
 
-- name: Ensure custom keybinding list contains ghostty entry
-  ansible.builtin.shell: |
-    current=$(gsettings get org.gnome.settings-daemon.plugins.media-keys custom-keybindings || "[]")
-    cb_path="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom-ghostty/"
-    if ! echo "$current" | grep -q "$cb_path"; then
-      if [ "$current" = "[]" ]; then
-        new="['$cb_path']"
-      else
-        new=$(echo "$current" | sed "s/]$/, '$cb_path']/")
-      fi
-      gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "$new" || true
-    fi
-  args:
-    executable: /bin/bash
+- name: Configure GNOME keyboard shortcuts
+  community.general.dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value | string }}"
+    state: present
+  loop: "{{ gnome_keybindings }}"
+  loop_control:
+    label: "{{ item.key }}"
   become: false
-  ignore_errors: true
-
-- name: Configure custom keybinding values for ghostty
-  ansible.builtin.command:
-    cmd: |
-      CB="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom-ghostty/"
-      gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$CB name 'Ghostty' || true
-      gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$CB command 'ghostty' || true
-      gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:$CB binding '<Control><Alt>t' || true
-  become: false
-  ignore_errors: true
+  tags:
+    - gnome-keybindings
 
 - name: Enable configured GNOME shell extensions
   ansible.builtin.command:

@@ -5,9 +5,61 @@ gnome_packages_fedora:
   - gnome-shell-extension-user-theme
   - papirus-icon-theme
 
+gnome_keybindings:
+  - key: /org/gnome/desktop/wm/keybindings/switch-to-workspace-1
+    value: "['<Super>1']"
+  - key: /org/gnome/desktop/wm/keybindings/switch-to-workspace-2
+    value: "['<Super>2']"
+  - key: /org/gnome/desktop/wm/keybindings/switch-to-workspace-3
+    value: "['<Super>3']"
+  - key: /org/gnome/desktop/wm/keybindings/switch-to-workspace-4
+    value: "['<Super>4']"
+  - key: /org/gnome/desktop/wm/keybindings/switch-to-workspace-5
+    value: "['<Super>5']"
+  - key: /org/gnome/desktop/wm/keybindings/move-to-workspace-1
+    value: "['<Shift><Super>1']"
+  - key: /org/gnome/desktop/wm/keybindings/move-to-workspace-2
+    value: "['<Shift><Super>2']"
+  - key: /org/gnome/desktop/wm/keybindings/move-to-workspace-3
+    value: "['<Shift><Super>3']"
+  - key: /org/gnome/desktop/wm/keybindings/move-to-workspace-4
+    value: "['<Shift><Super>4']"
+  - key: /org/gnome/desktop/wm/keybindings/move-to-workspace-5
+    value: "['<Shift><Super>5']"
+  - key: /org/gnome/shell/keybindings/switch-to-application-1
+    value: "@as []"
+  - key: /org/gnome/shell/keybindings/switch-to-application-2
+    value: "@as []"
+  - key: /org/gnome/shell/keybindings/switch-to-application-3
+    value: "@as []"
+  - key: /org/gnome/shell/keybindings/switch-to-application-4
+    value: "@as []"
+  - key: /org/gnome/shell/keybindings/switch-to-application-5
+    value: "@as []"
+  - key: /org/gnome/settings-daemon/plugins/media-keys/play
+    value: "['<Super>p']"
+  - key: /org/gnome/settings-daemon/plugins/media-keys/next
+    value: "['<Super>n']"
+  - key: /org/gnome/settings-daemon/plugins/media-keys/previous
+    value: "['<Super><Shift>n']"
+  - key: /org/gnome/mutter/keybindings/switch-monitor
+    value: "['XF86Display']"
+  - key: /org/gnome/shell/keybindings/focus-active-notification
+    value: "@as []"
+  - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings
+    value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+  - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
+    value: "'ghostty'"
+  - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
+    value: "'ghostty'"
+  - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
+    value: "'<Super>Return'"
+  - key: /org/gnome/shell/extensions/tactile/show-tiles
+    value: "['<Shift><Super>Return']"
+
 # GNOME Shell extensions (UUIDs) — these are not distro packages
 gnome_shell_extensions:
-  - tactile@github.com
+  - tactile@lundal.io
   - gsconnect@andyholmes.github.io
   - clipboard-indicator@tudmotu.com
   - appindicatorsupport@rgcjonas.gmail.com

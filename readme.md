@@ -17,6 +17,11 @@ make run-playbook
 make apply-playbook
 ```
 
+Apply only the backed-up GNOME keyboard shortcuts:
+```
+ansible-playbook -i localhost, setup.yaml --connection=local --tags gnome-keybindings
+```
+
 Roles: `common` (shell, editor, terminal dotfiles + base packages), `docker`,
 `containers`, `gnome` (GNOME fallback + Nordic theme), and `sway` (primary
 Nord-themed Wayland desktop with Waybar, Wofi, MPD/RMPC, KDE Connect, and
