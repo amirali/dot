@@ -46,6 +46,10 @@ gnome_keybindings:
     value: "['XF86Display']"
   - key: /org/gnome/shell/keybindings/focus-active-notification
     value: "@as []"
+  - key: /org/gnome/desktop/wm/keybindings/show-desktop
+    value: "@as []"
+  - key: /org/gnome/shell/keybindings/toggle-overview
+    value: "['<Super>d']"
   - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings
     value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
   - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
