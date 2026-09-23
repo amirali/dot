@@ -14,6 +14,7 @@
   },
   "agent": {
     "dock": "left",
+    "default_view": "thread",
     "favorite_models": [],
     "model_parameters": [],
     "commit_message_model": {
@@ -44,6 +45,7 @@
   "agent_servers": {
     "cursor": {
       "type": "registry",
+      "default_model": "auto",
     },
     "github-copilot-cli": {
       "favorite_config_option_values": {

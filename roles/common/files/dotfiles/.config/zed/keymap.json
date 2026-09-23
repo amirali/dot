@@ -11,7 +11,23 @@
     "bindings": {
       "shift shift": "project_symbols::Toggle",
       "space s f": "file_finder::Toggle",
-      "space s g": "project_symbols::Toggle"
+      "space s g": "project_symbols::Toggle",
+      // New Cursor Agent thread (left dock / Agent Panel)
+      "ctrl-alt-n": ["agent::NewExternalAgentThread", { "agent": "cursor" }]
+    }
+  },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      // Make ctrl-n start Cursor instead of Zed's built-in agent
+      "ctrl-n": ["agent::NewExternalAgentThread", { "agent": "cursor" }]
+    }
+  },
+  {
+    "context": "ThreadsSidebar",
+    "bindings": {
+      // Left dock: new thread uses Cursor Agent
+      "ctrl-n": ["agent::NewExternalAgentThread", { "agent": "cursor" }]
     }
   },
   {
@@ -46,8 +62,8 @@
       // Search word under cursor
       "space s p": "pane::DeploySearch",
 
-      // Chat with AI
-      "space a c": "assistant::ToggleFocus",
+      // Chat with Cursor Agent (left dock)
+      "space a c": ["agent::NewExternalAgentThread", { "agent": "cursor" }],
       // Go to file with `gf`
       "g f": "editor::OpenExcerpts"
     }
