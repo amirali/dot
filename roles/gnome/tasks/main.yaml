@@ -4,6 +4,25 @@
     name: "{{ gnome_packages_fedora }}"
     state: present
 
+- name: Ensure Flathub remote is present
+  become: true
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: system
+
+- name: Install GNOME Flatpak packages
+  become: true
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+    method: system
+    remote: flathub
+  loop: "{{ gnome_flatpak_packages }}"
+  loop_control:
+    label: "{{ item }}"
+
 - name: Ensure Nordic theme is cloned into user's .themes
   ansible.builtin.git:
     repo: "{{ nordic_repo }}"

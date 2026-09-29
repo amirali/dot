@@ -4,6 +4,12 @@ gnome_packages_fedora:
   - gnome-extensions-app
   - gnome-shell-extension-user-theme
   - papirus-icon-theme
+  - flatpak
+
+gnome_flatpak_packages:
+  - com.github.flxzt.rnote
+  - com.github.neithern.g4music
+  - io.github.giantpinkrobots.varia
 
 gnome_keybindings:
   - key: /org/gnome/desktop/wm/keybindings/switch-to-workspace-1
