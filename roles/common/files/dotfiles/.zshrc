@@ -119,9 +119,14 @@ function mkpymod() {
     touch $1/__init__.py
 }
 
+function dotfiles() {
+    pushd ~/dot && ansible-playbook -i localhost, setup.yaml --connection=local --check "$@" && popd
+}
+
 alias cd=pushd
 
 export PATH=$PATH:/home/amirali/.spicetify:$HOME/.local/bin
 
 eval $(starship init zsh)
+
 

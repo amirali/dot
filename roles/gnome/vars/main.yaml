@@ -57,13 +57,19 @@ gnome_keybindings:
   - key: /org/gnome/shell/keybindings/toggle-overview
     value: "['<Super>d']"
   - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings
-    value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+    value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
   - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
     value: "'ghostty'"
   - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
     value: "'ghostty'"
   - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
     value: "'<Super>Return'"
+  - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name
+    value: "'firefox'"
+  - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command
+    value: "'firefox'"
+  - key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding
+    value: "'<Super>f'"
   - key: /org/gnome/shell/extensions/tactile/show-tiles
     value: "['<Shift><Super>Return']"
 
