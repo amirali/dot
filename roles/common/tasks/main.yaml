@@ -16,3 +16,12 @@
   tags:
     - link_files
 
+- name: Install or update uosc for mpv
+  ansible.builtin.shell: |
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tomasklaen/uosc/HEAD/installers/unix.sh)"
+  args:
+    executable: /bin/bash
+  changed_when: true
+  tags:
+    - uosc
+

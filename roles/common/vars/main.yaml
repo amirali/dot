@@ -13,6 +13,8 @@ dotfiles:
     dest: "~/.fonts"
   - src: "{{ role_path }}/files/dotfiles/.config/zed"
     dest: "~/.config/zed"
+  - src: "{{ role_path }}/files/dotfiles/.config/mpv/mpv.conf"
+    dest: "~/.config/mpv/mpv.conf"
   - src: "{{ role_path }}/files/dotfiles/.bashrc"
     dest: "~/.bashrc"
   - src: "{{ role_path }}/files/dotfiles/.bash_profile"

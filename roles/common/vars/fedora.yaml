@@ -15,3 +15,5 @@ fedora_packages:
   - ghostty
   - aria2
   - dnf-plugins-core
+  - mpv
+  - unzip
