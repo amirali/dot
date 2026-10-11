@@ -284,3 +284,98 @@ vim.opt.spelllang = 'en_us'
 --   pattern = 'markdown',
 --   command = 'setlocal spell spelllang=en_us',
 -- })
+
+local function generate_commit_message()
+  local function log(msg, level)
+    vim.notify(string.format('[CursorAgent:Debug] %s', msg), level or vim.log.levels.DEBUG)
+  end
+
+  log 'Starting commit message generation...'
+
+  -- 1. Check for staged changes
+  local diff_result = vim.system({ 'git', 'diff', '--staged' }, { text = true }):wait()
+  log(string.format('git diff exit code: %d', diff_result.code))
+
+  local diff = vim.trim(diff_result.stdout or '')
+  log(string.format('Staged diff length: %d chars', #diff))
+
+  if diff == '' then
+    vim.notify('No staged changes found. Stage files with `git add` first.', vim.log.levels.WARN)
+    return
+  end
+
+  -- Safety cap: if diff is massive (> 100k characters), truncate
+  local max_chars = 100000
+  if #diff > max_chars then
+    log(string.format('Diff exceeds %d chars; truncating payload.', max_chars), vim.log.levels.WARN)
+    diff = diff:sub(1, max_chars) .. '\n\n[... diff truncated due to size ...]'
+  end
+
+  -- 2. Build instructions
+  local instructions = table.concat({
+    'Generate a concise conventional commit message based on the provided staged git diff.',
+    'Output ONLY the commit message itself (subject line and optional bullet points).',
+    'Do not include markdown backticks or explanations.',
+    '',
+    '--- DIFF ---',
+    diff,
+  }, '\n')
+
+  log(string.format('Total payload sending to stdin: %d chars', #instructions))
+
+  -- 3. Spawn Cursor CLI
+  local cmd = { 'agent' }
+  log(string.format('Spawning command: %s', vim.inspect(cmd)))
+
+  local start_time = vim.uv.hrtime()
+
+  vim.system(
+    cmd,
+    {
+      text = true,
+      stdin = instructions,
+    },
+    vim.schedule_wrap(function(obj)
+      local elapsed_ms = math.floor((vim.uv.hrtime() - start_time) / 1e6)
+      log(string.format('Process completed in %d ms with exit code: %d', elapsed_ms, obj.code))
+
+      if obj.stderr and #obj.stderr > 0 then
+        log(string.format('stderr (%d chars):\n%s', #obj.stderr, obj.stderr), vim.log.levels.WARN)
+      end
+
+      if obj.code ~= 0 then
+        local err_msg = (obj.stderr and obj.stderr ~= '') and obj.stderr or ('Exited with code ' .. obj.code)
+        vim.notify('Cursor Agent error: ' .. err_msg, vim.log.levels.ERROR)
+        return
+      end
+
+      local raw_output = vim.trim(obj.stdout or '')
+      log(string.format('stdout received (%d chars):\n%s', #raw_output, raw_output))
+
+      if raw_output == '' then
+        vim.notify('Cursor Agent returned empty output.', vim.log.levels.WARN)
+        return
+      end
+
+      -- Clean markdown fences if model returned them
+      local cleaned_output = raw_output:gsub('^```%w*\n', ''):gsub('\n```$', '')
+      local lines = vim.split(cleaned_output, '\n', { plain = true })
+
+      local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+      log(string.format('Inserting %d lines at buffer row %d, col %d', #lines, row, col))
+
+      vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col, lines)
+      vim.notify('Commit message inserted!', vim.log.levels.INFO)
+    end)
+  )
+end
+
+-- Create the user command
+vim.api.nvim_create_user_command('CursorCommitMsg', generate_commit_message, {
+  desc = 'Generate commit message from staged changes using Cursor Agent',
+})
+
+-- Optional: Map to a keybinding in Normal mode
+vim.keymap.set('n', '<leader>cm', '<cmd>CursorCommitMsg<CR>', {
+  desc = 'Generate commit message at cursor',
+})
