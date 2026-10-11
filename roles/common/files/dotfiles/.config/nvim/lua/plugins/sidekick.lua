@@ -110,9 +110,9 @@ return {
     {
       '<leader>ac',
       function()
-        require('sidekick.cli').toggle { name = 'copilot', focus = true }
+        require('sidekick.cli').toggle { name = 'cursor', focus = true }
       end,
-      desc = 'Sidekick Toggle Copilot',
+      desc = 'Sidekick Toggle Cursor',
     },
   },
 }
