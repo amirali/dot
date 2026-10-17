@@ -3,6 +3,14 @@
   ansible.builtin.package:
     name: "{{ gnome_packages_fedora }}"
     state: present
+  when: ansible_distribution == "Fedora"
+
+- name: Install GNOME packages on Ubuntu
+  become: true
+  ansible.builtin.package:
+    name: "{{ gnome_packages_ubuntu }}"
+    state: present
+  when: ansible_distribution == "Ubuntu"
 
 - name: Ensure Flathub remote is present
   become: true

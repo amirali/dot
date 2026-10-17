@@ -6,6 +6,12 @@ gnome_packages_fedora:
   - papirus-icon-theme
   - flatpak
 
+gnome_packages_ubuntu:
+  - gnome-extensions-app
+  - gnome-shell-extension-user-theme
+  - papirus-icon-theme
+  - flatpak
+
 gnome_flatpak_packages:
   - com.github.flxzt.rnote
   - com.github.neithern.g4music

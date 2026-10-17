@@ -1,6 +1,6 @@
 # Dotfiles
 
-Ansible-managed Fedora GNOME dotfiles and system setup.
+Ansible-managed GNOME dotfiles and system setup for Fedora and Ubuntu.
 
 ## install ansible + galaxy collections
 ```

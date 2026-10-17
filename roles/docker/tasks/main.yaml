@@ -1,5 +1,6 @@
 - name: Add Podman repo on Fedora
   ansible.builtin.include_tasks: repo_fedora.yaml
+  when: ansible_distribution == "Fedora"
 
 - name: Install Podman (container runtime)
   block:

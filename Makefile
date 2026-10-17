@@ -1,8 +1,13 @@
 .PHONY: install-ansible install-roles run-playbook apply-playbook
 
 install-ansible:
-	@command -v dnf >/dev/null 2>&1 || { echo "Fedora with dnf is required."; exit 1; }
-	sudo dnf -y install ansible
+	@if command -v dnf >/dev/null 2>&1; then \
+		sudo dnf -y install ansible; \
+	elif command -v apt-get >/dev/null 2>&1; then \
+		sudo apt-get update && sudo apt-get install -y ansible; \
+	else \
+		echo "Fedora (dnf) or Ubuntu (apt) is required."; exit 1; \
+	fi
 
 install-roles:
 	@echo "Installing Ansible Galaxy collections from requirements.yaml (if present)"

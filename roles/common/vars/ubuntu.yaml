@@ -1,0 +1,19 @@
+ubuntu_packages:
+  - git
+  - curl
+  - neovim
+  - zsh
+  - htop
+  - ripgrep
+  - python3-dev
+  - fzf
+  - golang-go
+  - tmux
+  - cmake
+  - make
+  - g++
+  - ghostty
+  - aria2
+  - mpv
+  - unzip
+  - software-properties-common

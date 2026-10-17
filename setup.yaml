@@ -5,11 +5,11 @@
       # become_user: root
   gather_facts: true
   pre_tasks:
-    - name: Require Fedora
+    - name: Require Fedora or Ubuntu
       ansible.builtin.assert:
         that:
-          - ansible_distribution == "Fedora"
-        fail_msg: "This setup supports Fedora only."
+          - ansible_distribution in ["Fedora", "Ubuntu"]
+        fail_msg: "This setup supports Fedora and Ubuntu only."
   roles:
     - common
     - docker

@@ -1,5 +1,15 @@
 - name: Include Fedora package variables
   ansible.builtin.include_vars: fedora.yaml
+  when: ansible_facts['os_family'] == "RedHat"
 
-- name: Install Fedora packages
+- name: Include Ubuntu package variables
+  ansible.builtin.include_vars: ubuntu.yaml
+  when: ansible_distribution == "Ubuntu"
+
+- name: Install packages on Fedora
   ansible.builtin.include_tasks: install_fedora.yaml
+  when: ansible_facts['os_family'] == "RedHat"
+
+- name: Install packages on Ubuntu
+  ansible.builtin.include_tasks: install_ubuntu.yaml
+  when: ansible_distribution == "Ubuntu"
