@@ -12,6 +12,6 @@
         fail_msg: "This setup supports Fedora and Ubuntu only."
   roles:
     - common
-    - docker
-    - containers
+    # - docker
+    # - containers
     - gnome

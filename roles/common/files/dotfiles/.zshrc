@@ -129,4 +129,5 @@ export PATH=$PATH:/home/amirali/.spicetify:$HOME/.local/bin
 
 eval $(starship init zsh)
 
-
+alias sudo='sudo '
+alias apt='nala'
