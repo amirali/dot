@@ -1,19 +1,18 @@
-ubuntu_packages:
+archlinux_packages:
   - git
   - curl
   - neovim
   - zsh
   - htop
   - ripgrep
-  - python3-dev
+  - python
   - fzf
-  - golang-go
+  - go
   - tmux
   - cmake
   - make
-  - g++
+  - gcc
   - ghostty
   - aria2
   - mpv
   - unzip
-  - software-properties-common

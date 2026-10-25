@@ -6,9 +6,8 @@ gnome_packages_fedora:
   - papirus-icon-theme
   - flatpak
 
-gnome_packages_ubuntu:
-  - gnome-extensions-app
-  - gnome-shell-extension-user-theme
+gnome_packages_archlinux:
+  - gnome-shell-extensions
   - papirus-icon-theme
   - flatpak
 

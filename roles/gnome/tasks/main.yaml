@@ -5,12 +5,12 @@
     state: present
   when: ansible_distribution == "Fedora"
 
-- name: Install GNOME packages on Ubuntu
+- name: Install GNOME packages on Arch Linux
   become: true
   ansible.builtin.package:
-    name: "{{ gnome_packages_ubuntu }}"
+    name: "{{ gnome_packages_archlinux }}"
     state: present
-  when: ansible_distribution == "Ubuntu"
+  when: ansible_facts['os_family'] == "Archlinux"
 
 - name: Ensure Flathub remote is present
   become: true

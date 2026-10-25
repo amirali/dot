@@ -1,0 +1,6 @@
+- name: Install packages
+  become: true
+  ansible.builtin.pacman:
+    name: "{{ archlinux_packages }}"
+    state: present
+    update_cache: true

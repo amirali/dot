@@ -2,14 +2,14 @@
   ansible.builtin.include_vars: fedora.yaml
   when: ansible_facts['os_family'] == "RedHat"
 
-- name: Include Ubuntu package variables
-  ansible.builtin.include_vars: ubuntu.yaml
-  when: ansible_distribution == "Ubuntu"
+- name: Include Arch Linux package variables
+  ansible.builtin.include_vars: archlinux.yaml
+  when: ansible_facts['os_family'] == "Archlinux"
 
 - name: Install packages on Fedora
   ansible.builtin.include_tasks: install_fedora.yaml
   when: ansible_facts['os_family'] == "RedHat"
 
-- name: Install packages on Ubuntu
-  ansible.builtin.include_tasks: install_ubuntu.yaml
-  when: ansible_distribution == "Ubuntu"
+- name: Install packages on Arch Linux
+  ansible.builtin.include_tasks: install_archlinux.yaml
+  when: ansible_facts['os_family'] == "Archlinux"
