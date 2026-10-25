@@ -6,6 +6,10 @@ return {
       mux = {
         backend = 'tmux',
         enabled = true,
+        split = {
+          vertical = true, -- vertical or horizontal split
+          size = 0.5, -- size of the split (0-1 for percentage)
+        },
       },
       -- Default on; :ToggleProxy updates these at runtime (reopen CLI after toggle)
       tools = {
@@ -20,6 +24,16 @@ return {
           },
         },
         cursor = {
+          env = {
+            http_proxy = 'http://127.0.0.1:10808',
+            https_proxy = 'http://127.0.0.1:10808',
+            HTTP_PROXY = 'http://127.0.0.1:10808',
+            HTTPS_PROXY = 'http://127.0.0.1:10808',
+            ALL_PROXY = 'http://127.0.0.1:10808',
+            all_proxy = 'http://127.0.0.1:10808',
+          },
+        },
+        claude = {
           env = {
             http_proxy = 'http://127.0.0.1:10808',
             https_proxy = 'http://127.0.0.1:10808',
@@ -130,7 +144,7 @@ return {
     {
       '<leader>ac',
       function()
-        require('sidekick.cli').toggle { name = 'cursor', focus = true }
+        require('sidekick.cli').toggle { name = 'claude', focus = true }
       end,
       desc = 'Sidekick Toggle Cursor',
     },
